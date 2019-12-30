@@ -19,32 +19,42 @@
                 bottom: 8px;
                 right: 16px;
             }
+            .body-standard {
+                background-color: rgb(255, 255, 255);
+                color: rgb(0, 0, 0);
+            }
+            .text-centered {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
         </style>
     </head>
-    <body>
+    <body class="body-standard">
         <d-title>
             <h1>Ed's Blog</h1>
             <p>Ed on edge found a way to relax at the cutting edge. Go to <a href="articles/">all articles</a>
             </p>
         </d-title>
         <d-article>
-            <div class="l-screen image-container">
-                <a href="articles/#math"><img src="math.jpg" width="100%"/>
-                <div class="text-bottom-left">Go to Math</div>
-                </a>
-            </div>
-            <div class="l-screen image-container">
+            <div class="l-body-outset image-container">
                 <a href="articles/#ml">
                     <img src="ml.jpg" width="100%"/>
-                    <div class="text-bottom-left">Go to Machine Learning</div>
+                    <div class="text-centered">Go to Machine Learning</div>
                 </a>
             </div>
             <div class="l-screen image-container">
-                    <a href="articles/#tesla">
-                        <img src="tesla.jpg" width="100%"/>
-                        <div class="text-bottom-left">Go to Tesla</div>
-                    </a>
-                </div>
+                <a href="articles/#math"><img src="math.jpg" width="100%"/>
+                <div class="text-centered">Go to Math</div>
+                </a>
+            </div>
+            <div class="l-body-outset image-container">
+                <a href="articles/#tesla">
+                    <img src="tesla.jpg" width="100%"/>
+                    <div class="text-centered">Go to Tesla</div>
+                </a>
+            </div>
         </d-article>
     </body>
 </html>
