@@ -1,61 +1,51 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://distill.pub/template.v2.js"></script>
-        <style>
-            .image-container {
-                position: relative;
-                text-align: center;
-                color: white;
-            }
-            .text-bottom-left {
-                position: absolute;
-                bottom: 8px;
-                left: 16px;
-                }
-            .text-bottom-right {
-                position: absolute;
-                bottom: 8px;
-                right: 16px;
-            }
-            .body-standard {
-                background-color: rgb(255, 255, 255);
-                color: rgb(0, 0, 0);
-            }
-            .text-centered {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-        </style>
-    </head>
-    <body class="body-standard">
-        <d-title>
-            <h1>Ed's Blog</h1>
-            <p>Ed on edge found a way to relax at the cutting edge. Go to <a href="articles/">all articles</a>
-            </p>
-        </d-title>
-        <d-article>
-            <div class="l-body-outset image-container">
-                <a href="articles/#ml">
-                    <img src="ml.jpg" width="100%"/>
-                    <div class="text-centered"><h2>Machine Learning</h2></div>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="https://distill.pub/template.v2.js"></script>
+
+</head>
+
+<body>
+    <d-title>
+        <h1>
+            Ed's Blog
+        </h1>
+        <p>
+            다시 만드는 중
+        </p>
+    </d-title>
+    <d-article>
+        <h3>요즘 글</h3>
+        <p>그냥 html로 씀</p>
+        <p>
+            <a href="/posts/2020-06-27-math-and-language.html">
+                수학과 언어
+            </a>
+        </p>
+        <p>
+            <a href="/posts/2020-06-29-uniformly-accelerated-motion.html">
+                등가속도 운동
+            </a>
+        </p>
+        <h3>예전 글</h3>
+        <p>Markdown만들어서 R에서 html로 출판</p>
+        <p>
+            <a href="/articles/posts/2019-11-27-algebra/">
+                    대수학
                 </a>
-            </div>
-            <div class="l-screen image-container">
-                <a href="articles/#math(Korean)"><img src="math.jpg" width="100%"/>
-                <div class="text-centered"><h2>Math</h2></div>
+        </p>
+        <p>
+            <a href="/articles/posts/2019-11-30-1089-magic-trick/">
+                    1089 Magic Trick
                 </a>
-            </div>
-            <div class="l-body-outset image-container">
-                <a href="articles/#tesla">
-                    <img src="tesla.jpg" width="100%"/>
-                    <div class="text-centered"><h2>Tesla</h2></div>
-                </a>
-            </div>
-        </d-article>
-    </body>
+        </p>
+    </d-article>
+
+
+    <d-appendix></d-appendix>
+</body>
+
 </html>
