@@ -5,20 +5,40 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <script src="https://distill.pub/template.v2.js"></script>
-
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script>
+        window.onload = function(e) {
+            mes = document.getElementsByTagName('latex');
+            for (i = 0; i < mes.length; i++) {
+                katex.render(mes[i].innerText, mes[i]);
+            }
+        }
+    </script>
+    <title>
+        
+            
+            수학과 언어
+        
+        
+    </title>
 </head>
 
 <body>
     <d-title>
         <h1 id="title">
+            
+            
             수학과 언어
+        
+        
         </h1>
         <p id="intro">
-            수학이 만국공통어 정도의 이미지를 가지고 있지만, 표현방식은 서구권 언어를 기반으로 만들어져 있다. 
             
             
-        
-        
+            수학이 만국공통어 정도의 이미지를 가지고 있지만, 표현방식은 서구권 언어를 기반으로 만들어져 있다는데...
         </p>
     </d-title>
     <d-article id="contents">
@@ -35,7 +55,9 @@
         
         
         
-        <p><span style="-webkit-text-size-adjust: 100%;">집에만 있다보니 둘째한테 수학 개념 구멍난 것을 하나씩 채워주고 있다.</span><br></p><div><div>둘째가 한국에서 나고 자라서 한국말이 훨씬 더 익숙한데, 수학은 영어로 하고 있어서 혼란이 가중되는 모양이다. 수학이 만국공통어 정도의 이미지를 가지고 있지만, 표현방식은 서구권 언어를 기반으로 만들어져 있다.&nbsp;</div><div><br></div><blockquote>A = B&nbsp;</blockquote><div>라는 걸 그대로 한글로 읽으면</div><div>A는 B와 같다. 혹은 A는 B이다 정도로 읽게 된다.&nbsp;</div><div>의미로 보면 등호(=)는 "같다"라는 말과 짝지어져야 하는데, 우리말 순서랑 맞추려면,&nbsp;</div><div><br></div><blockquote>A B =&nbsp;</blockquote><div><br></div><div>라고 써야 한다. 하지만 그렇게 할 수는 없으니까, 학교에서 등호(=)는 "는" 이다라고 배웠던 기억이 난다.</div><div><br></div><blockquote>A = B (A는 B)</blockquote><div>이래서는 의미를 찾아내기가 힘들다. 등호의 의미가 "같다"라는 걸 따로 가르쳐 줘야 했다.</div><div><br></div><div>영어에서는 아무런 문제가 없다. 수식과 문장이 정확하게 짝지어진다.</div><div>A = B (A is B 혹은 A is equal to B 혹은 A is the same with B)</div><div><br></div><h2>Reddit에서</h2><div>Reddit에서 예전에 한 번 난리가 났던 질문 하나를 가져오면,</div><div>한 상자에 사과 5개 들었는데, 그 상자가 6개면 사과는 전부 몇 개인가? 라는 문제에서 한 아이가</div><div>5 x 6 = 30 으로 문제를 풀었고, 선생님이 그걸 오답 처리했다.&nbsp;</div><div>6 x 5 = 30 으로 풀어야 한다는 것이었다.&nbsp;</div><div>Reddit 댓글에서 갑론을박으로 난리가 났었는데, 결론은 오답처리한 선생님이 옳은 일을 했다고 나 버렸다. 답은 맞지만 개념상 틀렸다는 것이다.&nbsp;</div><div><br></div><div>만약에 그런 일이 요즘 캘리포니아에서 일어난다면, 선생님은 언어에 따라 순서가 다르다는 것에 대한 인식이 전혀 없는 것이다. 영어 문제도 아니고 수학 문제이니 맞다고 해 줘야 할 거다.</div><div><br></div><div>우리말로 5짜리 사과가 든 상자 6개라면 5 x 6이 자연스럽다.&nbsp;</div><div>영어에서는 6 boxes, each of which contains 5 apples 의 형식이 되기 때문에 6 x 5 가 자연스럽다.&nbsp;</div><div><br></div><div>"무엇의 몇배"라고 하는 것도 똑같은 일이 일어난다.</div><div>2의 7배라고 하면, 우리는 자연스럽게 2 x 7이지만</div><div>영어로는 7 times as many as 2 줄여서 7 times 2 이기 때문에 7 x 2로 써야 한다.</div><div><br></div><div>구구단을 외울 때에도 같은 일이 일어나는데,&nbsp;</div><div>우리나라에서, 적어도 내가 배울 때에는</div><div>구구단 2단이 2를 계속 더해가는 과정으로 배웠었고, 2x7의 의미가 2가 7번 있을 때 다 더하면 얼마가 되는 지를 기억하는 것이었다.</div><div><br></div><div>하지만 영미권에서는 2단은 한자리 숫자를 2배하는 방법을 배우는 것이다.</div><div>즉, 3의 2배는 2x3=6,&nbsp;</div><div>4의 두 배는 2x4=8,&nbsp;</div><div>7의 두 배는 2x7=14&nbsp;</div><div>이런 식이다</div><div><br></div><div>적분을 기술하는 방법도 그렇고, 동사가 먼저 오게 하거나, 명사가 먼저 오고 명사를 꾸미는 말이 뒤로 가게 하면 정확하게 수식이랑 일치하도록 수식이 만들어져 있다. 우리말과는 순서가 반대이다.</div><div><br></div><h2>단항 연산자</h2><div><span style="-webkit-text-size-adjust: 100%;">둘째랑 공부하다가 요 몇 주전에 알게 되었는데, 연산자가 연산자 왼쪽의 숫자나 문자에 종속되는 것으로 잘못 알고 있는 것이었다. (unary operator개념까지 들어가지 않더라도 보통 연산자는 연산자 오른쪽이랑 붙어 있다고 생각하는 것이 편하다. 실제로 그렇게 동작하고 있고 말이다.)</span><br></div><div>이것또한 언어적인 문제이다. 어렸을 때를 떠올려보면 또래들이 자기네들 딴에 어려운 문제를 낸다면서 여러 덧셈 곱셈을 섞는 것을 많이 볼 수 있는데, 가령 이런 것이다.&nbsp;</div><div><br></div><blockquote>2 더하기 3 더하기 5 더하기 6 더하기 7 더하기는?</blockquote><div><br></div><div>이렇게 물어보면, 센스있는 자는 이렇게 답한다. 더하기로 끝나는게 어디있냐? 숫자로 끝나야지!</div><div><br></div><div>이것도 언어적인 문제이다. 더하기 / 곱하기 라는 말이 동사에 명사형 어미가 붙은 것이라서 그 뒤에 무언가가 덧붙는 것이 언어적으로 어색한 것이다.&nbsp;</div><div><br></div><div>자연스럽게 "2 더하기 3"은</div><div>(1) "2에다가 더하기를 할 건데, 그 더 할 숫자는 3이다"라는 인식이 심어진다.&nbsp;</div><div><br></div><div>그렇게 생각하지 말고</div><div>(2) "있는 2에다가, 3을 더해줌"이라고 이해해야 한다.&nbsp;</div><div><br></div><div>뭐가 다른가하면,&nbsp;</div><div>(1)의 인식은 더하기가 2랑 연결된 것이고, (2)의 인식은 더하기가 3에다가 연결되었다는 것이다.&nbsp;</div><div><br></div><div>(2)의 방식으로 생각해야 한다.</div><div>x - 7 + x 를 간단히 해 보자.&nbsp;</div><div>(x 빼기) (7 더하기) (x)로 인식하면, 맨 앞의 x로부터 반드시 무언가를 빼야 한다는 생각이 잡히게 된다.&nbsp;</div><div>이렇게 되면 어떻게 되느냐... 동류항을 묶어 보니 (x빼기)랑 (x)가 있으니 0이 되고, 7만 남는 것이다. 답은 7 --&gt; 오답.</div><div><br></div><div>(x) (빼기 7)(더하기 x)로 인식하면 맨 앞의 x는 자유롭다. 뒤에 올 것이 뺄 것이면뺄 것이고 더할 것이면 더할 것이다.&nbsp;</div><div><br></div><div>당연히 두 번째로 인식한 것이 맞다. 문제는, 영어식으로 사고하면 애초에 저런 혼란에 빠지지 않는다는 것이다.&nbsp;</div><div><br></div><div>x -7은 "x minus 7"이다.</div><div>minus는 거의 전치사 개념으로 쓰이기 때문에 언어 구조상 (x) (minus 7)으로만 개념이 잡히게 되어 있다.&nbsp;</div><div><br></div><h2>언어적인 문제</h2><div><span style="-webkit-text-size-adjust: 100%;">막내도 종종 나한테 물어보는데, 언어적인 문제가 가장 큰 것이다.&nbsp;</span><br></div><div>설명이 이런 식으로 이루어진다.</div><div>나: tens가 fourteen개 있으면 one hundred forty잖아. 그러니까.</div><div>막내: 네? 뭐라구요?</div><div>나: 그러니까 십이 fourteen개 있잖아.</div><div>막내: 십이 뭐에요?</div><div>나: 그러니까 fourteen tens는 one hundred forty란 말이지.</div><div>막내: 무슨 말인지 모르겠어요.</div><div>나: 1-10까지는 제발 한글이랑 영어랑 다 알아들으면 안 되겠니? 외우기도 쉬워.&nbsp;</div><div><br></div><div>내가 영어를 더 공부하는 게 나을 지도 모르겠다.</div></div><p><br></p>                                                        </d-article>
+        
+        
+        <p><span style="-webkit-text-size-adjust: 100%;">집에만 있다보니 둘째한테 수학 개념 구멍난 것을 하나씩 채워주고 있다.</span><br></p><div><div>둘째가 한국에서 나고 자라서 한국말이 훨씬 더 익숙한데, 수학은 영어로 하고 있어서 혼란이 가중되는 모양이다. 수학이 만국공통어 정도의 이미지를 가지고 있지만, 표현방식은 서구권 언어를 기반으로 만들어져 있다.&nbsp;</div><div><br></div><blockquote>A = B&nbsp;</blockquote><div>라는 걸 그대로 한글로 읽으면</div><div>A는 B와 같다. 혹은 A는 B이다 정도로 읽게 된다.&nbsp;</div><div>의미로 보면 등호(=)는 "같다"라는 말과 짝지어져야 하는데, 우리말 순서랑 맞추려면,&nbsp;</div><div><br></div><blockquote>A B =&nbsp;</blockquote><div><br></div><div>라고 써야 한다. 하지만 그렇게 할 수는 없으니까, 학교에서 등호(=)는 "는" 이다라고 배웠던 기억이 난다.</div><div><br></div><blockquote>A = B (A는 B)</blockquote><div>이래서는 의미를 찾아내기가 힘들다. 등호의 의미가 "같다"라는 걸 따로 가르쳐 줘야 했다.</div><div><br></div><div>영어에서는 아무런 문제가 없다. 수식과 문장이 정확하게 짝지어진다.</div><div>A = B (A is B 혹은 A is equal to B 혹은 A is the same with B)</div><div><br></div><h2>Reddit에서</h2><div>Reddit에서 예전에 한 번 난리가 났던 질문 하나를 가져오면,</div><div>한 상자에 사과 5개 들었는데, 그 상자가 6개면 사과는 전부 몇 개인가? 라는 문제에서 한 아이가</div><div>5 x 6 = 30 으로 문제를 풀었고, 선생님이 그걸 오답 처리했다.&nbsp;</div><div>6 x 5 = 30 으로 풀어야 한다는 것이었다.&nbsp;</div><div>Reddit 댓글에서 갑론을박으로 난리가 났었는데, 결론은 오답처리한 선생님이 옳은 일을 했다고 나 버렸다. 답은 맞지만 개념상 틀렸다는 것이다.&nbsp;</div><div><br></div><div>만약에 그런 일이 요즘 캘리포니아에서 일어난다면, 선생님은 언어에 따라 순서가 다르다는 것에 대한 인식이 전혀 없는 것이다. 영어 문제도 아니고 수학 문제이니 맞다고 해 줘야 할 거다.</div><div><br></div><div>우리말로 5짜리 사과가 든 상자 6개라면 5 x 6이 자연스럽다.&nbsp;</div><div>영어에서는 6 boxes, each of which contains 5 apples 의 형식이 되기 때문에 6 x 5 가 자연스럽다.&nbsp;</div><div><br></div><div>"무엇의 몇배"라고 하는 것도 똑같은 일이 일어난다.</div><div>2의 7배라고 하면, 우리는 자연스럽게 2 x 7이지만</div><div>영어로는 7 times as many as 2 줄여서 7 times 2 이기 때문에 7 x 2로 써야 한다.</div><div><br></div><div>구구단을 외울 때에도 같은 일이 일어나는데,&nbsp;</div><div>우리나라에서, 적어도 내가 배울 때에는</div><div>구구단 2단이 2를 계속 더해가는 과정으로 배웠었고, 2x7의 의미가 2가 7번 있을 때 다 더하면 얼마가 되는 지를 기억하는 것이었다.</div><div><br></div><div>하지만 영미권에서는 2단은 한자리 숫자를 2배하는 방법을 배우는 것이다.</div><div>즉, 3의 2배는 2x3=6,&nbsp;</div><div>4의 두 배는 2x4=8,&nbsp;</div><div>7의 두 배는 2x7=14&nbsp;</div><div>이런 식이다</div><div><br></div><div>적분을 기술하는 방법도 그렇고, 동사가 먼저 오게 하거나, 명사가 먼저 오고 명사를 꾸미는 말이 뒤로 가게 하면 정확하게 수식이랑 일치하도록 수식이 만들어져 있다. 우리말과는 순서가 반대이다.</div><div><br></div><h2>단항 연산자</h2><div><span style="-webkit-text-size-adjust: 100%;">둘째랑 공부하다가 요 몇 주전에 알게 되었는데, 연산자가 연산자 왼쪽의 숫자나 문자에 종속되는 것으로 잘못 알고 있는 것이었다. (unary operator개념까지 들어가지 않더라도 보통 연산자는 연산자 오른쪽이랑 붙어 있다고 생각하는 것이 편하다. 실제로 그렇게 동작하고 있고 말이다.)</span><br></div><div>이것또한 언어적인 문제이다. 어렸을 때를 떠올려보면 또래들이 자기네들 딴에 어려운 문제를 낸다면서 여러 덧셈 곱셈을 섞는 것을 많이 볼 수 있는데, 가령 이런 것이다.&nbsp;</div><div><br></div><blockquote>2 더하기 3 더하기 5 더하기 6 더하기 7 더하기는?</blockquote><div><br></div><div>이렇게 물어보면, 센스있는 자는 이렇게 답한다. 더하기로 끝나는게 어디있냐? 숫자로 끝나야지!</div><div><br></div><div>이것도 언어적인 문제이다. 더하기 / 곱하기 라는 말이 동사에 명사형 어미가 붙은 것이라서 그 뒤에 무언가가 덧붙는 것이 언어적으로 어색한 것이다.&nbsp;</div><div><br></div><div>자연스럽게 "2 더하기 3"은</div><div>(1) "2에다가 더하기를 할 건데, 그 더 할 숫자는 3이다"라는 인식이 심어진다.&nbsp;</div><div><br></div><div>그렇게 생각하지 말고</div><div>(2) "있는 2에다가, 3을 더해줌"이라고 이해해야 한다.&nbsp;</div><div><br></div><div>뭐가 다른가하면,&nbsp;</div><div>(1)의 인식은 더하기가 2랑 연결된 것이고, (2)의 인식은 더하기가 3에다가 연결되었다는 것이다.&nbsp;</div><div><br></div><div>(2)의 방식으로 생각해야 한다.</div><div>x - 7 + x 를 간단히 해 보자.&nbsp;</div><div>(x 빼기) (7 더하기) (x)로 인식하면, 맨 앞의 x로부터 반드시 무언가를 빼야 한다는 생각이 잡히게 된다.&nbsp;</div><div>이렇게 되면 어떻게 되느냐... 동류항을 묶어 보니 (x빼기)랑 (x)가 있으니 0이 되고, 7만 남는 것이다. 답은 7 --&gt; 오답.</div><div><br></div><div>(x) (빼기 7)(더하기 x)로 인식하면 맨 앞의 x는 자유롭다. 뒤에 올 것이 뺄 것이면뺄 것이고 더할 것이면 더할 것이다.&nbsp;</div><div><br></div><div>당연히 두 번째로 인식한 것이 맞다. 문제는, 영어식으로 사고하면 애초에 저런 혼란에 빠지지 않는다는 것이다.&nbsp;</div><div><br></div><div>x -7은 "x minus 7"이다.</div><div>minus는 거의 전치사 개념으로 쓰이기 때문에 언어 구조상 (x) (minus 7)으로만 개념이 잡히게 되어 있다.&nbsp;</div><div><br></div><h2>언어적인 문제</h2><div><span style="-webkit-text-size-adjust: 100%;">막내도 종종 나한테 물어보는데, 언어적인 문제가 가장 큰 것이다.&nbsp;</span><br></div><div>설명이 이런 식으로 이루어진다.</div><div>나: tens가 fourteen개 있으면 one hundred forty잖아. 그러니까.</div><div>막내: 네? 뭐라구요?</div><div>나: 그러니까 십이 fourteen개 있잖아.</div><div>막내: 십이 뭐에요?</div><div>나: 그러니까 fourteen tens는 one hundred forty란 말이지.</div><div>막내: 무슨 말인지 모르겠어요.</div><div>나: 1-10까지는 제발 한글이랑 영어랑 다 알아들으면 안 되겠니? 외우기도 쉬워.&nbsp;</div><div><br></div><div>내가 영어를 더 공부하는 게 나을 지도 모르겠다.</div></div><p><br></p>                                                                </d-article>
 
 
     <d-appendix></d-appendix>
