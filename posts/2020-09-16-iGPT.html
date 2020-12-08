@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <script src="https://distill.pub/template.v2.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script>
+        window.onload = function(e) {
+            mes = document.getElementsByTagName('latex');
+            for (i = 0; i < mes.length; i++) {
+                katex.render(mes[i].innerText, mes[i]);
+            }
+        }
+    </script>
+    <title>
+        iGPT (Image GPT)
+    </title>
+</head>
+
+<body>
+    <d-title>
+        <h1 id="title">
+            iGPT (Image GPT)
+        </h1>
+        <p id="intro">
+            OpenAI에서 ICML 2020에 제출한 논문 요약
+        </p>
+    </d-title>
+    <d-article id="contents">
+                        <h2>Unsupervised Learning 역사 훑기</h2><p>Self-supervised learning이 NLP분야에서 많은 성공(BERT, GPT-2, RoBERTa, T5 등)을 거두었지만 image classification 분야에서는 좋은 feature set을 만들어 내었다는 보고가 없었다. 이 논문에서는 image에서도 같은 방법으로 좋은 feature set을 얻어낼 수 있음을 보일 것이다.</p><p>Image classification에서 Deep learning boom이 일어난 것은 크게 세가지 영향으로 볼 수 있다.</p><p>1. Autoregressive model을 이용한 pretraining으로 NN의 초기값을 잘 잡아낼 수 있다</p><p>2. Relu로 network에서 gradient vanishing현상을 없앨 수 있어서 많은 layer (그래서 Deep NN이라 불림) 를 쌓을 수 있었다</p><p>3. 이 논문에서 언급하지 않는 무언가.. 뭔가 하나 더 있었는데 기억 안 남. Computing power였던가? Thank you Gamers같은 거..</p><p><br></p><p>1의 경우, 이후에 자비에 initialization같은 것이 나오면서 image classification분야에서는 거의 자리를 빼앗겼다.</p><p><br></p><p><br></p>                </d-article>
+
+
+    <d-appendix></d-appendix>
+</body>
+
+</html>
