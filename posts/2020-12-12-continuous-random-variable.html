@@ -12,65 +12,106 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+    <script src='/elatex.js'></script>
     <script>
         window.onload = function(e) {
+            // Legacy latex math expressions.
             mes = document.getElementsByTagName('latex');
             for (i = 0; i < mes.length; i++) {
                 katex.render(mes[i].innerText, mes[i]);
             }
         }
+        // current math expressions
+        window.addEventListener('DOMContentLoaded', (event) => {
+            console.log('DOM fully loaded and parsed');
+            dom_init_loading_done = true;
+            mes = document.getElementsByTagName('e-latex');
+            for (i = 0; i < mes.length; i++) {
+                mes[i].initME();
+            }
+        });
     </script>
     <title>
-                                그런데 그것이 실제로 일어났습니다
+                                                        그런데 그것이 실제로 일어났습니다
     </title>
 </head>
 
 <body>
+    <d-front-matter>
+        <script id='distill-front-matter' type="text/json">
+            {
+                "authors": [{
+                    "author": "Ed Kim",
+                    "authorURL": "https://edonedge.github.io/",
+                    "affiliations": [{
+                        "name": "Ed on Edge"
+                    }]
+                }],
+                "katex": {
+                    "delimiters": [{
+                        "left": "$$",
+                        "right": "$$",
+                        "display": false
+                    }]
+                }
+            }
+        </script>
+    </d-front-matter>
     <d-title>
         <h1 id="title">
-                                    그런데 그것이 실제로 일어났습니다
+                                                            그런데 그것이 실제로 일어났습니다
         </h1>
         <p id="intro">
-                                    수학에서 말하는 확률은 우리가 일상에서 이야기하는 확률과 쓰임새가 조금 다르다. 수학에서 말하는 것이 좀 더 엄밀하게 정의된 것이겠지만 우리의 직관과는 다른 경우가 있는데, 그 중 하나가 분명 일어나는 사건의 확률이 0인 경우다. 다른 말로 하면 확률이 0인데 그 일이 절대로 안 일어나는 것이 아니라 일어난다는 것이다.
+                                                            수학에서 말하는 확률은 우리가 일상에서 이야기하는 확률과 쓰임새가 조금 다르다. 수학에서 말하는 것이 좀 더 엄밀하게 정의된 것이겠지만 우리의 직관과는 다른 경우가 있는데, 그 중 하나가 분명 일어나는 사건의 확률이 0인 경우다. 다른 말로 하면 확률이 0인데 그 일이 절대로 안 일어나는 것이 아니라 일어난다는 것이다.
         </p>
     </d-title>
     <d-article id="contents">
-                        <h2>오후 1시일 확률</h2>
+                <d-contents></d-contents>
+        
+                <d-contents></d-contents>
+        
+                <d-contents></d-contents>
+        
+                <h2>오후 1시일 확률</h2>
         <p>24시간의 하루 중에 점심먹고 나른한 오후 1시를 생각해 보자. 하루 중에 오후1시라는 지점은 분명히 존재한다. 그렇다면 하루에 임의로 시간을 재었는데 그게 마침 오후 1시일 확률은 얼마일까?</p>
         <blockquote>0</blockquote>
         <p>이다.</p>
         <h3>왜?</h3>
         <blockquote>&nbsp;
-            <latex> \frac{1}{24}</latex>&nbsp;&nbsp;아닌가요?</blockquote><p>라는 것이 말이 되는 것 중에 제법 자주 듣는 말이다.
-            <d-footnote id="d-footnote-2">
-                <latex>\frac{1}{12}</latex>라고 하는 사람도 있으니까.. 하지만 분명 하루는 24시간이다. 12시간이 아니고...</d-footnote><span style="font-size: 1.06rem;">&nbsp;</span><span style="font-size: 1.06rem;">&nbsp;하지만 그것은 </span>
+&nbsp;&nbsp;<e-latex displaymode="">\frac{1}{24}</e-latex>아닌가요?</blockquote>
+        <p>라는 것이 그나마 비슷한 답이다.<d-footnote id="d-footnote-6">&nbsp;<e-latex>\frac{1}{12}</e-latex>라고 하는 사람도 있으니까.. 하지만 분명 하루는 24시간이다. 12시간이 아니고...</d-footnote><span style="font-size: 1.06rem;">&nbsp;</span><span style="font-size: 1.06rem;">&nbsp;하지만 그것은 </span>
             <font color="#0000ff" style="font-size: 1.06rem;">1시</font><span style="font-size: 1.06rem;">일 확률이 아니라 </span>
-            <font color="#ff0000" style="font-size: 1.06rem;">1시 몇 분 몇 초</font><span style="font-size: 1.06rem;">일 확률이다. 1시 30분이나 1시 1분 등은 1시가 아니니까,&nbsp;</span>
-            <latex style="font-size: 1.06rem;"> \frac{1}{24}</latex><span style="font-size: 1.06rem;">&nbsp;(은)는 아니다.&nbsp;</span></p>
+            <font color="#ff0000" style="font-size: 1.06rem;">1시 몇 분 몇 초</font><span style="font-size: 1.06rem;">일 확률이다. 1시 30분이나 1시 1분 등은 1시가 아니니까,&nbsp;</span><span style="font-size: 1.06rem;">&nbsp;</span><e-latex>\frac{1}{24}</e-latex><span style="font-size: 1.06rem;">(은)는 아니다.&nbsp;</span></p>
         <p><span style="font-size: 1.06rem; -webkit-text-size-adjust: 100%;">아하, 분단위, 초단위까지 생각해 보니 정확히 오후 1시가 될 확률이 처음 생각한 것보다 훨씬 작을 거라는데까지 생각이 닿았다.</span></p>
-        <p><span style="-webkit-text-size-adjust: 100%;">하루는 24시간이고, 한 시간은 60분이고, 1분은 60초이므로, 하루는 총&nbsp;</span>
-            <latex> 24 \times 60 \times 60 = 86400</latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;초가 되고 그러니까, 정확히 1시일 확률은&nbsp;</span></p>
-        <blockquote>&nbsp;
-            <latex> \frac{1}{86400}</latex>&nbsp;</blockquote>
+        <p><span style="-webkit-text-size-adjust: 100%;">하루는 24시간이고, 한 시간은 60분이고, 1분은 60초이므로, 하루는 총&nbsp;</span><e-latex>24 \times 60 \times 60 = 86400</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;&nbsp;</span><span style="-webkit-text-size-adjust: 100%;">초가 되고 그러니까, 정확히 1시일 확률은&nbsp;</span></p>
+        <blockquote>&nbsp;&nbsp;&nbsp;<e-latex displaymode="">\frac{1}{86400}</e-latex>&nbsp;</blockquote>
         <p><span style="-webkit-text-size-adjust: 100%;">일까?</span></p>
-        <p><span style="-webkit-text-size-adjust: 100%;">여기까지 생각했으면 많이 따라온 것이다. 하지만 1초도 나눌 수 있다. 간단하게 핸드폰에 스톱워치 앱만 켜 봐도 1.56초 이런 거 많이 나오지 않던가. 1초를 100만 번(one million times) 나눌 수도 있고, 10억 번(one billion times)으로, 1조 번(one trillion times)으로 나눌 수도 있다.</span></p>
+        <p><span style="-webkit-text-size-adjust: 100%;">여기까지 생각했으면 많이 따라온 것이다. 하지만 1초도 더 나눌 수 있다. 간단하게 핸드폰에 스톱워치 앱만 켜 봐도 1.56초 이런 거 많이 나오지 않던가. 1초를 100만 번(one million times) 나눌 수도 있고, 10억 번(one billion times)으로, 1조 번(one trillion times)으로 나눌 수도 있다.</span></p>
         <blockquote><span style="-webkit-text-size-adjust: 100%;">아무리 그래도 확률이 작은 것이지 0은 아니지 않나요?</span></blockquote>
         <p><span style="-webkit-text-size-adjust: 100%;">좋은 질문이다. 1초를 1조번 나눈 것을 하나의 시간 조각으로 쓴다고 해도 확률은</span></p>
-        <blockquote>&nbsp;
-            <latex> \frac{1}{86400000000000000}</latex>&nbsp;&nbsp;</blockquote>
+        <blockquote>&nbsp;<e-latex displaymode="">\frac{1}{86400000000000000}</e-latex>&nbsp;&nbsp;</blockquote>
         <p><span style="-webkit-text-size-adjust: 100%;">이라서 분명 작은 값이지만 0은 아니다. 하지만 </span><i style="-webkit-text-size-adjust: 100%;">1조번 나눌 수 있다</i><span style="-webkit-text-size-adjust: 100%;"> 에서 끝날까?&nbsp;</span>
             <font color="#0000ff" style="-webkit-text-size-adjust: 100%;">어떤 큰 숫자로 나누든지 그보다 더 나눌 수 있다. </font>더 큰 수로 나눌 수록 확률은 작아진다. 이것을 무한히 반복하면, 위의 확률식에서 분모의 값은 무한히 커지고, 그에 따라 확률은 무한히 작아진다. 무한히 작아지면 그게 무슨 값이 되려나.&nbsp;</p>
         <blockquote>바로 0이다.</blockquote>
         <h2>오후 1시에서 2시(1시, 2시 포함)일 확률</h2>
-        <p>하루에 임의로 시간을 체크했을 때 오후 1시에서 2시 사이(1시, 2시도 포함하자)일 확률은 얼마일까? 수식으로 써 보자면, 어떤 시각을&nbsp;
-            <latex> X</latex>&nbsp; 그리고 어떤 사건의 확률을&nbsp;
-            <latex> P(사건)</latex>&nbsp;라고 하면,&nbsp;
-            <latex> P(13 \le X \le 14)</latex>&nbsp;을 찾아내는 문제이다. 이제, 우리 직관과 맞는 확률이 나온다.</p>
-        <blockquote>&nbsp;
-            <latex>&nbsp;P(13 \le X \le 14) = \frac{1}{24}</latex>&nbsp;</blockquote>
+        <p>하루에 임의로 시간을 체크했을 때 오후 1시에서 2시 사이(1시, 2시도 포함하자)일 확률은 얼마일까? 수식으로 써 보자면, 어떤 시각을&nbsp;<e-latex>X</e-latex>&nbsp;그리고 어떤 사건의 확률을&nbsp;<e-latex>P(사건)</e-latex>&nbsp;&nbsp;<span style="-webkit-text-size-adjust: 100%;">라고&nbsp;</span><span style="-webkit-text-size-adjust: 100%;">하면, &nbsp;이것은&nbsp;</span><e-latex>P(13 \le X \le 14)</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;</span><span style="-webkit-text-size-adjust: 100%;">을 찾아내는 문제이다. 이제, 우리 직관과 맞는 확률이 나온다.</span></p>
+        <blockquote>&nbsp;<e-latex displaymode="">P(13 \le X \le 14) = \frac{1}{24}</e-latex>&nbsp;&nbsp;</blockquote>
         <p>그런데, 위에서 다루었던 것을 다시 떠올려보면 오히려 헛갈리기 시작한다. 오후 1시에서 2시 사이에도 무한히 많은 시각이 존재하고, 하루 24시간에도 무한히 많은 시각이 존재하는데,
             <font color="#ff0000">무한대 나누기 무한대 하면 1 아닌가?</font> 와 같은 생각 말이다.</p>
-        <p><font color="#0000ff">무한대라는 것은 숫자가 아니다.</font> 숫자가 끊임 없이 커지고 있는 상태를 통칭하는 말일 뿐이다. 똑같이 무한대라고 불러도 급이 다른 경우가 많다.</p><p>위에서 했던대로, 처음에 큰 단위로 생각했다가 단위를 계속 나누어서 생각해 볼 것이다. 하루 시간을 계산하는 단위가 한 시간이라면&nbsp;<latex> \frac{1}{24}</latex>&nbsp;이다. 분단위로 생각한다면&nbsp;<latex> \frac{1 \times 60} {24 \times 60} = \frac{60}{1440}</latex>&nbsp;이지만 약분해서 기약분수(simplest equivalent fraction)으로 만들면&nbsp;<latex> \frac{60}{1440} = \frac{1}{60}</latex><span style="font-size: 1.06rem; -webkit-text-size-adjust: 100%;">&nbsp;이 된다.</span></p><p><span style="-webkit-text-size-adjust: 100%;">초 단위로 하면?&nbsp;</span><latex> \frac{1\times 3600}{24\times3600} = \frac{3600}{86400}</latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;이지만 역시 약분하면&nbsp;</span><latex> \frac{1}{24}</latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;이다.</span></p><p><span style="-webkit-text-size-adjust: 100%;">다시 말해, 어떤 작은 단위를 사용한다고 하더라도 분모, 분자에 같은 숫자가 곱해지는 형태가 되기 때문에 약분하면 같은 값이 나온다.</span></p><p><span style="-webkit-text-size-adjust: 100%;">수직선(number line)에서 생각해보면 좀 더 쉽다.</span></p><p><span style="-webkit-text-size-adjust: 100%;">오후 1시에서 2시인 경우를 수직선에 표시해 보면,</span></p><div><img src="/images/1-2-number-line.png"></div><p>확률에서 분모와 분자를 비교하는 기준이 길이가 된 것을 알 수 있다. 1시에서 2시사이인 것은 길이가 1인 선분(line segment)이고, 하루 전체는 길이가 24인 선분이므로, 비율이&nbsp;<latex> \frac{1}{24}</latex>&nbsp;가 된다.</p><p>오후 1시일 확률과 비교해 보자.</p><p>오후 1시는 수직선에서 선분이 아니라 하나의 점이다. 점 하나의 길이와 길이가 24인 선분의 비율이 확률이 되는 것이다. 점 길이가 0이다. 그래서 확률은 0이 된다.</p><p><br></p><h2>오후 1시에서 2시 사이일 확률</h2><p>이번에는 오후 1시에서 2시 사이일 확률을 생각해보자. 딱 오후 1시인 경우와 오후 2시인 경우를 제외하는 것이다. 확률은?</p><blockquote>&nbsp;<latex>&nbsp;P(13 \lt X \lt 14) = \frac{1}{24}</latex>&nbsp;</blockquote><p>이다. 오후 1시, 2시를 포함하는 경우에 대한 확률에서 오후 1시인 확률과 오후 2시인 확률이 빠져야 하는 것 아니냐고? 맞다. 그런데 오후 1시일 확률은 0이고, 오후 2시일 확률도 같은 방식으로 0이다. 길이 단위에서 비교하는 비율에서 점일 뿐이니까, 그러므로 오후 1시, 2시와 같은 특정 점을 포함하든 말든, 확률 차이가 없다.</p><p><br></p>    </d-article>
+        <p>
+            <font color="#0000ff">무한대라는 것은 숫자가 아니다.</font> 숫자가 끊임 없이 커지고 있는 상태를 통칭하는 말일 뿐이다. 똑같이 무한대라고 불러도 급이 다른 경우가 많다.</p>
+        <p>위에서 했던대로, 처음에 큰 단위로 생각했다가 단위를 계속 나누어서 생각해 볼 것이다. 하루 시간을 계산하는 단위가 한 시간이라면 확률은&nbsp;<e-latex>\frac{1}{24}</e-latex>&nbsp;이다. 분단위로 생각한다면&nbsp;<e-latex>\frac{1 \times 60} {24 \times 60} = \frac{60}{1440}</e-latex>&nbsp;이지만 약분해서 기약분수(simplest equivalent fraction)으로 만들면&nbsp;<e-latex>\frac{60}{1440} = \frac{1}{24}</e-latex>&nbsp;<span style="font-size: 1.06rem; -webkit-text-size-adjust: 100%;">이 된다.</span></p>
+        <p><span style="-webkit-text-size-adjust: 100%;">초 단위로 하면?&nbsp;</span><e-latex>\frac{1\times 3600}{24\times3600} = \frac{3600}{86400}</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;</span><span style="-webkit-text-size-adjust: 100%;">이지만 역시 약분하면&nbsp;</span><e-latex>\frac{1}{24}</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;</span><span style="-webkit-text-size-adjust: 100%;">이다.</span></p>
+        <p><span style="-webkit-text-size-adjust: 100%;">다시 말해, 어떤 작은 단위를 사용한다고 하더라도 분모, 분자에 같은 숫자가 곱해지는 형태가 되기 때문에 약분하면 같은 값이 나온다.</span></p>
+        <p><span style="-webkit-text-size-adjust: 100%;">수직선(number line)에서 생각해보면 좀 더 쉽다.&nbsp;</span><span style="font-size: 1.06rem;">오후 1시에서 2시인 경우를 수직선에 표시해 보면,</span></p>
+        <div><img src="/images/1-2-number-line.png"></div>
+        <p>확률에서 분모와 분자를 비교하는 기준이 길이가 된 것을 알 수 있다. 1시에서 2시사이인 것은 길이가 1인 선분(line segment)이고, 하루 전체는 길이가 24인 선분이므로, 이 둘의 비율은&nbsp;<e-latex>\frac{1}{24}</e-latex>&nbsp;가 된다.</p>
+        <p>오후 1시일 확률과 비교해 보자.</p>
+        <p>오후 1시는 수직선에서 선분이 아니라 하나의 점이다. 점 하나의 길이와 길이가 24인 선분의 비율이 확률이 되는 것이다. 점은 길이가 0이다. 그래서 딱 오후 1시일 확률은 0이 된다.</p>
+        <h2>오후 1시에서 2시 사이일 확률</h2>
+        <p>이번에는 오후 1시에서 2시 사이일 확률을 생각해보자. 딱 오후 1시인 경우와 오후 2시인 경우를 제외하는 것이다. 확률은?</p>
+        <blockquote>&nbsp;<e-latex displaymode="">P(13 \lt X \lt 14) = \frac{1}{24}</e-latex>&nbsp;&nbsp;</blockquote>
+        <p>이다. 오후 1시, 2시를 포함하는 경우에 대한 확률에서 오후 1시인 확률과 오후 2시인 확률이 빠져야 하는 것 아니냐고? 맞다. 그런데 오후 1시일 확률은 0이고, 오후 2시일 확률도 같은 방식으로 0이다. 길이 단위에서 비교하는 비율에서 점일 뿐이니까, 그러므로 오후 1시, 2시와 같은 특정 점을 포함하든 말든, 확률 차이가 없다.</p>                            </d-article>
 
 
     <d-appendix></d-appendix>

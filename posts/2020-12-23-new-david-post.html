@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <script src="https://distill.pub/template.v2.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+    <script src='/elatex.js'></script>
+    <style>
+    </style>
+    <script>
+        window.onload = function(e) {
+            // Legacy latex math expressions.
+            mes = document.getElementsByTagName('latex');
+            for (i = 0; i < mes.length; i++) {
+                katex.render(mes[i].innerText, mes[i], {
+                });
+            }
+        }
+        // current math expressions
+        window.addEventListener('DOMContentLoaded', (event) => {
+            console.log('DOM fully loaded and parsed');
+            dom_init_loading_done = true;
+            mes = document.getElementsByTagName('e-latex');
+            for (i = 0; i < mes.length; i++) {
+                mes[i].initME();
+            }
+        });
+    </script>
+    <title>
+                                                                                            민기 사자 ㅋㅋㅋ.김 똥
+    </title>
+</head>
+
+<body>
+    <d-front-matter>
+        <script id='distill-front-matter' type="text/json">
+            {
+                "authors": [{
+                    "author": "Ed Kim",
+                    "authorURL": "https://edonedge.github.io/",
+                    "affiliations": [{
+                        "name": "Ed on Edge"
+                    }]
+                }],
+                "katex": {
+                    "delimiters": [{
+                        "left": "$$",
+                        "right": "$$",
+                        "display": false
+                    }]
+                }
+            }
+        </script>
+    </d-front-matter>
+    <d-title>
+        <h1 id="title">
+                                                                                                민기 사자 ㅋㅋㅋ.김 똥
+        </h1>
+        <p id="intro">
+                                                                                                                        intro
+        </p>
+    </d-title>
+    <d-article id="contents">
+                <d-contents></d-contents>
+        
+                <d-contents></d-contents>
+        
+                <d-contents></d-contents>
+        
+                <d-contents></d-contents>
+        
+                <d-contents></d-contents>
+        
+                <d-contents></d-contents>
+        
+                <d-contents></d-contents>
+        
+                <d-contents></d-contents>
+        
+                <d-contents></d-contents>
+        <h2>David's first Math Question</h2><p>David's question.</p><blockquote>&nbsp;<e-latex displaymode="">809+900=1709</e-latex>&nbsp;</blockquote><aside>Yeah, it is 1709</aside><p style="text-align: center;">&nbsp;&nbsp;<e-latex displaymode="">x=\frac{-b \pm \sqrt{b^2 -4ac}}{2a} =\text{하하하}</e-latex>&nbsp;</p><p>let's go to <a href="www.amazon.com">amazon</a></p><p>this color is <font color="#0000ff">blue</font>, <font color="#ff0000">red</font>, <font color="#87ceeb">or</font> <font color="#008000">green</font>.&nbsp;</p><p><font color="#a52a2a">brown</font><e-latex>y=ax+b</e-latex><font color="#a52a2a">&nbsp;</font></p><p><font color="#a52a2a"><span style="caret-color: rgb(165, 42, 42);">김민기&nbsp;</span></font><e-latex>P(한글)</e-latex><font color="#a52a2a"><span style="caret-color: rgb(165, 42, 42);">&nbsp; &nbsp;</span></font></p><p><font color="#a52a2a"><span style="caret-color: rgb(165, 42, 42);">&nbsp;&nbsp;</span></font><e-latex>P(한글)</e-latex><font color="#a52a2a"><span style="caret-color: rgb(165, 42, 42);">&nbsp; ㅇㅇ</span></font></p>                                                                        </d-article>
+
+
+    <d-appendix></d-appendix>
+</body>
+
+</html>
