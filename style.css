@@ -3,11 +3,9 @@ d-article {
     font-family: 'Nanum Myeongjo', serif;
 }
 
+d-byline,
+e-latex,
 #disqus_thread {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif
-}
-
-e-latex {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif
 }
 
