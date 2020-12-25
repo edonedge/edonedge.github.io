@@ -32,7 +32,7 @@
         });
     </script>
     <title>
-        등가속도 운동
+                    등가속도 운동
     </title>
 </head>
 
@@ -59,13 +59,16 @@
     </d-front-matter>
     <d-title>
         <h1 id="title">
-            등가속도 운동
+                        등가속도 운동
         </h1>
         <p id="intro">
-            응? 갑자기 왜 물리를?
+                        응? 갑자기 왜 물리를?
         </p>
     </d-title>
+
     <d-article id="contents">
+                <d-contents></d-contents>
+        
         <p>일차함수(linear function)랑 비율(ratio) 좀 배우고 나서 왜 이리로 건너왔느냐..&nbsp;</p>
         <p>그 정도만 이해해도 할 만해서 그런 것이고
             <d-footnote id="d-footnote-1"> 일차식 그래프에 대한 이해와 약간의 직관만으로 설명 가능하다. 등가속도가 아닌 물체의 운동은 미분 적분 덩어리임</d-footnote>,&nbsp;<b>중력에 의한 낙하 운동</b>이 등가속도 운동이라서 이것만 이해해도 이해할 수 있는 운동들이 우리 근처에 널렸기 때문이다. 지우개 한 번만 저리로 던져도 등가속도 운동임
@@ -249,9 +252,36 @@
         <p style="text-align: center; ">&nbsp;
             <e-latex displaymode="">\frac{10m}{1s} = \frac{\frac{10}{1000} km}{\frac{1}{3600} h} = \frac{10}{1000} \cdot 3600 \frac{km}{h} = 36 km/h</e-latex>&nbsp;&nbsp;</p>
         <p>사람이 달리는 최고 속도는 시속 36 km/h 정도 된다. 30 m/s는 이것의 3배니까 시속 100km/h가 넘는 것이지. 그래서 고층에서 물건 던지면 안 되는 것이다.&nbsp;</p>
-        <p>오늘은 여기까지.</p>
+        <p>오늘은 여기까지.</p>    </d-article>
+    <d-article>
+        <div>
+            <a href="http://73.162.56.72:8080/view/posts/2020-06-27-math-and-language#disqus_thread">Link</a>
+        </div>
+        <div>
+            <div id="disqus_thread"></div>
+        </div>
     </d-article>
-    <d-appendix></d-appendix>
+    <d-appendix>
+    </d-appendix>
+    <script id="dsq-count-scr" src="//edonedge.disqus.com/count.js" async></script>
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+        var disqus_config = function() {
+            this.page.identifier = window.location.pathname.replace('view/', '');
+            this.page.url = 'https://edonedge.github.io' + this.page.identifier
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script');
+            s.src = 'https://edonedge.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </body>
 
 </html>
