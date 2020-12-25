@@ -13,18 +13,15 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
     <script src='/elatex.js'></script>
-    <style>
-    </style>
     <script>
         window.onload = function(e) {
-            // Legacy latex math expressions.
-            mes = document.getElementsByTagName('latex');
-            for (i = 0; i < mes.length; i++) {
-                katex.render(mes[i].innerText, mes[i], {
-                });
+                // Legacy latex math expressions.
+                mes = document.getElementsByTagName('latex');
+                for (i = 0; i < mes.length; i++) {
+                    katex.render(mes[i].innerText, mes[i]);
+                }
             }
-        }
-        // current math expressions
+            // current math expressions
         window.addEventListener('DOMContentLoaded', (event) => {
             console.log('DOM fully loaded and parsed');
             dom_init_loading_done = true;
@@ -35,7 +32,7 @@
         });
     </script>
     <title>
-                                                                                                                                                                    등가속도 운동
+                                                                                                                                                                                등가속도 운동
     </title>
 </head>
 
@@ -62,13 +59,15 @@
     </d-front-matter>
     <d-title>
         <h1 id="title">
-                                                                                                                                                                        등가속도 운동
+                                                                                                                                                                                    등가속도 운동
         </h1>
         <p id="intro">
-                                                                                                                                                                        응? 갑자기 왜 물리를?
+                                                                                                                                                                                    응? 갑자기 왜 물리를?
         </p>
     </d-title>
     <d-article id="contents">
+                <d-contents></d-contents>
+        
                 <d-contents></d-contents>
         
                 <d-contents></d-contents>
@@ -192,9 +191,27 @@
         <p>30m/s라는 게 감이 잘 안 올 것이다. 10m/s가 사람이 달릴 수 있는 거의 최고 속도이다. 이걸 km/h로 환산하면 얼마게?</p>
         <p style="text-align: center; ">&nbsp;<e-latex displaymode="">\frac{10m}{1s} = \frac{\frac{10}{1000} km}{\frac{1}{3600} h} = \frac{10}{1000} \cdot 3600 \frac{km}{h} = 36 km/h</e-latex>&nbsp;&nbsp;</p>
         <p>사람이 달리는 최고 속도는 시속 36 km/h 정도 된다. 30 m/s는 이것의 3배니까 시속 100km/h가 넘는 것이지. 그래서 고층에서 물건 던지면 안 되는 것이다.&nbsp;</p>
-        <p>오늘은 여기까지.</p>                                                                                                    </d-article>
-
-
+        <p>오늘은 여기까지.</p>                                                                                                                    <div id="disqus_thread" class='articlefooter'></div>
+            <script>
+                /**
+                 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                /*
+                var disqus_config = function () {
+                this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+                */
+                (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document,
+                        s = d.createElement('script');
+                    s.src = 'https://edonedge.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </d-article>
     <d-appendix></d-appendix>
 </body>
 
