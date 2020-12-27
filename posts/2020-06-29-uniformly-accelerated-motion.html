@@ -32,11 +32,16 @@
         });
     </script>
     <title>
-                                등가속도 운동
+        등가속도 운동
     </title>
 </head>
 
 <body>
+    <div class="base-grid eheader">
+        <div style="grid-column: text;">
+            Ed's Blog <span style="float: right;"><a href="/">Home</a></span>
+        </div>
+    </div>
     <d-front-matter>
         <script id='distill-front-matter' type="text/json">
             {
@@ -59,14 +64,16 @@
     </d-front-matter>
     <d-title>
         <h1 id="title">
-                                    등가속도 운동
+            등가속도 운동
         </h1>
         <p id="intro">
-                                    응? 갑자기 왜 물리를?
+            응? 갑자기 왜 물리를?
         </p>
     </d-title>
 
     <d-article id="contents">
+        <d-contents></d-contents>
+        
                 <d-contents></d-contents>
         
                 <d-contents></d-contents>
@@ -254,18 +261,24 @@
         <p style="text-align: center; ">&nbsp;
             <e-latex displaymode="">\frac{10m}{1s} = \frac{\frac{10}{1000} km}{\frac{1}{3600} h} = \frac{10}{1000} \cdot 3600 \frac{km}{h} = 36 km/h</e-latex>&nbsp;&nbsp;</p>
         <p>사람이 달리는 최고 속도는 시속 36 km/h 정도 된다. 30 m/s는 이것의 3배니까 시속 100km/h가 넘는 것이지. 그래서 고층에서 물건 던지면 안 되는 것이다.&nbsp;</p>
-        <p>오늘은 여기까지.</p>            </d-article>
+        <p>오늘은 여기까지.</p>    </d-article>
     <d-article>
+        <!--
         <div>
             <a href="https://edonedge.github.io/posts/2020-06-29-uniformly-accelerated-motion#disqus_thread">Link</a>
         </div>
+        -->
         <div>
             <div id="disqus_thread"></div>
         </div>
     </d-article>
     <d-appendix>
     </d-appendix>
-    <script id="dsq-count-scr" src="//edonedge.disqus.com/count.js" async></script>
+    <div class="base-grid efooter">
+        <div style="grid-column: text;">
+        Ed found a way to relax on the cutting edge. <br> <a href="/">Home</a>
+        </div>
+    </div>
     <script>
         /**
          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -284,6 +297,7 @@
         })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script id="dsq-count-scr" src="//edonedge.disqus.com/count.js" async></script>
 </body>
 
 </html>

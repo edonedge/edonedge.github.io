@@ -37,6 +37,11 @@
 </head>
 
 <body>
+    <div class="base-grid eheader">
+        <div style="grid-column: text;">
+            Ed's Blog <span style="float: right;"><a href="/">Home</a></span>
+        </div>
+    </div>
     <d-front-matter>
         <script id='distill-front-matter' type="text/json">
             {
@@ -65,7 +70,10 @@
             수학에서 말하는 확률은 우리가 일상에서 이야기하는 확률과 쓰임새가 조금 다르다. 수학에서 말하는 것이 좀 더 엄밀하게 정의된 것이겠지만 우리의 직관과는 다른 경우가 있는데, 그 중 하나가 분명 일어나는 사건의 확률이 0인 경우다. 다른 말로 하면 확률이 0인데 그 일이 절대로 안 일어나는 것이 아니라 일어난다는 것이다.
         </p>
     </d-title>
+
     <d-article id="contents">
+        <d-contents></d-contents>
+        
         <d-contents></d-contents>
 
         <d-contents></d-contents>
@@ -130,9 +138,43 @@
         <p>이번에는 오후 1시에서 2시 사이일 확률을 생각해보자. 딱 오후 1시인 경우와 오후 2시인 경우를 제외하는 것이다. 확률은?</p>
         <blockquote>&nbsp;
             <e-latex displaymode="">P(13 \lt X \lt 14) = \frac{1}{24}</e-latex>&nbsp;&nbsp;</blockquote>
-        <p>이다. 오후 1시, 2시를 포함하는 경우에 대한 확률에서 오후 1시인 확률과 오후 2시인 확률이 빠져야 하는 것 아니냐고? 맞다. 그런데 오후 1시일 확률은 0이고, 오후 2시일 확률도 같은 방식으로 0이다. 길이 단위에서 비교하는 비율에서 점일 뿐이니까, 그러므로 오후 1시, 2시와 같은 특정 점을 포함하든 말든, 확률 차이가 없다.</p>
+        <p>이다. 오후 1시, 2시를 포함하는 경우에 대한 확률에서 오후 1시인 확률과 오후 2시인 확률이 빠져야 하는 것 아니냐고? 맞다. 그런데 오후 1시일 확률은 0이고, 오후 2시일 확률도 같은 방식으로 0이다. 길이 단위에서 비교하는 비율에서 점일 뿐이니까, 그러므로 오후 1시, 2시와 같은 특정 점을 포함하든 말든, 확률 차이가 없다.</p>    </d-article>
+    <d-article>
+        <!--
+        <div>
+            <a href="https://edonedge.github.io/posts/2020-12-12-continuous-random-variable#disqus_thread">Link</a>
+        </div>
+        -->
+        <div>
+            <div id="disqus_thread"></div>
+        </div>
     </d-article>
-    <d-appendix></d-appendix>
+    <d-appendix>
+    </d-appendix>
+    <div class="base-grid efooter">
+        <div style="grid-column: text;">
+        Ed found a way to relax on the cutting edge. <br> <a href="/">Home</a>
+        </div>
+    </div>
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+        var disqus_config = function() {
+            this.page.identifier = "/posts/2020-12-12-continuous-random-variable";
+            this.page.url = "https://edonedge.github.io/posts/2020-12-12-continuous-random-variable";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script');
+            s.src = 'https://edonedge.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script id="dsq-count-scr" src="//edonedge.disqus.com/count.js" async></script>
 </body>
 
 </html>

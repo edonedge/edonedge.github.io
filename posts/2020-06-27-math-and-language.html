@@ -32,11 +32,16 @@
         });
     </script>
     <title>
-                                수학과 언어
+        수학과 언어
     </title>
 </head>
 
 <body>
+    <div class="base-grid eheader">
+        <div style="grid-column: text;">
+            Ed's Blog <span style="float: right;"><a href="/">Home</a></span>
+        </div>
+    </div>
     <d-front-matter>
         <script id='distill-front-matter' type="text/json">
             {
@@ -59,14 +64,16 @@
     </d-front-matter>
     <d-title>
         <h1 id="title">
-                                    수학과 언어
+            수학과 언어
         </h1>
         <p id="intro">
-                                    수학이 만국공통어 정도의 이미지를 가지고 있지만, 표현방식은 서구권 언어를 기반으로 만들어져 있다는데...
+            수학이 만국공통어 정도의 이미지를 가지고 있지만, 표현방식은 서구권 언어를 기반으로 만들어져 있다는데...
         </p>
     </d-title>
 
     <d-article id="contents">
+        <d-contents></d-contents>
+        
                 <d-contents></d-contents>
         
                 <d-contents></d-contents>
@@ -163,18 +170,24 @@
         <p><span style="-webkit-text-size-adjust: 100%;">막내도 종종 나한테 물어보는데, 언어적인 문제가 가장 큰 것이다.&nbsp;</span></p>
         <p>설명이 이런 식으로 이루어진다.</p>
         <p>나: tens가 fourteen개 있으면 one hundred forty잖아. 그러니까.<br>막내: 네? 뭐라구요?<br>나: 그러니까 십이 fourteen개 있잖아.<br>막내: 십이 뭐에요?<br>나: 그러니까 fourteen tens는 one hundred forty란 말이지.<br>막내: 무슨 말인지 모르겠어요.<br>나: 1-10까지는 제발 한글이랑 영어랑 다 알아들으면 안 되겠니? 외우기도 쉬워.&nbsp;</p>
-        <p>내가 영어를 더 공부하는 게 나을 지도 모르겠다.</p>            </d-article>
+        <p>내가 영어를 더 공부하는 게 나을 지도 모르겠다.</p>    </d-article>
     <d-article>
+        <!--
         <div>
             <a href="https://edonedge.github.io/posts/2020-06-27-math-and-language#disqus_thread">Link</a>
         </div>
+        -->
         <div>
             <div id="disqus_thread"></div>
         </div>
     </d-article>
     <d-appendix>
     </d-appendix>
-    <script id="dsq-count-scr" src="//edonedge.disqus.com/count.js" async></script>
+    <div class="base-grid efooter">
+        <div style="grid-column: text;">
+        Ed found a way to relax on the cutting edge. <br> <a href="/">Home</a>
+        </div>
+    </div>
     <script>
         /**
          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -193,6 +206,7 @@
         })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script id="dsq-count-scr" src="//edonedge.disqus.com/count.js" async></script>
 </body>
 
 </html>

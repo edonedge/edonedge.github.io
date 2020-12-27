@@ -32,11 +32,16 @@
         });
     </script>
     <title>
-                    배수 판별법
+        배수 판별법
     </title>
 </head>
 
 <body>
+    <div class="base-grid eheader">
+        <div style="grid-column: text;">
+            Ed's Blog <span style="float: right;"><a href="/">Home</a></span>
+        </div>
+    </div>
     <d-front-matter>
         <script id='distill-front-matter' type="text/json">
             {
@@ -59,37 +64,55 @@
     </d-front-matter>
     <d-title>
         <h1 id="title">
-                        배수 판별법
+            배수 판별법
         </h1>
         <p id="intro">
-                        여기에 무언가.
+            여기에 무언가.
         </p>
     </d-title>
+
     <d-article id="contents">
+        <d-contents></d-contents>
+        
                 <d-contents></d-contents>
         
-                <p>ㅇㅇㅇ</p>                        <div id="disqus_thread" class='articlefooter'></div>
-            <script>
-                /**
-                 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-                /*
-                var disqus_config = function () {
-                this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                };
-                */
-                (function() { // DON'T EDIT BELOW THIS LINE
-                    var d = document,
-                        s = d.createElement('script');
-                    s.src = 'https://edonedge.disqus.com/embed.js';
-                    s.setAttribute('data-timestamp', +new Date());
-                    (d.head || d.body).appendChild(s);
-                })();
-            </script>
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <p>ㅇㅇㅇ</p>    </d-article>
+    <d-article>
+        <!--
+        <div>
+            <a href="https://edonedge.github.io/posts/2020-12-08-check-multiples#disqus_thread">Link</a>
+        </div>
+        -->
+        <div>
+            <div id="disqus_thread"></div>
+        </div>
     </d-article>
-    <d-appendix></d-appendix>
+    <d-appendix>
+    </d-appendix>
+    <div class="base-grid efooter">
+        <div style="grid-column: text;">
+        Ed found a way to relax on the cutting edge. <br> <a href="/">Home</a>
+        </div>
+    </div>
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+        var disqus_config = function() {
+            this.page.identifier = "/posts/2020-12-08-check-multiples";
+            this.page.url = "https://edonedge.github.io/posts/2020-12-08-check-multiples";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script');
+            s.src = 'https://edonedge.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script id="dsq-count-scr" src="//edonedge.disqus.com/count.js" async></script>
 </body>
 
 </html>

@@ -12,15 +12,24 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+    <script src='/elatex.js'></script>
     <script>
         window.onload = function(e) {
-            mes = document.getElementsByTagName('latex');
-            for (i = 0; i < mes.length; i++) {
-                katex.render(mes[i].innerText, mes[i], {
-                    displayMode: true
-                });
+                // Legacy latex math expressions.
+                mes = document.getElementsByTagName('latex');
+                for (i = 0; i < mes.length; i++) {
+                    katex.render(mes[i].innerText, mes[i]);
+                }
             }
-        }
+            // current math expressions
+        window.addEventListener('DOMContentLoaded', (event) => {
+            console.log('DOM fully loaded and parsed');
+            dom_init_loading_done = true;
+            mes = document.getElementsByTagName('e-latex');
+            for (i = 0; i < mes.length; i++) {
+                mes[i].initME();
+            }
+        });
     </script>
     <title>
         CustomElement 만들기
@@ -28,6 +37,31 @@
 </head>
 
 <body>
+    <div class="base-grid eheader">
+        <div style="grid-column: text;">
+            Ed's Blog <span style="float: right;"><a href="/">Home</a></span>
+        </div>
+    </div>
+    <d-front-matter>
+        <script id='distill-front-matter' type="text/json">
+            {
+                "authors": [{
+                    "author": "Ed Kim",
+                    "authorURL": "https://edonedge.github.io/",
+                    "affiliations": [{
+                        "name": "Ed on Edge"
+                    }]
+                }],
+                "katex": {
+                    "delimiters": [{
+                        "left": "$$",
+                        "right": "$$",
+                        "display": false
+                    }]
+                }
+            }
+        </script>
+    </d-front-matter>
     <d-title>
         <h1 id="title">
             CustomElement 만들기
@@ -36,14 +70,50 @@
             내가 모르는 html tag들이 여기저기 나오길래 저런 게 다 뭔가 했더니, CustomElement라는 게 가능하더라.
         </p>
     </d-title>
+
     <d-article id="contents">
+        <d-contents></d-contents>
+        
                 <d-contents></d-contents>
         
                 <d-contents></d-contents>
-        <p>Custom Element의 이름에는 반드시 -(hyphen)이 들어가야 한다.</p><p><br></p>                </d-article>
+        <p>Custom Element의 이름에는 반드시 -(hyphen)이 들어가야 한다.</p><p><br></p>    </d-article>
+    <d-article>
+        <!--
+        <div>
+            <a href="https://edonedge.github.io/posts/2020-12-19-custom-elements#disqus_thread">Link</a>
+        </div>
+        -->
+        <div>
+            <div id="disqus_thread"></div>
+        </div>
+    </d-article>
+    <d-appendix>
+    </d-appendix>
+    <div class="base-grid efooter">
+        <div style="grid-column: text;">
+        Ed found a way to relax on the cutting edge. <br> <a href="/">Home</a>
+        </div>
+    </div>
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
 
-
-    <d-appendix></d-appendix>
+        var disqus_config = function() {
+            this.page.identifier = "/posts/2020-12-19-custom-elements";
+            this.page.url = "https://edonedge.github.io/posts/2020-12-19-custom-elements";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script');
+            s.src = 'https://edonedge.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script id="dsq-count-scr" src="//edonedge.disqus.com/count.js" async></script>
 </body>
 
 </html>
