@@ -18,7 +18,11 @@ d-title h1 {
     font-weight: normal;
 }
 .eheader {
-    position: relative;
+    /*position: sticky;*/
+    position: fixed;
+    transition: top 0.2s ease-in-out;
+    top: 0;
+    /*position: relative;*/
     height: 60px;
     background-color: hsl(200, 60%, 15%);
     width: 100%;
@@ -33,6 +37,9 @@ d-title h1 {
     height: 60px;
     line-height: 60px;
     
+}
+.nav-up {
+    top: -60px;
 }
 .eheader a {
     font-size: 16px;
