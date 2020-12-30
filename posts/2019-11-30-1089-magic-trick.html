@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <script src="https://distill.pub/template.v2.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+    <script src='/elatex.js'></script>
+    <script>
+        window.onload = function(e) {
+                // Legacy latex math expressions.
+                mes = document.getElementsByTagName('latex');
+                for (i = 0; i < mes.length; i++) {
+                    katex.render(mes[i].innerText, mes[i]);
+                }
+            }
+            // current math expressions
+        window.addEventListener('DOMContentLoaded', (event) => {
+            console.log('DOM fully loaded and parsed');
+            dom_init_loading_done = true;
+            mes = document.getElementsByTagName('e-latex');
+            for (i = 0; i < mes.length; i++) {
+                mes[i].initME();
+            }
+        });
+    </script>
+    <title>
+        1089 Magic Trick
+    </title>
+</head>
+
+<body style="padding-top:60px;">
+    <header class="base-grid eheader nav-down">
+        <div style="grid-column: text;">
+            Ed's Blog <span style="float: right;"><a href="/">Home</a></span>
+        </div>
+    </header>
+    <d-front-matter>
+        <script id='distill-front-matter' type="text/json">
+            {
+                "authors": [{
+                    "author": "Ed Kim",
+                    "authorURL": "https://edonedge.github.io/",
+                    "affiliations": [{
+                        "name": "Ed on Edge"
+                    }]
+                }],
+                "katex": {
+                    "delimiters": [{
+                        "left": "$$",
+                        "right": "$$",
+                        "display": false
+                    }]
+                }
+            }
+        </script>
+    </d-front-matter>
+    
+    <d-title>
+        <h1 id="title">
+            1089 Magic Trick
+        </h1>
+        <p id="intro">
+            세자리 수를 마음속으로 생각해봐. 그 숫자에서 그 숫자를 뒤집은 숫자를 뺀다. 나온 답과 그 답을 뒤집은 숫자를 더한다. 나는 이미 답을 알지 그건 1089
+        </p>
+    </d-title>
+
+    <d-article id="contents">
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        <h2>어떻게 하는 건가?</h2><p>1089 Magic Trick을 어떻게 하는 지 다시 한 번 정리해 보자.&nbsp;<br>1. 마음 속으로 세자리 숫자 하나를 정한다. 단 백의 자리와 일의 자리의 차이가 1보다 커야 한다.<br>2. 그 숫자를 뒤집어서 원래 숫자와 차를 구한다.<br>3. 나온 답과 그것을 뒤집은 숫자를 더한다.<br>4. 답은 1089</p><aside>예를 들어 371이라고 하자.<br>뒤집으면 173이고 원래 숫자와 차이를 구하면<br>&nbsp;<e-latex>371 - 173 = 198</e-latex>&nbsp;<br>198과 그것을 뒤집은 891을 더하면<br>&nbsp;<e-latex>198 + 891 = 1089</e-latex>&nbsp;</aside><p>이 trick의 포인트는 답을 알아내는 사람이 마음속으로 계산하는 사람으로부터 어떠한 대답도 요구하지 않는다는 데 있다. 보통 숫자 트릭들은 중간 계산 결과를 하나씩 물어보는데 말이다.&nbsp;</p><p>짐작하겠지만, 이것은 독심술 같은 것이 아니다. 백의 자리와 일의 자리의 차가 1보다 큰 어떤 세자리 숫자를 넣어도 모두 똑같은 1089가 나오게 되어 있다.&nbsp;</p><p>왜 이렇게 되는 지 살펴보자</p><h2>왜 되는 걸까?</h2><h3>세자리 숫자의 표현</h3><p>예를 들어서 숫자 371이 있다고 하자. 이것을 뒤집은 숫자는 173이다.</p><p>앞 숫자의 1과 뒷 숫자의 1이 같은 1일까? 당연히 아닐 것이다. 앞의 1은 1을 의미하지만 뒤의 1은 100을 의미한다. 이걸 말로 줄줄 푸는 게 아니라 수식으로 어떻게 표현할 수 있을까?</p><blockquote>&nbsp;<e-latex>371 = 3 \times 100 + 7 \times 10 + 1</e-latex>&nbsp;&nbsp;</blockquote><p>371을 3개의 100과, 7개의 10, 그리고 1의 합으로 표현한 것이다. 그렇다면 173은 아래와 같이 나타낼 수 있다.</p><blockquote>&nbsp;<e-latex>173 = 1 \times 100 + 7 \times 10 + 3</e-latex>&nbsp;&nbsp;</blockquote><p>이제 371의 1과 173의 1이 다르다는 것을 수식으로 나타내었다. 371의 1은 그냥 1이고, 173의 1은 100이 1개 있다는 뜻이다.&nbsp;<d-footnote id="d-footnote-1">나도 안다. 아는 이야기 반복하고 있다는 것을... 즐기시라. 이것도 연습이니...</d-footnote>&nbsp;</p><h3>문자로 대신해서 표현해 보자</h3><p>특정한 숫자에 대해서만 되는 게 아니라 거의 모든 세자리 숫자에 대해서 다 되는 모양이니 각자리의 숫자를 문자로 나타내 보자.</p><p>100의 자리에 있는 숫자를 a, 10의 자리에 있는 숫자를 b, 1의 자리에 있는 숫자를 c라고 하자. 여기에서 a, b, c가 정말 아무 숫자가 다 되는 것은 아니고 조건이 붙는다. 각 자리의 숫자를 타나내는 데 쓰이니 10이 넘어가거나 음수이거나 소숫점일 수는 없는 노릇 아닌가?</p><p>&nbsp;a와 c는 1에서 9까지의 자연수이고, b는 0이거나 1에서 9까지의 자연수이다. 미국 교과 과정에는 0 및 자연수를 whole number라고 부르고 있어서 0부터 9까지의 whole number라고 말해도 되겠다&nbsp;<d-footnote id="d-footnote-2">그런데 whole number는 그렇게 유명한 개념이 아니다. 거의 미국만 쓰는 느낌</d-footnote>&nbsp;</p><aside>a는 0이 될수가 없다. a가 0이 되면 세자리 숫자가 아니라 두 자리 숫자이기 때문이다. c도 0이 되면 안 되는데, 원래 숫자를 뒤집었을 때에도 세자리 숫자가 되어야 하기 때문이다.</aside><p>여기에 남은 조건이 하나 더 있다: 백의 자리와 1의 자리의 차가 1이 넘어야 한다.</p><p>백의 자리 숫자보다 일의 자리 숫자가 더 크면서 차가 1이 넘으려면&nbsp;<e-latex>a - c &gt; 1</e-latex>&nbsp;로 나타낼 수 있고, 백의 자리 수가 일의 자리 수보다 작으면서 차가 1을 넘으려면&nbsp;<e-latex>c - a &gt; 1</e-latex>&nbsp;라고 쓸 수 있다.&nbsp;</p><aside>절댓값을 배운 사람은&nbsp;<e-latex>| a - c | &gt; 1</e-latex>&nbsp;로 쓸 것이다.&nbsp;</aside><p>하지만 일단&nbsp;<e-latex>a - c &gt; 1</e-latex>&nbsp;이라는 조건만 생각하자. 왜 그렇게 해도 되냐면, 숫자를 뒤집은 다음에 차이를 구하는 것은 항상 큰 것에서 작은 것을 빼는 연산이기 때문에, 백의 자리가 일의 자리보다 작은 경우라도, 뒤집은 숫자를 처음에 생각했다고 가정하면 그 이후 모든 과정을 모두 같게 볼 수 있기 때문이다&nbsp;<d-footnote id="d-footnote-3">헛갈리는가? 처음에 173처럼 백의 자리가 일의 자리보다 작은 숫자를 생각했더라도 숫자를 뒤집어서 371을 만들고 차이를 구할 때에는 항상 큰 것에서 작은 것을 빼기 때문에, 처음에 173을 생각했든 371을 생각했든 그 다음 단계에서는 똑같은 371 - 173을 계산하게 되어서 그 이후 과정이 같아진다. 그러므로 371으로 시작할 때와 173으로 시작할 때를 따로 증명할 필요 없이 371로 시작할 때가 증명된다면 173으로 시작할 때도 이미 증명되었다고 보아도 된다.</d-footnote>&nbsp;. 그래서 실제로는&nbsp;<e-latex>a - c &gt; 1</e-latex>&nbsp;인 경우와&nbsp;<e-latex>c - a &gt; 1</e-latex>&nbsp; 경우가 둘 다 존재하지만 그 중에&nbsp;<e-latex>a - c &gt; 1</e-latex>&nbsp;이라는 한가지 조건만 고려해서 증명할 범위를 줄였다고 해도 전체증명에 영향을 미치지 않는다.</p><p>이렇게 증명에 해가 되지 않는 선에서 증명의 범위를 줄이는 건 매우 자주 사용된다<d-footnote id="d-footnote-4">왜? 간단하니까. 같은 말 두번을 길게 하면 잉크를 많이 쓰기 때문에 안 된다</d-footnote>. 익숙해지도록 하자.&nbsp;</p><p>한글로는 깔끔한 문구가 떠오르지 않는데, 영어로는 워낙 자주 써서 아예 관용문구가 된 표현이 있다.&nbsp;</p><blockquote>Without loss of generality,</blockquote><p>이 짧은 문구에 긴 설명이 다 들어있다. 증명이 해가 되지 않는 선에서 증명의 범위를 줄일 때 저 말 한 번 하고 시작한다.</p><h3>계산해 보자</h3><p>문자가 섞여 있는 계산이 익숙하지 않으면 좀 더 연습하시고, 이제 magic trick에서 하는 순서대로 계산을 해 보자.&nbsp;</p><p>처음 세 자리 숫자는&nbsp;<e-latex>100a + 10b + c</e-latex>&nbsp;이고 이것을 뒤집은 숫자는&nbsp;<e-latex>100c + 10b + c</e-latex>&nbsp;이다.&nbsp;<e-latex>a - c &gt; 1</e-latex>&nbsp;인 경우를 가정했기 때문에 첫번째 숫자가 큰 수이고, 그래서 두 수의 차를 구하려면 첫번째 숫자에서 두 번째 숫자를 빼야 한다.&nbsp;</p><aside>내가 이래서 Without loss of generality, 하고 한쪽 방향만 증명하려는 것이다. 이게 아니면, 뒤집은 숫자가 큰 경우, 뒤집은 숫자에서 원래 숫자를 빼서 하는 증명을 똑같이 해야 한다.</aside><p>&nbsp;<e-latex>\begin{aligned}&amp;100a + 10b + c - (100c + 10b + c)\\= &amp;100(a - c) - (a - c)\end{aligned}</e-latex>&nbsp;<br></p><aside>&nbsp;<br>10b는 날아갔다. 만세.</aside><p>자 그 다음 단게는 이렇게 계산된 값을 뒤집어야 하는데, 저 계산 값에서 <b>어디가 100의 자리고 어디가 10의 자리고 어디가 1의 자리인지</b> 알 수 있겠는가?</p><p>100의 자리는&nbsp;<e-latex>a-c</e-latex>&nbsp;인 것만 같다. 10의 자리는 빼면서 사라진 모양이고, 그런데 1의 자리는?&nbsp;<e-latex>-(a-c)</e-latex>&nbsp;이 되는데,&nbsp;<e-latex>a</e-latex>&nbsp;가&nbsp;<e-latex>c</e-latex>&nbsp;보다 크기 때문에 저것은 음수이다. 마이너스 들어간 1의 자리 본 적 없지? 그러니까 저 위의 결과를 그대로 읽어서는 각 자릿수에 해당하는 숫자를 찾을 수가 없다.&nbsp;</p><p>문자로만 되어 있으니 헛갈릴 수 있는데,&nbsp;<e-latex>100(a - c) - (a - c)</e-latex>&nbsp;는 특정 숫자로 나타내자면,&nbsp;<e-latex>400 - 4</e-latex>,&nbsp;<e-latex>700 - 7</e-latex>같은 것을 말한다.</p><p>&nbsp;<e-latex>400-4</e-latex>&nbsp;를 보면 계산이 덜 끝난 상태인 걸로 생각할 수 있다. 그러므로 백의 자리가 4가 아니고, 계산이 다 끝나고 나면 396이므로 백의 자리는 3이 될 것이다. 이걸 문자가 섞여 있는 식에서 어떻게 나타낼 수 있을까? 일단&nbsp;<e-latex>400-4</e-latex>&nbsp;의 꼴로 된 수식에서 출발해 보자.</p><p>&nbsp;<e-latex>100(a - c) - (a - c)</e-latex>&nbsp;</p><p>뺄셈 배우던 초등학교 저학년 시절로 돌아가보자.&nbsp;<e-latex>400-4</e-latex>&nbsp;를 할 때, 4를 뺄 곳이 없으니 앞자리 10에서 빌려와야 하는데, 십의 자리도 숫자가 없으니 그 앞의 100의 자리에서 하나 빌려와서 10의 자리에는 90만 남겨놓고&nbsp;<d-footnote id="d-footnote-5">실제 숫자는 90이지만 그 숫자를 십의 자리에 써 넣어주게 되어 있어서 쓸 때는 9만 써 넣는다</d-footnote>&nbsp;1의 자리로 10을 가져와서 뺄셈을 했었다.&nbsp;</p><aside>이게 이해가 안 가면 뺄셈 복습하자.</aside><p>그 말을 그대로 식에다가 풀면, 이렇게 된다.</p><p>&nbsp;<e-latex>\begin{aligned} &amp;100(a - c) - (a - c)\\ = &amp;100(a-c-1) + 9 \times 10 + 10 - (a-c)\end{aligned}</e-latex>&nbsp;</p><p>백의 자리는&nbsp;<e-latex>a-c-1</e-latex>&nbsp;이고, 십의 자리는&nbsp;<e-latex>9</e-latex>&nbsp; 일의 자리는&nbsp;<e-latex>10-(a-c)</e-latex>&nbsp;이다. 자 이제 우리는 이 세자리 숫자를 뒤집을 수 있다. &nbsp;뒤집은 숫자는</p><p>&nbsp;<e-latex>100\{10-(a-c)\} + 9 \times 10 + a-c-1</e-latex>&nbsp;</p><p>이제 이 두 숫자를 합하면</p><p>&nbsp;<e-latex>\begin{aligned}
+&amp;\begin{aligned}
+&amp; \{100(a-c-1) + 9 \times 10 + 10 - (a-c)\} \\
++&amp;[100\{10-(a-c)\} + 9 \times 10 + a-c-1]
+\end{aligned}\\
+= &amp;100a-100c-100 + 90 + 10 -a+c \\
+&amp;+1000-100a+100c+90+a-c-1 \\
+=&amp;-100 + 90 + 10 + 1000 + 90 - 1 \\
+= &amp;1089
+\end{aligned}</e-latex>&nbsp;&nbsp;</p><aside>이중 삼중 괄호 풀 줄 알죠?</aside><p>계산은 길었지만 결과는 간단하다. 문자가 들어간 항들이 모두 소거되고 숫자만 남아서 계산해 보니 1089. 이건 무슨 뜻이냐 하면 a, b, c가 처음 조건만 만족하면 어떤 숫자이든 무슨 조합이든간에, 최종 결과값이 1089가 나온다는 뜻이다. 만세.</p><h2>좀 더 들여다 보자</h2><p>"1089가 나오네"에서 그치지 말자. 몇 가지 의문이 있다.<br></p><h3>왜 백의 자리와 일의 자리는 차이가 1보다 커야 하는가?</h3><p>원래숫자와 뒤집은 숫자를 빼서 나온 식</p><p>&nbsp;<e-latex>\begin{aligned}&amp;100(a - c) - (a - c)\\ = &amp;100(a-c-1) + 9 \times 10 + 10 - (a-c)\end{aligned}</e-latex>&nbsp;</p><p>안에 그 답이 있다.&nbsp;</p><p>백의 자리와 일의 자리가 같다면, 즉&nbsp;<e-latex>a=c</e-latex>&nbsp;라면</p><p>&nbsp;<e-latex>100(a - c) - (a - c)</e-latex>&nbsp;</p><p>에서 볼 수 있듯, 두 수의 차이가 0이 되어서 그 다음을 진행 할 수가 없다. 예를 들어서&nbsp;<e-latex>171-171=0</e-latex>&nbsp;</p><p>그리고 두 수의 차를 세자리 숫자가 잘 타나타도록 정리한 식이 이것이었는데,</p><p>&nbsp;<e-latex>100(a-c-1) + 9 \times 10 + 10 - (a-c)</e-latex>&nbsp;</p><p>여기서 백의 자리 숫자&nbsp;<e-latex>a</e-latex>&nbsp;와 일의 자리 숫자&nbsp;<e-latex>c</e-latex>&nbsp;의 차이가 1밖에 안 난다면,&nbsp;<e-latex>a-c-1=0</e-latex>&nbsp;되어서 백의 자리가 사라져버린다. 그래서 백의 자리와 일의 자리의 차이가 1이 넘어야 한다는 조건이 붙은 것이다.</p><h3>처음 세자리 숫자와 뒤집은 숫자의 차이</h3><p>처음 세자리 숫자와 뒤집은 숫자의 차이는</p><p>&nbsp;<e-latex>100(a - c) - (a - c)</e-latex>&nbsp;</p><p>이라고 했다.&nbsp;<e-latex>a</e-latex>&nbsp;와&nbsp;<e-latex>c</e-latex>&nbsp;는 1에서 9까지의 자연수이고,&nbsp;<e-latex>a-c&gt;1</e-latex>&nbsp;이므로 사실 저 값에 해당하는 실제 숫자는 7개 밖에 안 나온다.</p><p>200 - 2 = 198</p><p>300 - 3 = 297</p><p>400 - 4 = 396</p><p>500 - 5 = 495</p><p>600 - 6 = 594</p><p>700 - 7 = 693</p><p>800 - 8 = 792</p><p>7개를 풀어서 써 보니 이제 더 잘 보이겠다. 처음수와 뒤집은 수의 차이를 자릿수가 잘 나타나게 표현하면,</p><p>&nbsp;<e-latex>100(a-c-1) + 9 \times 10 + 10 - (a-c)</e-latex>&nbsp;</p><p>이라고 했는데, 식에서 바로 알 수 있듯이 십의 자리가 9이다. 처음에 무슨 숫자를 생각하든 숫자 뒤집어서 빼면, 십의 자리가 9가 된다는 사실을 알 수 있다.</p><h2>마치며</h2><p>초등학교 때 EBS교육방송에서 탐구생활^[역시.. 나이가 탄로난다]을 보다가 이 magic trick을 처음 접했다. 탐구생활에서는 마치 독심술인마냥 1089가 답이라는 걸 마법사가 맞추고 끝나버렸더랬다. 어떻게 그렇게 되는지 다시 한 번따라가면서 어떤 숫자를 넣어도 답이 1089가 됨을 알았지만, 왜 그렇게 되는지는 사칙연산만 할 줄 알던 나로서는 찾아낼 수가 없었다.&nbsp;</p><p>마음 한 켠에 언젠가 알아봐야지 하고 품고 있다가 초등학교 고학년이 되어 문자로 숫자를 대신하는 것을 배우기 시작하면서 아마도 이걸 이용하면 되겠다 싶어서 이리저리 머리를 굴려보았지만 실패했었고, 중학생이 되어 선생님께 물어도 선생님도 모르고, 혼자 고민하다가 중학교 1학년 말 즈음에서야 증명했던 걸로 기억한다. 다른 글에서도 한 번 언급했던 것 같은데,</p><blockquote>얼마나 기쁘던지</blockquote><p>그 기분에 이 숫자 놀음을 좋아하게 되었다.</p><div><br></div>    </d-article>
+    <d-article>
+        <!--
+        <div>
+            <a href="https://edonedge.github.io/posts/2019-11-30-1089-magic-trick#disqus_thread">Link</a>
+        </div>
+        -->
+        <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="edkim" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Would you Buy me a Coffee?" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+        <div>
+            <div id="disqus_thread"></div>
+        </div>
+    </d-article>
+    <d-appendix>
+    </d-appendix>
+    <div class="base-grid efooter">
+        <div style="grid-column: text;">
+        Ed found a way to relax on the cutting edge. <br> <a href="/">Home</a>
+        </div>
+    </div>
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+        var disqus_config = function() {
+            this.page.identifier = "/posts/2019-11-30-1089-magic-trick";
+            this.page.url = "https://edonedge.github.io/posts/2019-11-30-1089-magic-trick";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script');
+            s.src = 'https://edonedge.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script id="dsq-count-scr" src="//edonedge.disqus.com/count.js" async></script>
+    <script>
+        // Hide Header on on scroll down
+var didScroll;
+var lastScrollTop = 0;
+var delta = 5;
+var navbarHeight = $('header').outerHeight();
+
+$(window).scroll(function(event){
+    didScroll = true;
+    console.log('scroll detected!!');
+});
+
+setInterval(function() {
+    if (didScroll) {
+        console.log('scroll detected');
+        hasScrolled();
+        didScroll = false;
+    }
+}, 250);
+
+function hasScrolled() {
+    var st = $(this).scrollTop();
+    
+    // Make sure they scroll more than delta
+    if(Math.abs(lastScrollTop - st) <= delta)
+        return;
+    
+    // If they scrolled down and are past the navbar, add class .nav-up.
+    // This is necessary so you never see what is "behind" the navbar.
+    if (st > lastScrollTop && st > navbarHeight){
+        // Scroll Down
+        $('header').removeClass('nav-down').addClass('nav-up');
+    } else {
+        // Scroll Up
+        if(st + $(window).height() < $(document).height()) {
+            $('header').removeClass('nav-up').addClass('nav-down');
+        }
+    }
+    
+    lastScrollTop = st;
+}
+    </script>
+</body>
+
+</html>
