@@ -7,27 +7,64 @@
 
     <script src="https://distill.pub/template.v2.js"></script>
     <link rel="stylesheet" href="/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+    <script src='/elatex.js'></script>
     <script>
         window.onload = function(e) {
-            mes = document.getElementsByTagName('latex');
-            for (i = 0; i < mes.length; i++) {
-                katex.render(mes[i].innerText, mes[i], {
-                    displayMode: true
-                });
+                // Legacy latex math expressions.
+                mes = document.getElementsByTagName('latex');
+                for (i = 0; i < mes.length; i++) {
+                    katex.render(mes[i].innerText, mes[i]);
+                }
             }
-        }
+            // current math expressions
+        window.addEventListener('DOMContentLoaded', (event) => {
+            console.log('DOM fully loaded and parsed');
+            dom_init_loading_done = true;
+            mes = document.getElementsByTagName('e-latex');
+            for (i = 0; i < mes.length; i++) {
+                mes[i].initME();
+            }
+        });
     </script>
     <title>
         Title
     </title>
 </head>
 
-<body>
+<body style="padding-top:60px;">
+    <header class="base-grid eheader nav-down">
+        <div style="grid-column: text;">
+            Ed's Blog <span style="float: right;"><a href="/">Home</a></span>
+        </div>
+    </header>
+    <d-front-matter>
+        <script id='distill-front-matter' type="text/json">
+            {
+                "authors": [{
+                    "author": "Ed Kim",
+                    "authorURL": "https://edonedge.github.io/",
+                    "affiliations": [{
+                        "name": "Ed on Edge"
+                    }]
+                }],
+                "katex": {
+                    "delimiters": [{
+                        "left": "$$",
+                        "right": "$$",
+                        "display": false
+                    }]
+                }
+            }
+        </script>
+    </d-front-matter>
+    
     <d-title>
         <h1 id="title">
             Title
@@ -36,25 +73,95 @@
             intro
         </p>
     </d-title>
+
     <d-article id="contents">
+        <d-contents></d-contents>
+        
         <p></p>
         <aside>somethi&nbsp;
             <e-latex>x+y</e-latex>&nbsp;aa
             <e-latex>y=ax+b</e-latex>&nbsp; dsasfddddddd
             <e-latex displaymode="">y=ax+b+42</e-latex>&nbsp;sjlkjlsadfsad</aside>
-        <h2><span>dfads&nbsp;</span></h2><br><span>sdfds&nbsp;</span><span style="font-size: 1.06rem;">f</span><span style="font-size: 1.06rem;">f&nbsp;</span><br>
-        <p></p>
-        <aside><span style="font-size: 1.06rem;">something to change</span></aside><br><br>
-        <p></p>
-        <aside>aside block</aside>
-        <p><span style="font-size: 1.06rem;">&nbsp;</span></p>
-        <p></p>
-        <p>ng&nbsp;
-            <e-latex>x + y=\frac{1}{2}</e-latex>&nbsp;</p>
+        <h2><span>dfads&nbsp;</span></h2><br><p style="grid-column: page;"><img src="/images/1-2-number-line.png"><span><br></span></p>    </d-article>
+    <d-article>
+        <!--
+        <div>
+            <a href="https://edonedge.github.io/posts/2020-12-23-latex-test#disqus_thread">Link</a>
+        </div>
+        -->
+        <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="edkim" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Would you Buy me a Coffee?" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+        <div>
+            <div id="disqus_thread"></div>
+        </div>
     </d-article>
+    <d-appendix>
+    </d-appendix>
+    <div class="base-grid efooter">
+        <div style="grid-column: text;">
+        Ed found a way to relax on the cutting edge. <br> <a href="/">Home</a>
+        </div>
+    </div>
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
 
+        var disqus_config = function() {
+            this.page.identifier = "/posts/2020-12-23-latex-test";
+            this.page.url = "https://edonedge.github.io/posts/2020-12-23-latex-test";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script');
+            s.src = 'https://edonedge.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script id="dsq-count-scr" src="//edonedge.disqus.com/count.js" async></script>
+    <script>
+        // Hide Header on on scroll down
+var didScroll;
+var lastScrollTop = 0;
+var delta = 5;
+var navbarHeight = $('header').outerHeight();
 
-    <d-appendix></d-appendix>
+$(window).scroll(function(event){
+    didScroll = true;
+    console.log('scroll detected!!');
+});
+
+setInterval(function() {
+    if (didScroll) {
+        console.log('scroll detected');
+        hasScrolled();
+        didScroll = false;
+    }
+}, 250);
+
+function hasScrolled() {
+    var st = $(this).scrollTop();
+    
+    // Make sure they scroll more than delta
+    if(Math.abs(lastScrollTop - st) <= delta)
+        return;
+    
+    // If they scrolled down and are past the navbar, add class .nav-up.
+    // This is necessary so you never see what is "behind" the navbar.
+    if (st > lastScrollTop && st > navbarHeight){
+        // Scroll Down
+        $('header').removeClass('nav-down').addClass('nav-up');
+    } else {
+        // Scroll Up
+        if(st + $(window).height() < $(document).height()) {
+            $('header').removeClass('nav-up').addClass('nav-down');
+        }
+    }
+    
+    lastScrollTop = st;
+}
+    </script>
 </body>
 
 </html>
