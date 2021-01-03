@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <script src="https://distill.pub/template.v2.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+    <script src='/elatex.js'></script>
+    <script>
+        window.onload = function(e) {
+                // Legacy latex math expressions.
+                mes = document.getElementsByTagName('latex');
+                for (i = 0; i < mes.length; i++) {
+                    katex.render(mes[i].innerText, mes[i]);
+                }
+            }
+            // current math expressions
+        window.addEventListener('DOMContentLoaded', (event) => {
+            console.log('DOM fully loaded and parsed');
+            dom_init_loading_done = true;
+            mes = document.getElementsByTagName('e-latex');
+            for (i = 0; i < mes.length; i++) {
+                mes[i].initME();
+            }
+        });
+    </script>
+    <title>
+        기하급수적이란?
+    </title>
+</head>
+
+<body style="padding-top:60px;">
+    <header class="base-grid eheader nav-down">
+        <div style="grid-column: text;">
+            Ed's Blog <span style="float: right;"><a href="/">Home</a></span>
+        </div>
+    </header>
+    <d-front-matter>
+        <script id='distill-front-matter' type="text/json">
+            {
+                "authors": [{
+                    "author": "Ed Kim",
+                    "authorURL": "https://edonedge.github.io/",
+                    "affiliations": [{
+                        "name": "Ed on Edge"
+                    }]
+                }],
+                "katex": {
+                    "delimiters": [{
+                        "left": "$$",
+                        "right": "$$",
+                        "display": false
+                    }]
+                }
+            }
+        </script>
+    </d-front-matter>
+    
+    <d-title>
+        <h1 id="title">
+            기하급수적이란?
+        </h1>
+        <p id="intro">
+            좀 잠잠해지기를 바랐던 코로나바이러스가 기하급수적으로 증가할 지도 모른다는 뉴스가 여기저기서 보인다. 오늘은 기하급수처럼 증가한다라는 게 얼마나 많이, 빨리 증가하는 것인지 알아보자.
+        </p>
+    </d-title>
+
+    <d-article id="contents">
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        <h2>기하급수(幾何級數, Geometric Series)</h2><p>기하(幾何, Geometry)라는 말은 도형에 관련되어 있다는 뜻일 게다. 이건 뒷부분에서 다루겠다. 급수(級數)라는 말을 먼저 들여다 보자. 급수의 급(級)은 등급, 계급 같은 것을 뜻하는 말이다. 급(<span style="-webkit-text-size-adjust: 100%;">級)</span><span style="-webkit-text-size-adjust: 100%;">이 있는 수(</span><span style="-webkit-text-size-adjust: 100%;">數, number)라니, 여전히 감이 오지 않는다. 급수는 수열이라는 것에서부터 정의되니까, 수열부터 알아 보겠다.</span></p><aside>급수는 영어로 series인데 영어로 풀어도 뜻을 알기가 힘들다.</aside><h3>수열(數列, Sequence)</h3><p>말 그대로 수를 나열해 놓은 것을 말한다. 예를 들어</p><blockquote>&nbsp;<e-latex>1, 2, 3, 4, 5, 6, 7, 8, \cdots</e-latex>&nbsp;</blockquote><aside>(1) 번 수열</aside><blockquote>&nbsp;<e-latex displaymode="">-0.4, 42, \frac{23}{11}, 0, 100</e-latex>&nbsp;</blockquote><aside>(2) 번 수열</aside><blockquote>&nbsp;<e-latex>1, 2, 4, 8, 16, 32, 64</e-latex>&nbsp;</blockquote><aside>(3) 번 수열</aside><p>같은 것들을 말한다. (1)번 수열처럼 끝이 없이 계속 나열한 것을 <b>무한 수열</b>, (2), (3)번 수열처럼 끝이 있는 수열을 <b>유한수열</b>이라고 부른다.</p><p>간결하게 표현하는 방법을 약속에 놓으면 나중에 편하니까, 말로 길게 쓸 내용을 다음과 같이 나타내기로 약속하자. 수열은 알파벳소문자로 나타내는 것이 일반적이다. 예를 들어 (1)번 수열을&nbsp;<e-latex>a</e-latex>&nbsp;라고 하면, (2)번 수열은&nbsp;<e-latex>b</e-latex>&nbsp;로 나타내는 것이다. (1)번 수열을&nbsp;<e-latex>a</e-latex>라고 나타내기로 했다면, 그 수열의 3번째 숫자는&nbsp;<e-latex>a_3</e-latex>&nbsp;으로 나타낸다(아래첨자로 작게 몇번째 숫자인지를 적어주는 것이다).&nbsp;</p><aside>수열을 그냥&nbsp;<e-latex>a</e-latex>로만 적으면 숫자 하나를&nbsp;<e-latex>a</e-latex>&nbsp;&nbsp;<e-latex>b</e-latex>&nbsp;등의 알파벳 소문자로 표현하던 방식과 같아지기 때문에 좀 더 구분짓기 위해&nbsp;<e-latex>(a_n)</e-latex>&nbsp;&nbsp;<e-latex>\{a_n\}</e-latex>&nbsp;&nbsp;<e-latex>\langle a_n \rangle</e-latex>&nbsp;등으로 나타내기도 한다.</aside><p>이 방식을 (1)번 수열에 적용해 보면,</p><p style="text-align: center;">&nbsp;<e-latex>a = 1, 2, 3, 4, 5, 6, 7, 8, \cdots</e-latex>&nbsp;</p><p style="text-align: center;">&nbsp;<e-latex>a_1 = 1</e-latex>&nbsp;</p><p style="text-align: center;">&nbsp;<e-latex>a_2 = 2</e-latex>&nbsp;</p><p style="text-align: center;">&nbsp;<e-latex>\vdots</e-latex>&nbsp;</p><p style="text-align: center;">&nbsp;<e-latex>a_8 = 8</e-latex>&nbsp;</p><p>수열&nbsp;<e-latex>a</e-latex>&nbsp;는 규칙이 있는 것 같다.&nbsp;<e-latex>n</e-latex>&nbsp;번째 숫자의 값이&nbsp;<e-latex>n</e-latex>&nbsp;이 된다는 게 눈에 훤히 보인다. 이렇게 규칙이 찾아지면,&nbsp;<e-latex>a_n = n</e-latex>&nbsp;과 같이 그 규칙을 써 줄 수도 있다.&nbsp;</p><h3>급수(級數, Series)</h3><p>급수는 수열의 일종인데, 수열의 숫자가 결정되는 방식이 특이하다. 항상 참조할 수열 하나를 두고, 그 수열의 첫번째 숫자부터의 부분합으로 급수의 숫자값이 결정된다.</p><p>급수를&nbsp;<e-latex>S</e-latex>&nbsp;라고 쓰면 이 급수의&nbsp;<e-latex>n</e-latex>&nbsp;번째 숫자의 값은,&nbsp;<e-latex>S_n</e-latex>&nbsp;이라고 표현할 수 있다. 급수&nbsp;<e-latex>S</e-latex>&nbsp;가 참조하는 수열을&nbsp;<e-latex>a</e-latex>&nbsp;라고 하면 급수의&nbsp;<e-latex>n</e-latex>&nbsp;번째 원소의 값&nbsp;<e-latex>S_n</e-latex>&nbsp;은 다음과 같이 결정된다.</p><p style="text-align: center;">&nbsp;<e-latex>S_n = a_1 + a_2 + \cdots + a_n</e-latex>&nbsp;</p><p>예를 들어 급수&nbsp;<e-latex>S</e-latex>&nbsp;가 참조하는 수열이 (1)번 수열이고 (1)번 수열을&nbsp;<e-latex>a</e-latex>&nbsp;라고 이름붙였다면,</p><p style="text-align: center;">&nbsp;<e-latex>\begin{aligned} S_1 &amp;= a_1 &amp;&amp;= 1 \\
+S_2 &amp;= a_1 + a_2 &amp;= 1 + 2 &amp;= 3\\
+S_3 &amp;= a_1 + a_2 + a_3 &amp;= 1 + 2 + 3 &amp;= 6\\
+&amp;\vdots&amp;\\
+S_8 &amp;= a_1 + a+2 + \cdots + a_8 &amp;= 1 + 2 + \cdots + 8 &amp;= 36\end{aligned}</e-latex>&nbsp;<span style="-webkit-text-size-adjust: 100%;">&nbsp;</span></p><p>즉, 수열&nbsp;<e-latex>1, 2, 3, 4, 5, 6, 7, 8, \cdots</e-latex>&nbsp;의 급수는&nbsp;<e-latex>1, 3, 6, 10, 15, 21, 28, 36, \cdots</e-latex>&nbsp;</p><p>같은 방법으로 수열&nbsp;<e-latex displaymode="">-0.4, 42, \frac{23}{11}, 0, 100</e-latex>&nbsp;의 급수는&nbsp;<e-latex displaymode="">-0.4,41.6,\frac{2403}{55},\frac{2403}{55},\frac{7903}{55}</e-latex>&nbsp;</p><aside>숫자가 딱 안 떨어진다고 당황하지 말고, 맞게 더했으면 그게 맞는 답임을 잊지 말자</aside><p>수열&nbsp;<e-latex>1, 2, 4, 8, 16, 32, 64</e-latex>&nbsp;의 급수는&nbsp;<e-latex>1, 3, 7, 15, 31, 63, 127</e-latex>&nbsp;</p><p>재미난데, 하나 더 해볼까?</p><p>수열&nbsp;<e-latex>1, 0, 1, 0, 1, 0, 1, 0, 1, 0</e-latex>&nbsp;의 급수는?</p><blockquote style="text-align: center;">&nbsp;<e-latex>1, 1, 2, 2, 3, 3, 4, 4, 5, 5</e-latex>&nbsp;&nbsp;</blockquote><h2>특별한 수열</h2><p>수열 중에서 패턴이나 규칙이 있는 수식에 우리는 관심을 더 많이 가지게 되고 거기에다가 이름도 붙이게 되어 있다. 앞에서 보았던 수열 중에, (2)번 수열에는 별 패턴이 없고, (1)번 수열과 (3)번 수열은 확실한 규칙이 있다.</p><aside>(2)번 수열도 억지로 패턴을 찾으려면 찾을 수도 있다. 나중에 과대적합이나 오컴의 면도날에 대해서 한 번 글을 쓰게 되면 왜 (2)와 같은 수열에서 패턴을 굳이 찾으려 하지 않는지 써 보겠다.</aside><h3>(1)번 수열&nbsp;<e-latex>1, 2, 3, 4, 5, 6, 7, 8, \cdots</e-latex>&nbsp;에는 어떤 규칙이 있을까?</h3><blockquote>하나씩 세고 있는데요.</blockquote><p>아.. 맞다. 하나씩 세고 있는 건데, 출제자 의도가 그런 것은 아니었고, 그럼 이런 수열을 한 번 보자</p><p>&nbsp;<e-latex>1, 3, 5, 7, 9, 11, \cdots</e-latex>&nbsp;&nbsp;</p><blockquote>1에서 시작해서 2씩 커지네요</blockquote><p>빙고, 그럼 (1)번 수열은 비슷하게 어떻게 설명할 수 있을까?</p><blockquote>1에서 시작해서 1씩 커지네요</blockquote><p>맞다.&nbsp;</p><p>이렇게 같은 수만큼 커지거나 작아지는 수열을 <b>차이가 똑같은 수열</b>이라고 해서 <b>등차수열</b>이라고 한다. 이름이 조금 특이한데, 우리나라에서는 등차수열이라고 불리지만 영어로는 arithmetic sequence 라고 불린다. 직역하면 <b>산술 수열</b>, 즉, 산술적인 덧셈 뺄셈으로 만들 수 있는 수열이라는 뜻이다.</p><h3>(3)번 수열&nbsp;<e-latex>1, 2, 4, 8, 16, 32, 64</e-latex>&nbsp;에는 어떤 규칙이 있을까?</h3><blockquote>1에서 시작해서 2씩 곱하네요</blockquote><p>맞다. 이렇게 같은 숫자(혹은 <b>같은 비율</b>)을 곱하면서 만들어지는 수열을 <b>등비수열</b>이라고 한다. 등비수열도 영문 이름은 Geometric sequence 즉 <b>기하수열</b>로 불린다. Geometry는 Geo- 라고 하는 땅을 의미하는 어원에서 유래하는데, 기하학이 땅 넓이구하는 데에서 시작했고, 넓이는 길이에다가 길이를 <b>곱하는</b>(그 당시에는 혁명이었을 듯) 데서 시작되었기 때문에 무언가를 곱하는 수학적인 것에는 geometric이라는 이름이 자주 붙는다.</p><aside>등차수열도 그렇고 등비수열도 그렇고 우리말 용어와 영어 용어가 일대일대응이 되지는 않는다. 그냥 둘 다 알아두자.</aside><p>이제 거의 다 왔다. 등비수열, 즉, 기하수열이라는 것을 알게 되었으니까 말이다. 기하수열을 참조하는 급수가 <b>기하급수</b>이다.&nbsp;</p><aside>여기서는 기하급수를 설명하기 위해서 기하급수라는 말을 썼지만 등비수열의 급수이므로 등비급수라고 부르는 것이 보통이다. 하지만 영어로는 Geometric Series라고 부르니 두 용어 다 알아두는 것도 좋다.&nbsp;</aside><h2>기하급수는 얼마나 빨리 커질까?</h2><p>등비수열(기하수열)만 해도 값이 급격하게 증가한다. (3)번 수열을 생각해 보자.</p><p style="text-align: center; ">&nbsp;<e-latex>1, 2, 4, 8, 16, 32, 64</e-latex>&nbsp;&nbsp;</p><p>이 등비수열은 다음과 같이 나타낼 수 있다.</p><p style="text-align: center; ">&nbsp;<e-latex>1, 2, 2^2, 2^3, 2^4, 2^5, 2^6</e-latex>&nbsp;&nbsp;</p><p>분명한 패턴이 보인다.&nbsp;<e-latex>a_6 = 2^5</e-latex>&nbsp;이고&nbsp;<e-latex>a_7=2^6</e-latex>&nbsp;인 걸 보면, 이 수열이 여기서 끝나지 않고 계속 이어진다면,&nbsp;<e-latex>n</e-latex>&nbsp;번째 수열값&nbsp;<e-latex>a_n</e-latex>&nbsp;이&nbsp;<e-latex>2^{(n-1)}</e-latex>&nbsp;으로 일반화됨을 알 수 있다.&nbsp;<e-latex>a_1=1</e-latex>&nbsp;에서 시작해서&nbsp;<e-latex>a_8=2^7=128</e-latex>&nbsp;이 되어서야 처음으로 100을 넘지만, 200을 넘는 데에는 한 스텝이면 된다.&nbsp;<e-latex>a_9=2^8=256</e-latex>&nbsp;그러다가 다시 두 스텝 더 가면&nbsp;<e-latex>a_{11}=2^{10}=1024</e-latex>&nbsp;으로 1000을 돌파하고 4 스텝 더 가면 1만5천을 돌파한다.&nbsp;<e-latex>a_{15}=2^{14}=16384</e-latex>&nbsp;. 다시말해, 14스텝만에 원래 값의 1만5천배가 넘는 숫자로 바뀐다는 것이다.</p><p>여기까지는 등비<b>수열</b>(기하수열)이었다. 기하<b>급수</b>&nbsp;<e-latex>S_n</e-latex>&nbsp;은 등비수열의 첫번째 숫자부터&nbsp;<e-latex>n</e-latex>&nbsp;번째 숫자까지를 다 합친 것이므로, 이미 이렇게 큰 등비수열보다도 훨씬 더 크게 증가하는 수열이 된다는 것을 짐작할 수 있다.&nbsp;</p><p>등비수열&nbsp;<e-latex>S_n</e-latex>&nbsp;의 값을 한 번 알아보자.&nbsp;</p><p style="text-align: center;">&nbsp;<e-latex>S_n= 1+2+2^2+ \cdots + 2^{(n-2)} + 2^{(n-1)}</e-latex>&nbsp;</p><p>여기서 꽤 유명한 트릭을 한 번 써 보겠다.&nbsp;<e-latex>S_n</e-latex>&nbsp;에 등비인 2를 곱하면,</p><p style="text-align: center;">&nbsp;<e-latex>2S_n=2+2^2+2^3+ \cdots +2^{(n-1)}+2^n</e-latex>&nbsp;</p><p>이 둘을 한 데 놓고 보면 대부분의 항(term)이 겹친다는 것을 알 수 있다. 그래서 이 둘의 차이를 구하면&nbsp;<span style="-webkit-text-size-adjust: 100%;">대부분이 사라져서 간단하게 하기 편한 항 몇 개만 남는다.&nbsp;</span></p><p style="text-align: center;">&nbsp;<e-latex>\begin{aligned}S_n&amp;= 1+\textcolor{blue}{2+2^2+ \cdots + 2^{(n-2)} + 2^{(n-1)}}\\
+2S_n&amp;=\textcolor{blue}{2+2^2+2^3+ \cdots +2^{(n-1)}}+2^n \\
+2S_n - S_n &amp;= -1 + 2^n
+\end{aligned}
+</e-latex>&nbsp;&nbsp;</p><p style="text-align: center;">&nbsp;<e-latex>S_n=2^n-1</e-latex>&nbsp;&nbsp;</p><p>그러므로 이 기하급수는 기하수열(<e-latex>a_n=2^{(n-1)}</e-latex>) 비교했을 때 n번째 숫자의 값이 약 2배 정도 크다.&nbsp;</p><p>기하수열 자체가 워낙에 빨리 커지는&nbsp;<d-footnote id="d-footnote-1">비율이 1보다 클 때 하는 말이다. 1보다 작아지면 엄청난 속도로 값이 작아지고, 비율이 음수이면 양수였다가 음수였다가를 반복하게 된다.</d-footnote>&nbsp;수열이라서 급수가 이것의 단 두 배 밖에 안 된 것이 큰 변화로 안 느껴질 지도 모르지만 "두 배"는 엄청난 차이다. 수열&nbsp;<e-latex>a</e-latex>&nbsp;의 15번째 값이&nbsp;<e-latex>a_{15}=2^{14}=16384</e-latex>&nbsp;인데, 기하급수&nbsp;<e-latex>S_{15}=2^{15}-1=32767</e-latex>&nbsp;가 되어서 차이가 1만5천이 넘는다. 이 차이는 수열의 뒤쪽으로 갈 수록 더 급격하게 커진다.</p><h3>기하급수적으로</h3><p>"기하급수적으로" 라는 말은 영어로는 exponentially이다.&nbsp;<d-footnote id="d-footnote-2">In the way of gemetric series 같은 표현은 쓰지 않더라.</d-footnote>&nbsp;증가하는 형태가 지수함수를 따른다는 뜻이다. 그런데 exponentially를 문자 그대로로만 보면 그것이 꼭 기하급수만을 뜻하는 말은 아니다. 등비수열(기하수열)만 하더라도 지수함수 꼴로 숫자가 커지기 때문이다. 원래 언어가 다르면 일대일 대응되는 말이 찾아지지 않는 경우도 많으니 이렇게 쓰는 구나 하고 생각하면 되겠다.</p><h2>마치며</h2><p>오늘은 이만하련다. 말로 설명하던 걸 글로 쓰니 왜 이렇게 시간이 오래 걸리는지.</p><blockquote>아빠가 2시간 동안 설명한 거잖아요. 당연히 오래 걸리죠.</blockquote><p>아, 맞다.&nbsp;</p><p>그런데 하나 알아둘 것은, 이게 수열과 급수의 intro라는 거다. 아직 각각의 성질을 알아보거나 대수(algebra)형태로 정리하지는 않았잖아? 다음 시간에는 등차 수열부터 차근 차근 나가 보자.</p>    </d-article>
+    <d-article>
+        <!--
+        <div>
+            <a href="https://edonedge.github.io/posts/2021-01-01-geometric-series#disqus_thread">Link</a>
+        </div>
+        -->
+        <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="edkim" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Would you Buy me a Coffee?" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+        <div>
+            <div id="disqus_thread"></div>
+        </div>
+    </d-article>
+    <d-appendix>
+    </d-appendix>
+    <div class="base-grid efooter">
+        <div style="grid-column: text;">
+        Ed found a way to relax on the cutting edge. <br> <a href="/">Home</a>
+        </div>
+    </div>
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+        var disqus_config = function() {
+            this.page.identifier = "/posts/2021-01-01-geometric-series";
+            this.page.url = "https://edonedge.github.io/posts/2021-01-01-geometric-series";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script');
+            s.src = 'https://edonedge.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script id="dsq-count-scr" src="//edonedge.disqus.com/count.js" async></script>
+    <script>
+        // Hide Header on on scroll down
+var didScroll;
+var lastScrollTop = 0;
+var delta = 5;
+var navbarHeight = $('header').outerHeight();
+
+$(window).scroll(function(event){
+    didScroll = true;
+    console.log('scroll detected!!');
+});
+
+setInterval(function() {
+    if (didScroll) {
+        console.log('scroll detected');
+        hasScrolled();
+        didScroll = false;
+    }
+}, 250);
+
+function hasScrolled() {
+    var st = $(this).scrollTop();
+    
+    // Make sure they scroll more than delta
+    if(Math.abs(lastScrollTop - st) <= delta)
+        return;
+    
+    // If they scrolled down and are past the navbar, add class .nav-up.
+    // This is necessary so you never see what is "behind" the navbar.
+    if (st > lastScrollTop && st > navbarHeight){
+        // Scroll Down
+        $('header').removeClass('nav-down').addClass('nav-up');
+    } else {
+        // Scroll Up
+        if(st + $(window).height() < $(document).height()) {
+            $('header').removeClass('nav-up').addClass('nav-down');
+        }
+    }
+    
+    lastScrollTop = st;
+}
+    </script>
+</body>
+
+</html>
