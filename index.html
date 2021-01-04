@@ -34,16 +34,27 @@
         });
     </script>
     <title>
-        [object HTMLHeadingElement]
+        Ed&#39;s blog: Math, Physics, and Machine Learning
     </title>
 </head>
 
 <body style="padding-top:60px;">
     <header class="base-grid eheader nav-down">
         <div style="grid-column: text;">
-            Ed's Blog <span style="float: right;"><a href="/">Home</a></span>
+            <span style="color: white;">Ed's Blog</span>
+            <span style="float: right;">
+                <a href="/">HOME</a>
+                <a href="/about">ABOUT</a>
+                <a href="/about#bmc"><img src="/images/bmc.svg" height="30" style="vertical-align: -11%;"></a>
+            </span>
+
         </div>
     </header>
+    <d-title style="display:none;">
+        <h3 id="title">
+            Ed&#39;s blog: Math, Physics, and Machine Learning
+        </h3>
+    </d-title>
     <d-article id="contents">
         <h2>요즘 글</h2>
         <p><b>그냥 html로 씀</b></p>
@@ -56,63 +67,66 @@
             <a href="/posts/2020-06-29-uniformly-accelerated-motion.html">
                 등가속도 운동
             </a>
-        </p><p><a href="/posts/2019-11-30-1089-magic-trick">1089 Magic Trick</a></p><p><a href="/posts/2021-01-01-geometric-series">기하급수적이란?</a></p>
+        </p>
+        <p><a href="/posts/2019-11-30-1089-magic-trick">1089 Magic Trick</a></p>
+        <p><a href="/posts/2021-01-01-geometric-series">기하급수적이란?</a></p>
         <h2>예전 글</h2>
         <p><b>Markdown만들어서 R에서 html로 출판</b></p>
         <p>
             <a href="/articles/posts/2019-11-27-algebra/">
                     대수학</a></p>    </d-article>
     <d-article>
-        <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="edkim" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Would you Buy me a Coffee?" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+        <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="edkim" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Would you Buy me a Coffee?" data-outline-color="#000000"
+            data-font-color="#000000" data-coffee-color="#ffffff"></script>
     </d-article>
     <d-appendix>
     </d-appendix>
     <div class="base-grid efooter">
         <div style="grid-column: text;">
-        Ed found a way to relax on the cutting edge. <br> <a href="/">Home</a>
+            Ed found a way to relax on the cutting edge. <br> <a href="/">Home</a>
         </div>
     </div>
     <script>
         // Hide Header on on scroll down
-var didScroll;
-var lastScrollTop = 0;
-var delta = 5;
-var navbarHeight = $('header').outerHeight();
+        var didScroll;
+        var lastScrollTop = 0;
+        var delta = 5;
+        var navbarHeight = $('header').outerHeight();
 
-$(window).scroll(function(event){
-    didScroll = true;
-    console.log('scroll detected!!');
-});
+        $(window).scroll(function(event) {
+            didScroll = true;
+            console.log('scroll detected!!');
+        });
 
-setInterval(function() {
-    if (didScroll) {
-        console.log('scroll detected');
-        hasScrolled();
-        didScroll = false;
-    }
-}, 250);
+        setInterval(function() {
+            if (didScroll) {
+                console.log('scroll detected');
+                hasScrolled();
+                didScroll = false;
+            }
+        }, 250);
 
-function hasScrolled() {
-    var st = $(this).scrollTop();
-    
-    // Make sure they scroll more than delta
-    if(Math.abs(lastScrollTop - st) <= delta)
-        return;
-    
-    // If they scrolled down and are past the navbar, add class .nav-up.
-    // This is necessary so you never see what is "behind" the navbar.
-    if (st > lastScrollTop && st > navbarHeight){
-        // Scroll Down
-        $('header').removeClass('nav-down').addClass('nav-up');
-    } else {
-        // Scroll Up
-        if(st + $(window).height() < $(document).height()) {
-            $('header').removeClass('nav-up').addClass('nav-down');
+        function hasScrolled() {
+            var st = $(this).scrollTop();
+
+            // Make sure they scroll more than delta
+            if (Math.abs(lastScrollTop - st) <= delta)
+                return;
+
+            // If they scrolled down and are past the navbar, add class .nav-up.
+            // This is necessary so you never see what is "behind" the navbar.
+            if (st > lastScrollTop && st > navbarHeight) {
+                // Scroll Down
+                $('header').removeClass('nav-down').addClass('nav-up');
+            } else {
+                // Scroll Up
+                if (st + $(window).height() < $(document).height()) {
+                    $('header').removeClass('nav-up').addClass('nav-down');
+                }
+            }
+
+            lastScrollTop = st;
         }
-    }
-    
-    lastScrollTop = st;
-}
     </script>
 </body>
 
