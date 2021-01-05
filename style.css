@@ -43,6 +43,11 @@ d-title h1 {
 }
 
 .eheader a {
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+}
+
+.eheader .nav-menu a {
     font-size: 16px;
     height: 60px;
     line-height: 60px;
@@ -51,7 +56,7 @@ d-title h1 {
     padding: 22px 0;
     font-size: 12px;
     margin-left: 24px;
-    /*text-transform: uppercase;*/
+    text-transform: uppercase;
 }
 
 .eheader a:hover {
