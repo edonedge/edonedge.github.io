@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <script src="https://distill.pub/template.v2.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+    <script src='/elatex.js'></script>
+    <script>
+        window.onload = function(e) {
+                // Legacy latex math expressions.
+                mes = document.getElementsByTagName('latex');
+                for (i = 0; i < mes.length; i++) {
+                    katex.render(mes[i].innerText, mes[i]);
+                }
+            }
+            // current math expressions
+        window.addEventListener('DOMContentLoaded', (event) => {
+            console.log('DOM fully loaded and parsed');
+            dom_init_loading_done = true;
+            mes = document.getElementsByTagName('e-latex');
+            for (i = 0; i < mes.length; i++) {
+                mes[i].initME();
+            }
+        });
+    </script>
+    <title>
+        대수학으로 뭘 하나
+    </title>
+</head>
+
+<body style="padding-top:60px;">
+    <header class="base-grid eheader nav-down">
+        <div style="grid-column: text;">
+            <span style="color: white;"><a href="/">Ed's Blog</a></span>
+            <span class="nav-menu" style="float: right;">
+                <a href="/">HOME</a>
+                <a href="/about">ABOUT</a>
+                <a href="/about#bmc"><img src="/images/bmc.svg" height="30" style="vertical-align: -11%;"></a>
+            </span>
+        </div>
+    </header>
+    <d-front-matter>
+        <script id='distill-front-matter' type="text/json">
+            {
+                "authors": [{
+                    "author": "Ed Kim",
+                    "authorURL": "https://edonedge.github.io/",
+                    "affiliations": [{
+                        "name": "Ed on Edge"
+                    }]
+                }],
+                "katex": {
+                    "delimiters": [{
+                        "left": "$$",
+                        "right": "$$",
+                        "display": false
+                    }]
+                }
+            }
+        </script>
+    </d-front-matter>
+
+    <d-title>
+        <h1 id="title">
+            대수학으로 뭘 하나
+        </h1>
+        <p id="intro">
+            인간이 다른 동물과 구분되는 특징 중의 하나는 세상을 숫자로 추상화 할 수 있는 능력이다. 들판에 있는 양 5마리와 뒷산에 나무 5그루 사이의 공통점을 파악하는 능력. 우리는 너무 당연하게 &#34;5개네?&#34; 하고 받아들이지만 다른 동물들에게는 힘든 그 과정 말이다.
+        </p>
+    </d-title>
+
+    <d-article id="contents">
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        <p style="grid-column-start: page; grid-column-end: page;"><img src="/images/abstract_5.png"><br></p><p>우리는 방금 양 5마리와 나무 5그루라는 전혀 다른 상황을 숫자 5로 추상화했다.</p><p>양이 두 마리 도망갔다. 남은 양은 몇 마리? 3 마리다. 나무가 번개 맞아서 2개다 타서 쓰러져버렸다. 멀쩡한 나무는? 3 그루다. 그런데 이걸 우리가 어떻게 알고 있는지 신기하지 않은가? 양이 도망갈 때마다 남은 양이 몇 마리인 지 세어보지 않았고, 멀쩡한 나무도 다시 세어본 적이 없는데, 우리는 이걸 어떻게 아는가?&nbsp;</p><p style="grid-column-start: page; grid-column-end: page;"><img src="/images/abstract_arithmetics.png"><br></p><p>우리는 들판과 동산이라는 서로 다른 공간에 있던 양과 나무를 세어서 숫자 공간으로 가져온 다음에 숫자 공간에서 계산을 끝내고 그 결과를 들판과 동산으로 가져간 것이다.</p><p>우리에게 이런 추상화 능력이 없었다면, 각각의 상황에 대해서 하나씩 세고 앉아 있었을 것이다. 이것들이 사실은 한가지 원리라는 것을 알아내는 것은 대단한 통찰이다.&nbsp;</p><p>숫자 공간에서 계산하기는 어렸을 때 지겹도록 반복해서 풀던 계산문제로 훈련했었고, 말로 설명되어 있는 상황을 수의 공간으로 가져오고 그 결과를 다시 말로 설명하는 것은 이른바 서술형 문제(word problems)를 풀면서 훈련했던 것이다.</p><p>대수학도 이런 과정의 연장선상에 있다. 중등 교과 과정에서 중점적으로 보는 대수학은 정의역이 하나의 변수로 되어 있는 선형대수(Linear Algebra)이고&nbsp;<e-latex>y=ax+b</e-latex>&nbsp;의 형태로 나태낼 수 있다. 이것 하나를 붙잡고,&nbsp;<e-latex>x</e-latex>&nbsp;에 따라서&nbsp;<e-latex>y</e-latex>&nbsp;가 얼마나 바뀌는 지&nbsp;알아보고&nbsp;<d-footnote id="d-footnote-1">&nbsp;그리고 그 비율이 정확하게&nbsp;<e-latex>a</e-latex>&nbsp;가 되는 것도 알고</d-footnote>&nbsp;,&nbsp;<e-latex>x=0</e-latex>&nbsp;<span style="font-size: 1.06rem; -webkit-text-size-adjust: 100%;">일 때&nbsp;</span><e-latex>y</e-latex><span style="font-size: 1.06rem; -webkit-text-size-adjust: 100%;">&nbsp;</span><span style="font-size: 1.06rem; -webkit-text-size-adjust: 100%;">의 값&nbsp;</span><d-footnote id="d-footnote-2">&nbsp;&nbsp;<e-latex>y</e-latex>&nbsp;절편,&nbsp;<e-latex>y</e-latex>-intercept</d-footnote><span style="font-size: 1.06rem; -webkit-text-size-adjust: 100%;">&nbsp;</span><span style="font-size: 1.06rem; -webkit-text-size-adjust: 100%;">이 어떻게 되는지,&nbsp;</span><e-latex>y=0</e-latex><span style="font-size: 1.06rem; -webkit-text-size-adjust: 100%;">&nbsp;일 때 &nbsp;</span><e-latex>x</e-latex><span style="font-size: 1.06rem; -webkit-text-size-adjust: 100%;">&nbsp;값&nbsp;</span><d-footnote id="d-footnote-3">&nbsp;&nbsp;<e-latex>x</e-latex>&nbsp;절편,&nbsp;<e-latex>x</e-latex>-intercept</d-footnote><span style="font-size: 1.06rem; -webkit-text-size-adjust: 100%;">&nbsp;</span><span style="font-size: 1.06rem; -webkit-text-size-adjust: 100%;">은 무엇인지, 그래프로 그리면 어떤 모양인지, 그래프의 아랫부분의 면적이 어떤 의미를 가지는 지 등을 배운다. 이 부분의 수의 세계 안에서 선형 대수, 선형 함수에 익숙해 지고 친해지는 과정이다.</span></p><h2><span style="-webkit-text-size-adjust: 100%;">선형 대수를 이용한 추상화</span></h2><p><span style="-webkit-text-size-adjust: 100%;">그럼&nbsp;</span><e-latex>y=ax+b</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;가 무엇을 추상화 할까? 몇 가지 나열해 보자.&nbsp;</span></p><p style="grid-column-start: page; grid-column-end: page;"><img src="/images/abstract_many.png"><span style="-webkit-text-size-adjust: 100%;"><br></span></p><h3><span style="-webkit-text-size-adjust: 100%;">속력, 시간, 거리</span></h3><p><span style="-webkit-text-size-adjust: 100%;">속력(</span><e-latex>v</e-latex><span style="-webkit-text-size-adjust: 100%;">)은 이동한 거리(</span><e-latex>d</e-latex><span style="-webkit-text-size-adjust: 100%;">)를 시간(</span><e-latex>t</e-latex><span style="-webkit-text-size-adjust: 100%;">)으로 나눈 거라던데, 그렇다면,</span></p><p style="text-align: center;"><span style="-webkit-text-size-adjust: 100%;">&nbsp;&nbsp;</span><e-latex displaymode="">v = \frac {d} {t}</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;</span></p><p style="text-align: center;"><span style="-webkit-text-size-adjust: 100%;">&nbsp;양변에&nbsp;</span><e-latex>t</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;를 곱하면&nbsp;</span><e-latex>d = vt</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;이 된다.</span><span style="-webkit-text-size-adjust: 100%;">&nbsp;</span></p><p><e-latex>y=ax+b</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;에서&nbsp;</span><e-latex>y</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;자리에&nbsp;</span><e-latex>d</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;를 넣고&nbsp;</span><e-latex>a</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;자리에&nbsp;</span><e-latex>v</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;,&nbsp;</span><e-latex>x</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;자리에&nbsp;</span><e-latex>t</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;, &nbsp;</span><e-latex>b =0</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;일 때의 식이란 걸 알 수 있다.&nbsp;</span></p><h3><span style="-webkit-text-size-adjust: 100%;">&nbsp;</span><e-latex>F=ma</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;</span></h3><p><span style="-webkit-text-size-adjust: 100%;">뉴턴 제 2 법칙이&nbsp;</span><e-latex>F=ma</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;라더라. 같은 방식으로&nbsp;</span><e-latex>y=ax+b</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;모양을 따른다.</span></p><h3><span style="-webkit-text-size-adjust: 100%;">가격 세일</span></h3><p><span style="-webkit-text-size-adjust: 100%;">옷 가게에서 팔고 있는 모든 옷을 20% 세일한단다. 옷의 원가를&nbsp;</span><e-latex>x</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;, 세일 후 가격을&nbsp;</span><e-latex>y</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;라고 하면,</span></p><p style="text-align: center;"><span style="-webkit-text-size-adjust: 100%;">&nbsp;</span><e-latex>\begin{aligned}y &amp;= x - 0.2 x \\
+&amp;= 0.8 x\end{aligned}</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;</span></p><p style="text-align: center;"><span style="-webkit-text-size-adjust: 100%;">&nbsp;</span><e-latex>y=0.8x</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;</span></p><aside><span style="-webkit-text-size-adjust: 100%;">역시&nbsp;</span><e-latex>y=ax+b</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;의 형태를 따른다.</span></aside><h3>신용카드 수수료</h3><p>가게를 하나 열었다. 현금 거래만 할 수는 없으니, 신용카드 결제를 받아야 할 텐데, 결제 회사 A에서는 건당 <b>30</b>센트의 고정 수수료에다가 결제금액의 <b>3.5%</b>를 수수료로 청구한다. 결제 회사 B는 한 달에 <b>280</b>달러의 회원비를 받지만 건당 고정 수수료는 없고, 결제금액의 <b>2.8%</b>를 수수료로 청구한다. 나는 대략 <b>10</b>달러짜리 악세서리를 팔 생각이다. 얼마 팔 지 못할 때에는 직관적으로 A결제회사를 이용하는 게 수수료를 적게 내는 방법이다. B 결제 회사를 이용하는 게 이득이 되려면 나는 한달에 몇 개 이상을 팔아야 하는 걸까?</p><aside>갑자기 문제 수준이 올라갔다.</aside><p>A 회사를 이용할 경우 수수료를 y라고 하고 한달 판매 갯수를 x라고 하면</p><p style="text-align: center;">&nbsp;<e-latex>\begin{aligned}y &amp;= 0.035 \times 10 \times x + 0.3 \times x \\
+&amp;=0.35x+0.3x \\
+&amp;=0.65x \end{aligned}</e-latex>&nbsp;</p><aside>역시&nbsp;<e-latex>y=ax+b</e-latex>&nbsp;형태이다.&nbsp;</aside><p>B 회사의 경우</p><p style="text-align: center;">&nbsp;<e-latex>\begin{aligned}y &amp;=0.028 \times 10 \times x + 280 \\
+&amp;=0.28x + 280 \end{aligned}</e-latex>&nbsp;</p><aside>이것도 역시&nbsp;<e-latex>y=ax+b</e-latex>&nbsp;형태이다.</aside><p>B가 더 이득이려면</p><p style="text-align: center;">&nbsp;<e-latex>\begin{aligned}0.65x &amp;&gt; 0.28x + 280 \\
+0.65x-0.28x &amp;&gt;280 \\
+0.37x &amp;&gt; 280 \\
+x &amp;&gt;756.756756 \cdots \end{aligned}</e-latex>&nbsp;</p><aside>이 부분은 1차부등식(선형부등식) 풀이가 되겠다.</aside><p>즉 757개를 팔 수 있을 때부터 B 결제 회사를 이용하는 게 이득이다. 꼭 부등식을 풀지 않더라도 각 선형관계식을 그래프로 그리면 어느 대략 어느지점부터 B회사 수수료가 더 작아지는 지 눈으로도 확인할 수 있다.</p><p style="text-align: center; grid-column-start: page; grid-column-end: page;"><img src="/images/credit_card_fees.png"><br></p><p><br></p><p>이와같이 선형대수만 가지고도 여러가지 현상을 하나의 모양으로 축약시킬 수 있다. 우리가 이것을 할 수 없었다면, 모든 상황 각각을 하나씩 세어보거나 하나하나 다양한 숫자를 넣어 보면서 매우 비효율적으로 상황판단을 하고 있었을 것이다. 능숙하게 다룰 수 있는 도구(선형대수)를 가진 사람은, 이 상황에 그 도구를 쓸 수 있는지만 알면 정말 작은 노력으로 그 상황을 이해하거나 다룰 수 있게 된다.</p><p>선형대수만 하면 심심하니, 2차식으로 나타난 것들은 어떤게 가능한 지 한 번 살펴보자.</p><h2>물체가 땅에 닿는 데까지 걸리는 시간</h2><p style="grid-column-start: page; grid-column-end: page;"><img src="/images/flying_object.png"><br></p><p>바닥에서 20m 높이에 있는 건물에서 공 하나를&nbsp;<e-latex>30 \degree</e-latex>&nbsp;윗방향으로 30m/s 속도로 던졌다. 공은 날아가다가 바닥으로 떨어질 텐데, 몇 초 후에 떨어질까? (중력가속도는 편의상&nbsp;<e-latex>10 m / s^2</e-latex>&nbsp;이라고 하자.)&nbsp;</p><p>바닥으로부터 공까지의 거리를&nbsp;<e-latex>d</e-latex>&nbsp;, 공이 날아간 시간을&nbsp;<e-latex>t</e-latex>&nbsp;라고 하면 그 사이의 관계식은 다음과 같이 나타난다.</p><p style="text-align: center;">&nbsp;<e-latex displaymode="">\begin{aligned}d &amp;= 20 + 15t-\frac{1}{2} \times 10 \times t^2 \\
+&amp;=20 + 15t - 5t^2\end{aligned}</e-latex>&nbsp;</p><aside>식 안에서 초기 속도를 15m/s 로 잡은 것은 문제에 나온 30m/s 의 초기 속도 중에서 공과의 높이를 결정하는 수직성분의 속도가 15 m/s 이기 때문이다. 벡터(vector)와 특수 삼각형을 알면 이해할 수 있다. 나중에 배울 것이다.</aside><p>공이 바닥에 떨어지면 바닥과 공 사이의 거리&nbsp;<e-latex>d</e-latex>&nbsp;가&nbsp;<e-latex>0</e-latex>&nbsp;이 되므로, 그것을 가능하게 하는 시간&nbsp;<e-latex>t</e-latex>&nbsp;를 찾으면 되겠다.</p><p style="text-align: center;">&nbsp;<e-latex>\begin{aligned}0 &amp;=20 + 15t - 5t^2 \\
+0 &amp;= 4 + 3t - t^2 \\
+0&amp;=(4-t)(1+t) \\
+t &amp;= 4 \: or \: t=-1\end{aligned}</e-latex>&nbsp;</p><aside>이건 2차방정식을 풀 줄 알아야 한다. 나중에 배울 것이다.</aside><p>여기서 재미있는 것은 이렇게 숫자의 공간에서 나온 답을 다시 원래 세상으로 가져올 때의 일이다. 답이 두 개인데, 4초 후에 땅에 떨어진다는 이야기까지는 이해가 가지만, -1초 후라는 것은 도대체 무슨 말인가? 문제 설정이랑 안 맞으니까 무시하면 되는 걸까?</p><p style="grid-column-start: page; grid-column-end: page;"><img src="/images/flying_object_2nd.png"><br></p><p>-1 초 후라는 것은 1초 전이라고 해석할 수 있다. 1초 전에는 무슨 일이 일어났다는 걸까. 문제에서는 20m 높이 건물에서 던진 것이지만, 만약에 이 물체가 그 전에 던져진 것이고, 우연히 지금 20m 건물을 윗방향&nbsp;<e-latex>30 \degree</e-latex>&nbsp;각도로 30 m/s 로 지나가고 있다면&nbsp;<d-footnote id="d-footnote-4">같은 자리에서 던져서 그 속도가 되든, 이전에 던져진 물체가 우연찮게 이자리로 왔을 때 같은 속도가 된 것이나 물리적으로는 같은 상황으로 볼 수 있다.</d-footnote>&nbsp;, 그 물체는 1초 전에 바닥에서 출발했을 것이란 의미이다. 이렇게 숫자의 세상에서 문제를 다루다 보면 새로운 사실을 알게 되는 경우도 있다.&nbsp;<d-footnote id="d-footnote-5">그냥 있다라는 표현보다는 많다는 표현이 더 적당한 것 같다. 과학적 발견 중에서, "이론으로만 존재하던 걸 최초로 발견했다"고 발표되는 것들은 발견 이전에 숫자 세상에서 해석하면서 예견된 것들이다.</d-footnote>&nbsp;</p><h2>마치며</h2><p>중고등 수학에 나오는 대수학은 세상을 해석하는 좋은 도구들을 하나씩 배워간다는 기분으로 접근하면 좋겠다. 좋은 도구가 이것만 있는 건 아니지만 말이다.</p>    </d-article>
+    <d-article>
+        <!--
+        <div>
+            <a href="https://edonedge.github.io/posts/2021-01-05-abstraction-by-algebra#disqus_thread">Link</a>
+        </div>
+        -->
+        <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="edkim" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Would you Buy me a Coffee?" data-outline-color="#000000"
+            data-font-color="#000000" data-coffee-color="#ffffff"></script>
+        <div>
+            <div id="disqus_thread"></div>
+        </div>
+    </d-article>
+    <d-appendix>
+    </d-appendix>
+    <div class="base-grid efooter">
+        <div style="grid-column: text;">
+            Ed found a way to relax on the cutting edge. <br> <a href="/">Home</a>
+        </div>
+    </div>
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+        var disqus_config = function() {
+            this.page.identifier = "/posts/2021-01-05-abstraction-by-algebra";
+            this.page.url = "https://edonedge.github.io/posts/2021-01-05-abstraction-by-algebra";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script');
+            s.src = 'https://edonedge.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script id="dsq-count-scr" src="//edonedge.disqus.com/count.js" async></script>
+    <script>
+        // Hide Header on on scroll down
+        var didScroll;
+        var lastScrollTop = 0;
+        var delta = 5;
+        var navbarHeight = $('header').outerHeight();
+
+        $(window).scroll(function(event) {
+            didScroll = true;
+            console.log('scroll detected!!');
+        });
+
+        setInterval(function() {
+            if (didScroll) {
+                console.log('scroll detected');
+                hasScrolled();
+                didScroll = false;
+            }
+        }, 250);
+
+        function hasScrolled() {
+            var st = $(this).scrollTop();
+
+            // Make sure they scroll more than delta
+            if (Math.abs(lastScrollTop - st) <= delta)
+                return;
+
+            // If they scrolled down and are past the navbar, add class .nav-up.
+            // This is necessary so you never see what is "behind" the navbar.
+            if (st > lastScrollTop && st > navbarHeight) {
+                // Scroll Down
+                $('header').removeClass('nav-down').addClass('nav-up');
+            } else {
+                // Scroll Up
+                if (st + $(window).height() < $(document).height()) {
+                    $('header').removeClass('nav-up').addClass('nav-down');
+                }
+            }
+
+            lastScrollTop = st;
+        }
+    </script>
+</body>
+
+</html>
