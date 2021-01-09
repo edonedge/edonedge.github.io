@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <script src="https://distill.pub/template.v2.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+    <script src='/elatex.js'></script>
+    <script>
+        window.onload = function(e) {
+                // Legacy latex math expressions.
+                mes = document.getElementsByTagName('latex');
+                for (i = 0; i < mes.length; i++) {
+                    katex.render(mes[i].innerText, mes[i]);
+                }
+            }
+            // current math expressions
+        window.addEventListener('DOMContentLoaded', (event) => {
+            console.log('DOM fully loaded and parsed');
+            dom_init_loading_done = true;
+            mes = document.getElementsByTagName('e-latex');
+            for (i = 0; i < mes.length; i++) {
+                mes[i].initME();
+            }
+        });
+    </script>
+    <title>
+        9로 나눈 나머지 쉽게 구하는 법
+    </title>
+</head>
+
+<body style="padding-top:60px;">
+    <header class="base-grid eheader nav-down">
+        <div style="grid-column: text;">
+            <span style="color: white;"><a href="/">Ed's Blog</a></span>
+            <span class="nav-menu" style="float: right;">
+                <a href="/">HOME</a>
+                <a href="/about">ABOUT</a>
+                <a href="/about#bmc"><img src="/images/bmc.svg" height="30" style="vertical-align: -11%;"></a>
+            </span>
+        </div>
+    </header>
+    <d-front-matter>
+        <script id='distill-front-matter' type="text/json">
+            {
+                "authors": [{
+                    "author": "Ed Kim",
+                    "authorURL": "https://edonedge.github.io/",
+                    "affiliations": [{
+                        "name": "Ed on Edge"
+                    }]
+                }],
+                "katex": {
+                    "delimiters": [{
+                        "left": "$$",
+                        "right": "$$",
+                        "display": false
+                    }]
+                }
+            }
+        </script>
+    </d-front-matter>
+
+    <d-title>
+        <h1 id="title">
+            9로 나눈 나머지 쉽게 구하는 법
+        </h1>
+        <p id="intro">
+            아는 분이 재미있는 주제를 하나 가져 오셔서 정리해 봤다.
+        </p>
+    </d-title>
+
+    <d-article id="contents">
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        <p>예전에 썼던&nbsp;<a href="posts/2019-11-30-1089-magic-trick">1089 Magic Trick</a> 을 읽고 아는 분이 재미있는 주제를 하나 던져 주셨다.&nbsp;</p><blockquote>"어떤 양의 정수 N을 생각해 보자. 이 정수의 모든 자리수 숫자를 더한다. 결과가 여전히 2자리 수 이상이면 1자리가 될 때까지 더한다. 예를 들면, 75298 -&gt; 31 -&gt; 4, 이런 식으로. 그럼 이 결과 숫자 4는 원래 정수 N을 9로 나눈 나머지가 된다. (결과가 9가 나오면 N%9 = 0이 된다.)"<br>예쁘게 증명하고 나시면 생각해 볼 추가문제. 왜 하필 9일까? 비슷한 방법으로 8이나 7로 나눈 나머지는 구할 수 없을까? 11로 나눈 나머지를 구할 순 없을까?</blockquote><p>큰 숫자를 9로 실제로 나누어 보지 않고, 각 자리 숫자를 계속 반복해서 더하는 것만으로 나머지를 알 수 있다니, 신기하지 않은가? 실제로 75,298을 9로 나누면 몫(quotient)은 8,366이고, 나머지는 4이다. 각자리 숫자를 반복해서 더하면,</p><p style="text-align: center;">&nbsp;<e-latex>75298 \rightarrow 7+5+2+9+8 = 31 \rightarrow 3+1=4</e-latex>&nbsp;</p><p>직접 계산해서 나온 나머지와 같은 4가 나온다.</p><p>일반적인 증명으로 들어가기 전에 75,298이라는 숫자로 시작해서 왜 이렇게 되는지 살펴 보자.&nbsp;</p><h2>연습 시작</h2><p>75,298는 각 자릿수를 고려해서 다음과 같이 나타낼 수 있다.&nbsp;</p><p style="text-align: center; ">&nbsp;<e-latex>\textcolor{red}{7}\textcolor{green}{
+5}\textcolor{blue}{
+2}\textcolor{brown}{
+9}\textcolor{purple}
+{8} = \textcolor{red}{7} \times 10000 +
+\textcolor{green}{
+5} \times 1000 +\textcolor{blue}{
+2} \times 100 +\textcolor{brown}{
+9} \times 10 +\textcolor{purple}{
+8}</e-latex>&nbsp;</p><aside>수식 (1) 이라고 하자.</aside><p>1089 Magic Trick 증명에서 하던 방식과 똑같다. 7만5천2백9십8이니, 만(10000)이 7개, 천(1000)이 5개, 백(100)이 9개, 십(10)이 두 개, 일(1)이 8개 모여 있는 수이다.</p><p>그런데&nbsp;<e-latex>7 \times 100000</e-latex>&nbsp;은 만(10000)이 7개 있는 걸로 볼 수도 있지만, 7이 10000개 있는 것으로도 생각할 수 있다. 요것이 키 포인트이니 기억해 두자.&nbsp;</p><p>우리가 관심 있는 것은 각 자리 숫자의 합이 아니던가. 수식 &nbsp;(1)을 아래 모양처럼 풀어낼 수 있으면 좋겠다.</p><p style="text-align: center; ">&nbsp;<e-latex>\textcolor{red}{7}\textcolor{green}{
+5}\textcolor{blue}{
+2}\textcolor{brown}{
+9}\textcolor{purple}
+{8} = (\text{무언가}) +\textcolor{red}{7}+\textcolor{green}{
+5}+\textcolor{blue}{
+2}+\textcolor{brown}{
+9}+\textcolor{purple}
+{8}</e-latex>&nbsp;</p><p>어떻게 저 모양으로 만들 수 있을까? 아까 기억해 두었던 포인트를 떠올려 보면,&nbsp;<e-latex>\textcolor{red}{7}</e-latex>&nbsp;은 10000개 중에서 9999개 남겨놓고 하나를 빼 오면 된다.&nbsp;<e-latex>\textcolor{green}{5}</e-latex>&nbsp;는 1000개 중에서 999개 남기고 하나를 빼 오면 되고,&nbsp;<e-latex>\textcolor{blue}{2}</e-latex><span style="font-size: 1.06rem;">&nbsp;는 99개 남기고 하나 가져오고&nbsp;</span><e-latex>\textcolor{brown}{9}</e-latex><span style="font-size: 1.06rem;">&nbsp;</span><span style="font-size: 1.06rem;">는 9개 남기고 하나 가져오고,&nbsp;</span><e-latex>\textcolor{purple}{8}</e-latex><span style="font-size: 1.06rem;">&nbsp;은 그냥 가져 오면 된다.</span></p><p style="text-align: center; "><span style="font-size: 1.06rem;">&nbsp;</span><e-latex>\begin{aligned}\textcolor{red}{7}\textcolor{green}{
+5}\textcolor{blue}{
+2}\textcolor{brown}{
+9}\textcolor{purple}
+{8} = &amp;\textcolor{red}{7} \times 10000 +
+\textcolor{green}{
+5} \times 1000 +\textcolor{blue}{
+2} \times 100 +\textcolor{brown}{
+9} \times 10 +\textcolor{purple}{
+8}\\
+= &amp;\textcolor{red}{7} \times 9999 +
+\textcolor{green}{
+5} \times 999 +\textcolor{blue}{
+2} \times 99 +\textcolor{brown}{
+9} \times 9+\textcolor{red}{7} +
+\textcolor{green}{
+5} +\textcolor{blue}{
+2} +\textcolor{brown}{
+9} +\textcolor{purple}{
+8} \\
+=&amp;9\times(\textcolor{red}{7}\times1111 +\textcolor{green}{5}\times 111+\textcolor{blue}{
+2}\times11+\textcolor{brown}{
+9})+\textcolor{red}{7} +
+\textcolor{green}{
+5} +\textcolor{blue}{
+2} +\textcolor{brown}{
+9} +\textcolor{purple}{
+8}
+\end{aligned}</e-latex><span style="font-size: 1.06rem;">&nbsp;</span></p><aside>그리고 9999, 999, 99, 9는 모두 9의 배수이므로 9로 묶을 수 있다.</aside><p>이제 모양이 다 나왔다. 75298과 정확하게 같은 값을 방식만 바꾸어서 나타내었는데, 앞부분은 모두 9로 묶이기 때문에 9로 나누었을 때의 나머지를 0으로 만들어버리므로 뒷부분의 값&nbsp;<e-latex>\textcolor{red}{7} +
+\textcolor{green}{
+5} +\textcolor{blue}{
+2} +\textcolor{brown}{
+9} +\textcolor{purple}{
+8}</e-latex>&nbsp;, 즉, 각 자릿수를 모두 합한 값을 9로 나눈 나머지가 원래 숫자의 나머지와 같아진다. 이 과정은 합한 숫자가 한자리 숫자가 될 때까지 같은 방식으로 반복할 수 있다. 그래서 굳이 9로 나누지 않아도 각자리 숫자를 한자리 숫자가 될때까지 계속 더해서 나온 최종 값이 9로 나눈 나머지가 된다.&nbsp;</p><aside>다만 한 가지 각 자리를 더하다보면 딱 9가 나오는 경우가 있는데, 이때는 나머지가 0인 경우이다. 9는 9로 나누어 떨어지니까.</aside><h2>증명</h2><p>&nbsp;<e-latex>1</e-latex>&nbsp;의 자리 숫자를&nbsp;<e-latex>a_0</e-latex>,&nbsp;<e-latex>10</e-latex>&nbsp;의 자리 숫자를&nbsp;<e-latex>a_1</e-latex>, 같은 방식으로&nbsp;<e-latex>10^n</e-latex>&nbsp;자리 숫자를&nbsp;<e-latex>a_n</e-latex>&nbsp;이라고 하자. 예를 들어&nbsp;<e-latex>4354</e-latex>&nbsp;라는 숫자가 있으면&nbsp;<e-latex>a_3=4, a_2=3, a_1=5, a_0=4</e-latex>&nbsp;이 되고&nbsp;<e-latex>\underlinesegment{a_3a_2a_1a_0}</e-latex>&nbsp;으로 표현할 수 있다고 하자. 일반적인&nbsp;<e-latex>n</e-latex>&nbsp;자리 숫자는 다음과 같이 나타낼 수 있다.</p><aside>밑줄을 안 그으면 마치&nbsp;<e-latex>a_3, a_2, a_1, a_0</e-latex>&nbsp;을 모두 곱한 것 처럼 보여서 구분을 짓기 위해 밑줄을 그어 보았다.</aside><p style="text-align: center;">&nbsp;<e-latex>\begin{aligned}\underlinesegment{a_n a_{a-1} \cdots a_1 a_0}=&amp;10^na_n+10^{n-1}a_{a-1}+\cdots+10a_1+a_0\\
+=&amp;\underbrace{\overbrace{99\cdots9}^{n\text{개}}a_n+\overbrace{99\cdots9}^{n-1\text{개}}a_{n-1}+\cdots+9a_1}_{\text{9로 나누면 0이 되는 부분}}\\
+&amp;+\underbrace{a_n+a_{n-1}+\cdots+a_2+a_1+a_0}_{\text{각 자릿수의 합}}\end{aligned}</e-latex>&nbsp;</p><p>그러므로 원래 숫자를 9로 나눈 나머지는 각 자릿수의 합을 9로 나눈 나머지와 같다. 일반적인 n자리 숫자에 대해서 모두 위와 같이 표현이 가능하기 때문에, 각자리 숫자의 합이 두 자리 이상이 나왔다면 그 결과에 같은 방법을 또 적용해도 그렇게 구한 나머지가 원래 숫자를 9로 나눈 나머지와 같다.</p><h3>좀 더 빠른 계산</h3><p>위 증명에서도 보았듯이 9로 나눈 나머지만 구하는 문제에서 우리가 취하는 전략은 9로 나누어 떨어질 부분을 찾아내서 없애버리는 것이다. 각 자리 숫자를 합하는 중에도 9의 배수가 되는 부분을 만날 수 있다. 그런 경우 그 부분을 다 없애고 계산을 하면 좀 더 머리가 편하게 계산할 수 있다. 그럼 전략(strategy)&nbsp;<d-footnote id="d-footnote-1">왜 괄호 안에 뜬금없는 영어단어를 넣는지 궁금하신 분을 위해: 이 블로그 대부분의 글은 제 아이들(한국에서 나서 미국에서 자랐죠)을 대상으로 쓴 글입니다. 그래서 안 접해본 것 같은 단어는 옆에 영어 뜻을 써 놓았습니다.</d-footnote>&nbsp; 을 한 번 세워 볼까?</p><blockquote>9495298 을 9로 나눈 나머지는?</blockquote><p>&nbsp;<e-latex>9+4+9+5+2+9+8</e-latex>&nbsp;을 9로 나눈 나머지와 같다는 건 이제 알겠다. 하지만 9라는 숫자는 더하든 더하지 않든 나머지값을 바꾸지 않으니 (9로 나누었을 때 나머지가 0이니까) 굳이 9를 더해가며 머리를 아프게 할 필요가 있을까? <b>더하다가 9가 보이면 건너 뛰자.</b></p><aside>이것을 전략 (1) 이라고 하자</aside><p>&nbsp;<e-latex>\cancel94\cancel952\cancel98</e-latex>&nbsp;를 9로 나눈 나머지는&nbsp;<e-latex>4+5+2+8</e-latex>&nbsp;를 9로 나눈 나머지와 같다. 이제 머리가 좀 상쾌해진 것 같다. 하지만 여기서 더 할 수 있다. 9만 빼고 더하기만 하는 게 아니라 더하다가&nbsp;<b>9 이상이 되면 그 즉시 나머지를 찾아내서 나머지만 더하는 것</b>이다.&nbsp;</p><aside>전락 (2) 라고 하자.&nbsp;<br>이렇게 구분을 해 놓기는 했지만, 전략 (1)이 전략 (2)의 일부분이라서 전략 (2)만 취하면 된다. 하지만 처음 생각할 때에는 이렇게 두 가지로 구분하는 것이 생각하기 편하다.</aside><p style="text-align: center;">&nbsp;<e-latex>9495298\longrightarrow\begin{aligned} 9&amp;\rightarrow\text{건너뛰자(skip)}&amp;\rightarrow\text{나머지 }\textcolor{red}{0}\\
+4&amp;\rightarrow\textcolor{red}{0}+4 &amp;\rightarrow \text{나머지 }\textcolor{blue}{4}\\
+9&amp;\rightarrow\text{건너뛰자(skip)}&amp;\rightarrow \text{나머지 }\textcolor{blue}{4}
+\\
+5&amp;\rightarrow\textcolor{blue}{4} +5=9 &amp;\rightarrow\text{나머지 }\textcolor{green}{0}\\
+2&amp;\rightarrow\textcolor{green}{0}+2=2&amp;\rightarrow \text{나머지 }\textcolor{brown}{2}
+\\
+9&amp;\rightarrow\text{건너뛰자(skip)}&amp;\rightarrow \text{나머지 }\textcolor{brown}{2}
+\\
+8&amp;\rightarrow\textcolor{brown}{2}+8=10&amp;\rightarrow \text{나머지 }\textcolor{purple}{2}\end{aligned}</e-latex>&nbsp;&nbsp;</p><p>그러므로 나머지는 2이다.</p><p>이런 방식이 좀 익숙해지면 이제 앞에서 부터 순서대로 더해가면서 9를 없애고, 9로 나눈 나머지만 더하는 것이 아니라, 숫자가 한 눈에 들어와서 9를 미리 없애고 계산하기 쉬운 순서대로 더하면서 나머지만 남기고 계산해 나갈 수 있게 된다. 이 즈음 되면 9로 나눈 나머지 구하기 마스터라고 해도 되겠다.</p><aside>이 즈음 되면 한 눈에 보고 혹은 연필로 스윽 스윽 그어가면서 나머지를 구할 수 있다.</aside><h3>왜 하필 9로 나눈 나머지만 되는가?</h3><p>위 증명에서 보듯이, 10의 거듭제곱에서 1개를 제외한 숫자 (예를 들어, 999나 99999 등)가 모두 9의 배수가 되기 때문에 이것이 가능해진다.&nbsp;</p><p>하나 알아둘 것은</p><blockquote>3으로 나눈 나머지도 같은 방식으로 가능하다.</blockquote><p>라는 것이다. 9의 배수는 3의 배수이기도 하기 때문에, 9의 배수인 부분을 3으로 나눈 나머지는 0이 되고, 따라서 각 자리 숫자의 합을 3으로 나눈 나머지가 원래 숫자를 3으로 나눈 나머지와 같다.&nbsp;</p><p>좀 더 빠른 계산을 하는 방식도 비슷하다. 3, 6, 9와 같이 <b>명백하게 3의 배수가 되는 자릿수를 건너뛰고</b>, 각 <b>자릿수를 더하면서 3이 넘어가면 미리 나머지 계산을 하면서 더해 나간다</b>. 숙달이 되면 건너뛸 숫자가 눈에 더 들어 올 것이다. 예를 들어, 3, 6, 9 뿐만 아니라, (5, 7)이나 (8, 4)와 같이 합하여 3의 배수가 되는 숫자 짝이나 숫자 서너개(8, 2, 2 와 같은 것)도 눈에 들어와서 한꺼번에 건너뛸 수 있게 된다. 또한 매번 더하면서 나머지 연산을 하는 것보다 숫자가 어느정도 커질 때까지는 그냥 더하기만 하는 것이 계산 횟수가 적어서 더 좋기 때문에, 하다보면 자신에게 편한 방식으로 익숙해지게 된다. 예를 들어&nbsp;<e-latex>\textcolor{red}{8}\textcolor{blue}{2}</e-latex>&nbsp;가 있으면&nbsp;<e-latex>\textcolor{red}{8}</e-latex>&nbsp;을 3으로 나눈 나머지 2에다가,&nbsp;<e-latex>\textcolor{blue}{2}</e-latex>&nbsp;를 더해서 4로 만든 다음, 그것을 다시 3으로 나눈 나머지를 구해서 나머지가 1이 되는 것을 알아내는 것이 아니라, 8+2를 해서 10을 만든 다음 3으로 나눈 나머지 1을 찾아내는 식이다.</p><h2>다른 숫자로 나눈 나머지</h2><blockquote>8은 비슷하게 안 되나요? 각 숫자를 두번씩 더해서 한다던가 하면?</blockquote><p>각 자리 숫자를 두 번씩 빼내면, 십의 자리는 8이 되겠지만, 100의 자리는 98이 된다(88이 아니고..), 1000의 자리는 998이 되니 역시 8의 배수가 아니다. 그러니 각 자리 숫자를 두 번씩 더하는 방식으로는 할 수가 없다.&nbsp;</p><p>그렇다면 방법이 없느냐... 8은 다른 방식으로 한다. 8로 나눈 나머지를 구하기 전에 2로 나눈 나머지, 5로 나눈 나머지, 4로 나눈 나머지에 대해서 먼저 알아보자.</p><h3>2로 나눈 나머지</h3><p>직관적으로 짝수(even number)이면 2로 나눈 나머지가 0이고, 홀수 (odd number)이면 2로 나눈 나머지가 1이다. 이렇게 직관적인 걸 왜 하나 싶겠지만, 8로 나누었을 때의 나머지를 구하는 것과 원리가 같으니 가장 쉬운 것 부터 시작해 보는 것이다.</p><p>&nbsp;&nbsp;<e-latex>10 = 2\times 5</e-latex>&nbsp;라는 사실을 기억해 두자.</p><p>모든 자연수를 1의 자리와 그 이외의 자리로 나눌 수 있는데, 예를 들어 4,322는 다음과 같이 나타낼 수 있다.</p><p style="text-align: center;">&nbsp;<e-latex>\begin{aligned}4322=&amp;4320 + 2\\
+=&amp;\underbrace{432\times10}_{\text{2의 배수}} + 2\end{aligned}</e-latex>&nbsp;</p><p>1의 자리를 제외한 부분의 10의 배수이므로 2의 배수이고 2로 나눈 나머지는 0이 된다. 그러므로 <b>1의 자리 이외의 자리는 무시하고, 1의 자리만 생각하면 되는</b> 것이다. 그래서 다른 것 볼 필요없이 끝자리만(1의 자리)만 보고 짝수인지 홀수 인지 판단할 수 있다.</p><h3>5로 나눈 나머지</h3><p>2로 나눈 나머지를 구하는 것과 동일한 원리이다.&nbsp;<e-latex>10=2\times5</e-latex>&nbsp;이므로<span style="font-size: 1.06rem; -webkit-text-size-adjust: 100%;">&nbsp;10의 배수는 5의 배수이기도 하다. 따라서 1의 자리를 제외한 숫자는 5의 배수가 되니 다 무시하고 끝자리(1의자리)만 보고 5로 나눈 나머지를 찾아낼 수 있다.</span></p><h3><span style="-webkit-text-size-adjust: 100%;">4로 나눈 나머지</span></h3><p><span style="-webkit-text-size-adjust: 100%;">&nbsp;</span><e-latex>100 = 4\times 25</e-latex><span style="-webkit-text-size-adjust: 100%;">&nbsp;을 이용한다. 숫자의 마지막 두 자리와 그 외의 자릿수로 나누어 표현하면 마지막 두 자리를 제외한 부분은 100의 배수이고, 100의 배수는 4의 배수이기 때문에 나머지를 찾아낼 때는 무시(건너뛰기)하면 된다. 그래서 끝자리 두 자리만 4로 나누어서 4의 배수인지 찾아내면 된다. 예를 들어 4322는 다음과 같이 나타낼 수 있다.</span></p><p style="text-align: center;">&nbsp;<e-latex>\begin{aligned}4322=&amp;4300+22\\
+=&amp;\underbrace{43\times100}_{\text{4의 배수}}+22\end{aligned}</e-latex>&nbsp;</p><p>따라서 4322를 4로 나눌 필요 없이, 마지막 22만 4로 나눈 나머지 2가 4322를 4로 나누었을 때의 나머지이다.</p><h3>8로 나눈 나머지</h3><p>드디어 8로 왔다. 8은&nbsp;<e-latex>1000 = 8 \times 125</e-latex>&nbsp;을 이용한다. 즉, 마지막 3자리를 제외한 숫자는 무시하고, 마지막 세자리를 8로 나눈 나머지를 구하면 원래 숫자를 8로 나눈 나머지이다. 같은 예제인 4322로 해 보자.</p><p style="text-align: center;">&nbsp;<e-latex>\begin{aligned}4322 =&amp; 4000 + 322\\
+=&amp;\underbrace{4\times1000}_{\text{8의 배수}}+322\end{aligned}</e-latex>&nbsp;&nbsp;</p><p>4322를 8로 나눈 나머지를 322 부분만 따로 떼어서 8로 나눈 나머지 2로 찾아낼 수 있다.</p><h2>마치며</h2><p>2, 3, 4, 5, 8, 9로 나눈 나머지는 알겠고, 다른 건 어떻게 하느냐? 7, 11, 13에 대해서도 방법이 있다. 그건 다음 글에서.. 너무 길어졌다.</p>    </d-article>
+    <d-article>
+        <!--
+        <div>
+            <a href="https://edonedge.github.io/posts/2021-01-06-remainder-by-divisor-9#disqus_thread">Link</a>
+        </div>
+        -->
+        <a href="https://www.buymeacoffee.com/edkim"><img src="https://img.buymeacoffee.com/button-api/?text=Would you Buy me a Coffee?&emoji=&slug=edkim&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"></a>
+        <div>
+            <div id="disqus_thread"></div>
+        </div>
+    </d-article>
+    <d-appendix>
+    </d-appendix>
+    <div class="base-grid efooter">
+        <div style="grid-column: text;">
+            Ed found a way to relax on the cutting edge. <br> <a href="/">Home</a>
+        </div>
+    </div>
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+        var disqus_config = function() {
+            this.page.identifier = "/posts/2021-01-06-remainder-by-divisor-9";
+            this.page.url = "https://edonedge.github.io/posts/2021-01-06-remainder-by-divisor-9";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script');
+            s.src = 'https://edonedge.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script id="dsq-count-scr" src="//edonedge.disqus.com/count.js" async></script>
+    <script>
+        // Hide Header on on scroll down
+        var didScroll;
+        var lastScrollTop = 0;
+        var delta = 5;
+        var navbarHeight = $('header').outerHeight();
+
+        $(window).scroll(function(event) {
+            didScroll = true;
+            console.log('scroll detected!!');
+        });
+
+        setInterval(function() {
+            if (didScroll) {
+                console.log('scroll detected');
+                hasScrolled();
+                didScroll = false;
+            }
+        }, 250);
+
+        function hasScrolled() {
+            var st = $(this).scrollTop();
+
+            // Make sure they scroll more than delta
+            if (Math.abs(lastScrollTop - st) <= delta)
+                return;
+
+            // If they scrolled down and are past the navbar, add class .nav-up.
+            // This is necessary so you never see what is "behind" the navbar.
+            if (st > lastScrollTop && st > navbarHeight) {
+                // Scroll Down
+                $('header').removeClass('nav-down').addClass('nav-up');
+            } else {
+                // Scroll Up
+                if (st + $(window).height() < $(document).height()) {
+                    $('header').removeClass('nav-up').addClass('nav-down');
+                }
+            }
+
+            lastScrollTop = st;
+        }
+    </script>
+</body>
+
+</html>
