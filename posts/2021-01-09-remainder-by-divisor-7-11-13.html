@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <script src="https://distill.pub/template.v2.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+    <script src='/elatex.js'></script>
+    <script>
+        window.onload = function(e) {
+                // Legacy latex math expressions.
+                mes = document.getElementsByTagName('latex');
+                for (i = 0; i < mes.length; i++) {
+                    katex.render(mes[i].innerText, mes[i]);
+                }
+            }
+            // current math expressions
+        window.addEventListener('DOMContentLoaded', (event) => {
+            console.log('DOM fully loaded and parsed');
+            dom_init_loading_done = true;
+            mes = document.getElementsByTagName('e-latex');
+            for (i = 0; i < mes.length; i++) {
+                mes[i].initME();
+            }
+        });
+    </script>
+    <title>
+        7이나 11, 13으로 나눈 나머지
+    </title>
+</head>
+
+<body style="padding-top:60px;">
+    <header class="base-grid eheader nav-down">
+        <div style="grid-column: text;">
+            <span style="color: white;"><a href="/">Ed's Blog</a></span>
+            <span class="nav-menu" style="float: right;">
+                <a href="/">HOME</a>
+                <a href="/about">ABOUT</a>
+                <a href="/about#bmc"><img src="/images/bmc.svg" height="30" style="vertical-align: -11%;"></a>
+            </span>
+        </div>
+    </header>
+    <d-front-matter>
+        <script id='distill-front-matter' type="text/json">
+            {
+                "authors": [{
+                    "author": "Ed Kim",
+                    "authorURL": "https://edonedge.github.io/",
+                    "affiliations": [{
+                        "name": "Ed on Edge"
+                    }]
+                }],
+                "katex": {
+                    "delimiters": [{
+                        "left": "$$",
+                        "right": "$$",
+                        "display": false
+                    }]
+                }
+            }
+        </script>
+    </d-front-matter>
+
+    <d-title>
+        <h1 id="title">
+            7이나 11, 13으로 나눈 나머지
+        </h1>
+        <p id="intro">
+            지난 시간에 이어 7, 11, 13으로 나누었을 때의 나머지를 쉽게 구하는 법을 알아보자.
+        </p>
+    </d-title>
+
+    <d-article id="contents">
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        <p><a href="/posts/2021-01-06-remainder-by-divisor-9">지난 시간</a>에 2, 3, 4, 5, 8, 9로 나누었을 때의 나머지를 쉽게 구하는 법에 대해 알아봤다. 이번 시간에는 7, 11, 13으로 나눈 나머지를 어떻게 구하는 지 알아 보자. 7, 11, 13을 따로 하나의 글로 묶은 이유는 셋 다 방법도 비슷하고 증명법도 비슷하기 때문이다. 셋 중에 가장 간단한 경우인 11로 나눈 나머지를 구하는 법부터 살펴보자.</p><h2>11로 나눈 나머지 구하는 법</h2><p>예를 들어 1234을 11로 나눈 나머지는? 살짝 손으로 연습삼아 해 보면, 몫이 112이고 나머지가 2이다. 그런데 만약 몫은 중요하지 않고 나머지만 구하면 되는 상황이라면 다음과 같이 재미있는 방식으로 나머지를 찾아낼 수 있다.</p><p style="text-align: center;">&nbsp;<e-latex>\textcolor{red}{1}\textcolor{blue}{2}\textcolor{red}{3}\textcolor{blue}{4}\rightarrow\textcolor{blue}{4}-\textcolor{red}{3}+\textcolor{blue}{2}-\textcolor{red}{1}=2</e-latex>&nbsp;</p><p>다시 말해서, 1의 자릿수 - 10의 자릿수 + 100의 자릿수 - 1000의자릿수, 이렇게 번갈아가면서 빼고 더해서 나온 숫자를 11로 나눈 나머지가 원래 숫자를 11로 나눈 나머지가 된다.</p><p>3421을 11로 한 번 나누어 볼까? 손으로 해 보면, 몫은 392이고 나머지는 9이다. 윗 방법을 적용해 보면,</p><p style="text-align: center;">&nbsp;<e-latex>\textcolor{red}{4}\textcolor{blue}{3}\textcolor{red}{2}\textcolor{blue}{1}\rightarrow\textcolor{blue}{1}-\textcolor{red}{2}+\textcolor{blue}{3}-\textcolor{red}{4} = -2</e-latex>&nbsp;&nbsp;</p><p>엇 -2? 나머지가 -2라는 이야기인가? 뭐, 그럴 수도 있다. 하지만 나머지는 보통 0에서 제수(除數, divisor, 나누는 수, 여기서는 11)보다 하나 작은 수의 범위에 둔다고 가정하니까(다시 말해 0부터 10), -2가 나머지는 아니고, -2를 11로 나누어야 한다.</p><p>-2를 11로 나눌 수 있을까? 가능하다. 익숙하지는 않겠지만, 몫이 -1이고 나머지는 9가 된다. 헛갈리면 양수(positive number)가 될 때까지 11을 더해준 다음에 나머지를 구해도 된다. -2에다가 11을 더하면 9가 되고, 9가 바로 나머지가 된다.</p><h3>왜 이렇게 될까?</h3><p>기본 전략은 같다. 11의 배수가 되는 부분을 최대한 찾아내서 건너뛰고 남은 숫자만 가지고 나머지를 구하려고 하는 것이다. 각 자리의 숫자가 눈에 들어오니 각 자리 숫자를 하나씩 가져와서 무언가를 하고 싶은데, 9로 나눈 나머지를 구할 때에는 가져오고 나서 남은 숫자들로 9의 배수를 만들기가 쉬웠다.</p><p style="text-align: center;">&nbsp;<e-latex>\begin{aligned}1234=&amp;1\times1000+2\times100+3\times10+4\\ 
+=&amp;1\times(999+1)+2\times(99+1)+3\times(9+1)+4\\
+=&amp;1\times999+1+2\times99+2+3\times9+3+4\\
+=&amp;\underbrace{1\times999+2\times99+3\times9}_{\text{9의 배수}}+1+2+3+4\end{aligned}</e-latex>&nbsp;</p><aside>이렇게 쉬웠었다.</aside><p>&nbsp;<e-latex>10=9+1, 100=99+1, 1000=999+1 , \cdots</e-latex>&nbsp;이런 식으로 나오니 한 개씩 다 제외하고 남은 것들이 쉽게 9의 배수가 되었었다.</p><p>하지만 11의 배수로 만드는 것은 거의 트릭에 가깝다.</p><p style="text-align: center;">&nbsp;<e-latex>10 = 11 - 1</e-latex>&nbsp;</p><p style="text-align: center;">&nbsp;<e-latex>100 = 110 - 11 + 1</e-latex>&nbsp;</p><p style="text-align: center;">&nbsp;<e-latex>1000 = 1100 - 110 + 11 - 1</e-latex>&nbsp;</p><p>이것을 이용해서 1234를 표현하면,</p><p style="text-align: center;">&nbsp;<e-latex>\begin{aligned}1234=&amp;1\times1000+2\times100+3\times10+4\\
+=&amp;1\times(1100-110+11-1)+2\times(110-11+1)+3\times(11-1)+4\\
+=&amp;1\times(1100-110+11)-1+2\times(110-11)+2+3\times11-3+4\\
+=&amp;1\times(1100-110+11)+2\times(110-11)+3\times11-1+2-3+4\\
+=&amp;\underbrace{1\times11\times(100-10+1)+2\times11\times(10-1)+3\times11}_{\text{11의 배수}}-1+2-3+4
+\end{aligned}</e-latex>&nbsp;</p><p>조금 복잡해 보이지만 익숙해지면 쉽다. 자릿수 하나를 가져다 쓰려면 10의 거듭제곱 꼴에서 어떻게든 1개를 빼오던가 더해주던가 해야 하는데, 그렇게 하면서 동시에 남아 있는 것이 11의 배수가 되게 만들려고 보니 이런 참신한 발상에 이르게 된 것이다.</p><h3>좀 더 효율적으로</h3><p>이전에 했던 방식과 같은 전략이다. 더하고 빼는 중에 11을 발견하면 건너뛰고, 11보다 너무 커지거나 작아지면 나머지를 미리 찾아서 나머지만 더 해 주는 것이다. 이것도 익숙해지면 빨라진다. 예를 들어 8437을 보면, 7, 4는 더해주고 3, 8은 빼게 될 것인데, 7, 4 가 11이니 건너뛰고, 3, 8은 11을 빼 주는 것이니 건너뛰고 나면, 나머지가 0. 즉, 이 숫자가 11의 배수임을 알 수 있다.</p><h2>7, 13으로 나눈 나머지 구하는 법</h2><p>자 이제 7로 나눈 나머지를 구하는 법을 살펴보겠다. 왜 7로 나눈 나머지 찾는 법을 알아보기 전에 11로 나눈 나머지를 찾는 법을 보았을까? 11로 나눈 나머지를 찾는 게 더 쉽기 때문이다. 11로 나눈 나머지는 1의 자릿수부터 하나씩 교차해 가면서 빼고 더해서 나온 숫자를 11로 나누었지만, 7로 나눈 나머지를 구할 때에는 맨 오른쪽부터 <b>3자리씩</b> 끊어서 세자리를 통째로 빼고 더하고를 반복해서 나온 숫자를 7로 나눈다.&nbsp;</p><p>예를 들어 같은 예제 앞에서 썼던 예제 1234는 7로 나누면 몫은 176에, 나머지가 2인데,</p><p style="text-align: center;">&nbsp;<e-latex>\textcolor{red}{1}\textcolor{blue}{234}\rightarrow\textcolor{blue}{234}-\textcolor{red}{1}=233</e-latex>&nbsp;</p><p>233을 7로 나눈 나머지는 직접 계산해 보면 2가 나온다. 숫자가 크지 않을 때에는 이 방법을 써도 별 이득이 없다. 하지만 숫자가 크다면, 가령, 123456789를 7로 나눈 나머지를 구한다고 할 때,</p><p style="text-align: center;">&nbsp;<e-latex>\textcolor{blue}{123}\textcolor{red}{456}\textcolor{blue}{789}\rightarrow\textcolor{blue}{789}-\textcolor{red}{456}+\textcolor{blue}{123}=456</e-latex>&nbsp;</p><p>456을 7로 나눈 나머지는 1이다. 이것으로 123456789를 7로 나눈 나머지가 1이라는 것을 알 수 있다. 계산이 아주 조금 쉬워졌다.</p><h3>왜 이렇게 될까?</h3><p>&nbsp;<e-latex>1001 = 7\times11\times13</e-latex>&nbsp;을 이용한다. 사실 이제 여기까지 왔으면 저 숫자 배치만 보고도 왜 그렇게 되는 지 알 수 있겠지만, 혹시 모르니 자세히 들어가 보겠다. 자릿수를 빼거나 더하기 위해서 우리는 3, 9로 나눈 나머지, 11로 나눈 나머지를 구할 때, 10의 거듭제곱 형태에서 1이 크거나 작은 형태를 찾으려고 그렇게 노력했었다. 방금 1000에서 하나 큰 숫자가 되는 조합을 찾은 것이다.</p><p>다만, 11일 때는 앞에서 봤던 것 처럼 한자리씩 끊을 수 있고, 무언가 101을 만드는 조합(이런 조합은 없다. 101은 소수, prime number이다)이 있다면 두자리씩 끊어서 빼거나 더할 텐데, 1001이 나오는 바람에 세 자리씩 끊어서 더하고 빼야 한다.</p><p>&nbsp;<e-latex>1000 = 1001 -1</e-latex>&nbsp;</p><p>&nbsp;<e-latex><a href="tel:1000000">1000000=1001000-1001+1</a> = <a href="tel:1001000 - 1001">1001000 - 1001</a> + 1</e-latex>&nbsp;</p><p>이런 식으로 진행된다. 123456789에다가 적용해 보면,</p><p><span style="font-size: 1.06rem; -webkit-text-size-adjust: 100%;">&nbsp;</span><e-latex>\begin{aligned}
+&amp;\textcolor{blue}{123}\textcolor{red}{456}\textcolor{blue}{789}\\
+=&amp;123\times1000000+456\times1000+789\\
+=&amp;123\times(1001000-1001+\textcolor{blue}{1})+456\times(1001-\textcolor{red}{1})+\textcolor{blue}{789}\end{aligned}</e-latex><span style="font-size: 1.06rem; -webkit-text-size-adjust: 100%;">&nbsp;</span></p><p><span style="font-size: 1.06rem; -webkit-text-size-adjust: 100%;">&nbsp;</span><e-latex>=\underbrace{123\times1001\times(1000-1)+456\times1001}_{\text{1001의 배수이므로 7의 배수}}+\textcolor{blue}{123}-\textcolor{red}{456}+\textcolor{blue}{789}</e-latex><span style="font-size: 1.06rem; -webkit-text-size-adjust: 100%;">&nbsp;&nbsp;</span></p><p><span style="font-size: 1.06rem; -webkit-text-size-adjust: 100%;">1001의 배수는 7의 배수이므로 7로 나눈 나머지를 구할 때에는 필요없다. 건너뛰고 나면 맨 오른쪽부터 3자리씩 끊어서 더하고 빼고를 반복한 값을 7로 나눈 나머지가 원래 숫자를 7로 나눈 나머지가 된다.</span></p><blockquote><span style="-webkit-text-size-adjust: 100%;">13으로 나눈 나머지는?</span></blockquote><p><span style="-webkit-text-size-adjust: 100%;">1001이 13의 배수이기도 하므로, 같은 방법으로 나머지를 구할 수 있다. 1001이 11의 배수이기도 하므로 역시 같은 방법을 쓸 수도 있겠지만, 11은 앞에서 했던 한자리마다 더하고 빼는 것을 반복하는 것이 훨씬 쉽기 때문에 그 방법으로 한다.</span></p><h2><span style="-webkit-text-size-adjust: 100%;">마치며</span></h2><p><span style="-webkit-text-size-adjust: 100%;">지금까지 2, 3, 4, 5, 7, 8, 9, 11, 13으로 나누었을 때 나머지를 구하는 방법을 알아보고 왜 그렇게 되는 지도 짚어보았다. 이 방법들은 나머지를 구할 때 보다는 나누어 떨어지는지 아닌지 테스트 하는 경우, 다시 말해, 약수/배수 관계를 판별할 때 자주 쓰인다. 약수/배수는 분수(fraction), 제곱근(square root) 등을 간단하게 할 때 항상 사용되기 때문에 알아두면 두고 두고 쓰게 될 것이다.</span></p><blockquote><span style="-webkit-text-size-adjust: 100%;">10의 배수는요?</span></blockquote><p><span style="-webkit-text-size-adjust: 100%;">왜 물어보셨는가? 끝자리 0이면 10의 배수다. 그 정도는 알 것이고</span></p><blockquote><span style="-webkit-text-size-adjust: 100%;">6의 배수는?</span></blockquote><p><span style="-webkit-text-size-adjust: 100%;">6은 2와 3의 최소 공배수이기 때문에, 짝수인지 판별한 다음에 각 자리 숫자 합친 것이 3의 배수가 되는 지 확인하면 된다.</span></p><blockquote><span style="-webkit-text-size-adjust: 100%;">12의 배수는?</span></blockquote><p><span style="-webkit-text-size-adjust: 100%;">12는 3과 4의 최소공배수이므로, 각 자리 합쳐서 3의 배수 되는지 확인한 후에, 끝 두자리 확인해서 4의 배수도 되는지 확인해 보면 된다.</span></p><p><span style="-webkit-text-size-adjust: 100%;">그럼 오늘은 여기까지.</span></p>    </d-article>
+    <d-article>
+        <!--
+        <div>
+            <a href="https://edonedge.github.io/posts/2021-01-09-remainder-by-divisor-7-11-13#disqus_thread">Link</a>
+        </div>
+        -->
+        <a href="https://www.buymeacoffee.com/edkim"><img src="https://img.buymeacoffee.com/button-api/?text=Would you Buy me a Coffee?&emoji=&slug=edkim&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"></a>
+        <div>
+            <div id="disqus_thread"></div>
+        </div>
+    </d-article>
+    <d-appendix>
+    </d-appendix>
+    <div class="base-grid efooter">
+        <div style="grid-column: text;">
+            Ed found a way to relax on the cutting edge. <br> <a href="/">Home</a>
+        </div>
+    </div>
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+        var disqus_config = function() {
+            this.page.identifier = "/posts/2021-01-09-remainder-by-divisor-7-11-13";
+            this.page.url = "https://edonedge.github.io/posts/2021-01-09-remainder-by-divisor-7-11-13";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script');
+            s.src = 'https://edonedge.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script id="dsq-count-scr" src="//edonedge.disqus.com/count.js" async></script>
+    <script>
+        // Hide Header on on scroll down
+        var didScroll;
+        var lastScrollTop = 0;
+        var delta = 5;
+        var navbarHeight = $('header').outerHeight();
+
+        $(window).scroll(function(event) {
+            didScroll = true;
+            console.log('scroll detected!!');
+        });
+
+        setInterval(function() {
+            if (didScroll) {
+                console.log('scroll detected');
+                hasScrolled();
+                didScroll = false;
+            }
+        }, 250);
+
+        function hasScrolled() {
+            var st = $(this).scrollTop();
+
+            // Make sure they scroll more than delta
+            if (Math.abs(lastScrollTop - st) <= delta)
+                return;
+
+            // If they scrolled down and are past the navbar, add class .nav-up.
+            // This is necessary so you never see what is "behind" the navbar.
+            if (st > lastScrollTop && st > navbarHeight) {
+                // Scroll Down
+                $('header').removeClass('nav-down').addClass('nav-up');
+            } else {
+                // Scroll Up
+                if (st + $(window).height() < $(document).height()) {
+                    $('header').removeClass('nav-up').addClass('nav-down');
+                }
+            }
+
+            lastScrollTop = st;
+        }
+    </script>
+</body>
+
+</html>
