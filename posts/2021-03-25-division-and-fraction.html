@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>
+        4 ÷ 3과 4 / 3 는 왜 같을까?
+    </title>
+    <meta name="description" content="분수를 배우고 어느정도 익숙해져가고 있을 무렵, &#34;이제부터는 ÷기호 대신에 분수기호를 쓴다&#34;는 반 주입식 선언과 함께 ÷기호가 교과서에서 점점 사라지는 걸 목도했던 기억이 납니다. &#39;÷&#39;을 &#39;/&#39;로 바꾸어 쓰는 것은 기호를 교체해서 써도 된다는 것 이상의 의미가 있습니다. 우리가 &#39;÷&#39;를 처음 배울때와 &#39;/&#39; 를 배울 때 서로 다른 지점에서 시작했거든요.">
+
+    <meta property="og:title" content="4 ÷ 3과 4 / 3 는 왜 같을까?" />
+    <meta property="og:description" content="분수를 배우고 어느정도 익숙해져가고 있을 무렵, &#34;이제부터는 ÷기호 대신에 분수기호를 쓴다&#34;는 반 주입식 선언과 함께 ÷기호가 교과서에서 점점 사라지는 걸 목도했던 기억이 납니다. &#39;÷&#39;을 &#39;/&#39;로 바꾸어 쓰는 것은 기호를 교체해서 써도 된다는 것 이상의 의미가 있습니다. 우리가 &#39;÷&#39;를 처음 배울때와 &#39;/&#39; 를 배울 때 서로 다른 지점에서 시작했거든요.">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://edonedge.github.io/posts/2021-03-25-division-and-fraction" />
+    <meta property="og:image" content="https://edonedge.github.io/math.jpg" />
+
+    <script src="https://distill.pub/template.v2.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+    <script src='/elatex.js'></script>
+    <script>
+        window.onload = function(e) {
+                // Legacy latex math expressions.
+                mes = document.getElementsByTagName('latex');
+                for (i = 0; i < mes.length; i++) {
+                    katex.render(mes[i].innerText, mes[i]);
+                }
+            }
+            // current math expressions
+        window.addEventListener('DOMContentLoaded', (event) => {
+            console.log('DOM fully loaded and parsed');
+            dom_init_loading_done = true;
+            mes = document.getElementsByTagName('e-latex');
+            for (i = 0; i < mes.length; i++) {
+                mes[i].initME();
+            }
+        });
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H6GKLETEP"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1H6GKLETEP');
+  </script>
+</head>
+
+<body style="padding-top:60px;">
+    <header class="base-grid eheader nav-down">
+        <div style="grid-column: text;">
+            <span style="color: white;"><a href="/">Ed's Blog</a></span>
+            <span class="nav-menu" style="float: right;">
+                <a href="/">HOME</a>
+                <a href="/about">ABOUT</a>
+                <a href="/about#bmc"><img src="/images/bmc.svg" height="30" style="vertical-align: -11%;"></a>
+            </span>
+        </div>
+    </header>
+    <!--
+    <d-front-matter>
+        <script id='distill-front-matter' type="text/json">
+            {
+                "authors": [{
+                    "author": "Ed Kim",
+                    "authorURL": "https://edonedge.github.io/",
+                    "affiliations": [{
+                        "name": "Ed on Edge"
+                    }]
+                }],
+                "katex": {
+                    "delimiters": [{
+                        "left": "$$",
+                        "right": "$$",
+                        "display": false
+                    }]
+                }
+            }
+        </script>
+    </d-front-matter>
+    -->
+    <d-title>
+        <h1 id="title">
+            4 ÷ 3과 4 / 3 는 왜 같을까?
+        </h1>
+        <p id="intro">
+            분수를 배우고 어느정도 익숙해져가고 있을 무렵, &#34;이제부터는 ÷기호 대신에 분수기호를 쓴다&#34;는 반 주입식 선언과 함께 ÷기호가 교과서에서 점점 사라지는 걸 목도했던 기억이 납니다. &#39;÷&#39;을 &#39;/&#39;로 바꾸어 쓰는 것은 기호를 교체해서 써도 된다는 것 이상의 의미가 있습니다. 우리가 &#39;÷&#39;를 처음 배울때와 &#39;/&#39; 를 배울 때 서로 다른 지점에서 시작했거든요.
+        </p>
+    </d-title>
+    <d-byline>
+      <div class="byline grid">
+        <div class="authors-affiliations grid">
+        <h3>Authors</h3>
+        <h3>Affiliations</h3>
+        <p class="author"><a href="/">Ed Kim</a></p>
+        <p class="affiliation"><a href="/">Ed on Edge</a></p>
+        </div>
+        <div>
+          <h3>Created</h3>
+          <p>Mar. 24th, 2021</p>
+        </div>
+        <div>
+          <h3>Last Updated</h3>
+          <p id="updated">Apr. 10th, 2021</p>
+        </div>
+      </div>
+    </d-byline>
+
+    <d-article id="contents">
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        <p style="text-align: center;">&nbsp;<e-latex displaymode="">4 \div 3 = \frac{4}{3}</e-latex>&nbsp;</p><p>이제는 너무 익숙해졌겠지만, 하필 저 두 표현식이 같을 필요가 있을까 하는 의문을 억지로 가지고 다시 시작해 봅시다.&nbsp;<span style="font-size: 1.06rem;">4÷3 은</span></p><blockquote>4라는 양을 3명에게 똑같이 나누어주었을 때 한 사람이 얼마나 가지게 되나? 즉 몫(quotient)이 얼마인가?</blockquote><p>혹은</p><blockquote>4라는 양을 3만큼 똑같이 나누어주면 몇 사람에게 나누어줄 수 있을까?</blockquote><p>라는 질문을 식으로 나타낸 것입니다. 나눗셈을 처음 배울 때 그렇게 배웠었죠. 지금 우리가 붙잡고 있는 4÷3 예제에서는 첫번째 질문이 더 자연스러워 보입니다.</p><p>&nbsp;분수&nbsp;<e-latex displaymode="">\frac{4}{3}</e-latex>&nbsp;은</p><blockquote>1을 세개로 나눈 한 조각 (즉,&nbsp;<e-latex displaymode="">\frac{1}{3}</e-latex>) 을 4개 모아 놓은 것</blockquote><p>이란 뜻입니다. 분수를 배울 때 저렇게 배웠었죠.&nbsp;</p><p>&nbsp;<e-latex>4 \div 3</e-latex>과&nbsp;<e-latex displaymode="">\frac{4}{3}</e-latex>을&nbsp;그림으로 나타내면 이렇습니다.&nbsp;</p><p style="text-align: center;"><img src="/images/4div3.png"><br></p><p>&nbsp;<e-latex>4 \div 3</e-latex>은 마치 4에서 시작해서 3등분하면서 양이 줄어든 것 처럼 보이고,&nbsp;<e-latex displaymode="">\frac{4}{3}</e-latex>은&nbsp;<e-latex displaymode="">\frac{1}{3}</e-latex>이란 작은 값이 4배가 되면서 커진 것처럼 보이죠. 그럼 이 두 값은 왜 같은 걸까요?&nbsp;&nbsp;</p><p>숫자 1에서 시작해 봅시다.&nbsp;</p><p style="text-align: center;">&nbsp;<e-latex displaymode="">1 \div 3 = \frac{1}{3}</e-latex>&nbsp;&nbsp;</p><p>위의 식이 같다는 것은 쉽게 알 수 있을 것 같습니다. 1을 3명에게 정확하게 나누어주면, 각 사람은 1을 3등분한 한 조각을 가지게 될 테니까요.&nbsp;</p><p>이것에 동의했다면, 1의 4배인 4를 나누어준다면 한 사람 몫은 얼마가 될까요? 나누기 전의 값(피제수, dividened)이 정확히 4배가 되었으니, 같은 방법으로 3명에게 나누어준다면 각 사람의 몫도 정확히 4배가 되지 않을까요?&nbsp;</p><p style="text-align: center;">&nbsp;<e-latex displaymode="">4 \div 3 = (4\times1) \div 3=4\times \frac{1}{3}=\frac{4}{3}</e-latex>&nbsp;&nbsp;</p><p>숫자 4, 3에 대해서&nbsp;<e-latex displaymode="">4 \div 3=\frac{3}{4}</e-latex>이 납득되기 시작했다면, 다른 자연수에 대해서도 해 봅시다. 모든 자연수에 대해서 비슷한 방식으로 이해할 수 있다는 걸 알게 됩니다.</p><p>이것만으로 ÷기호 대신 / 를 사용하는 것이 다 설명되지는 않습니다. 자연수 두 개에 대한 나눗셈 연산에 대해서만 감을 잡아본 것이니까요.&nbsp;</p><p>다음 글에서는&nbsp;<e-latex displaymode="">4 \div \frac{1}{3} = 4 \times 3</e-latex>이 왜 되는지 알아보겠습니다. 끝.</p>    </d-article>
+    <d-article>
+        <!--
+        <div>
+            <a href="https://edonedge.github.io/posts/2021-03-25-division-and-fraction#disqus_thread">Link</a>
+        </div>
+        -->
+        <a href="https://www.buymeacoffee.com/edkim"><img src="https://img.buymeacoffee.com/button-api/?text=Would you Buy me a Coffee?&emoji=&slug=edkim&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"></a>
+        <div>
+            <div id="disqus_thread"></div>
+        </div>
+    </d-article>
+    <d-appendix>
+    </d-appendix>
+    <div class="base-grid efooter">
+        <div style="grid-column: text;">
+            Ed found a way to relax on the cutting edge. <br> <a href="/">Home</a>
+        </div>
+    </div>
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+        var disqus_config = function() {
+            this.page.identifier = "/posts/2021-03-25-division-and-fraction";
+            this.page.url = "https://edonedge.github.io/posts/2021-03-25-division-and-fraction";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script');
+            s.src = 'https://edonedge.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script id="dsq-count-scr" src="//edonedge.disqus.com/count.js" async></script>
+    <script>
+        // Hide Header on on scroll down
+        var didScroll;
+        var lastScrollTop = 0;
+        var delta = 5;
+        var navbarHeight = $('header').outerHeight();
+
+        $(window).scroll(function(event) {
+            didScroll = true;
+            console.log('scroll detected!!');
+        });
+
+        setInterval(function() {
+            if (didScroll) {
+                console.log('scroll detected');
+                hasScrolled();
+                didScroll = false;
+            }
+        }, 250);
+
+        function hasScrolled() {
+            var st = $(this).scrollTop();
+
+            // Make sure they scroll more than delta
+            if (Math.abs(lastScrollTop - st) <= delta)
+                return;
+
+            // If they scrolled down and are past the navbar, add class .nav-up.
+            // This is necessary so you never see what is "behind" the navbar.
+            if (st > lastScrollTop && st > navbarHeight) {
+                // Scroll Down
+                $('header').removeClass('nav-down').addClass('nav-up');
+            } else {
+                // Scroll Up
+                if (st + $(window).height() < $(document).height()) {
+                    $('header').removeClass('nav-up').addClass('nav-down');
+                }
+            }
+
+            lastScrollTop = st;
+        }
+    </script>
+</body>
+
+</html>
