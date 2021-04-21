@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>
+        왜 무한대로 달려야 했을까?
+    </title>
+    <meta name="description" content="자동차를 타고 목적지까지 50km/h를 유지하면서 달렸습니다. 돌아올 때 좀 빨리 달려서 가고 오는데 평균 100km/h가 되게 하려면 얼마로 달려서 돌아와야 할까요?">
+
+    <meta property="og:title" content="왜 무한대로 달려야 했을까?" />
+    <meta property="og:description" content="자동차를 타고 목적지까지 50km/h를 유지하면서 달렸습니다. 돌아올 때 좀 빨리 달려서 가고 오는데 평균 100km/h가 되게 하려면 얼마로 달려서 돌아와야 할까요?">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://edonedge.github.io/posts/2021-04-18-why-infinite-speed" />
+    <meta property="og:image" content="https://edonedge.github.io/math.jpg" />
+
+    <script src="https://distill.pub/template.v2.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+    <script src='/elatex.js'></script>
+    <script>
+        window.onload = function(e) {
+                // Legacy latex math expressions.
+                mes = document.getElementsByTagName('latex');
+                for (i = 0; i < mes.length; i++) {
+                    katex.render(mes[i].innerText, mes[i]);
+                }
+            }
+            // current math expressions
+        window.addEventListener('DOMContentLoaded', (event) => {
+            console.log('DOM fully loaded and parsed');
+            dom_init_loading_done = true;
+            mes = document.getElementsByTagName('e-latex');
+            for (i = 0; i < mes.length; i++) {
+                mes[i].initME();
+            }
+        });
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H6GKLETEP"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1H6GKLETEP');
+  </script>
+</head>
+
+<body style="padding-top:60px;">
+    <header class="base-grid eheader nav-down">
+        <div style="grid-column: text;">
+            <span style="color: white;"><a href="/">Ed's Blog</a></span>
+            <span class="nav-menu" style="float: right;">
+                <a href="/">HOME</a>
+                <a href="/about">ABOUT</a>
+                <a href="/about#bmc"><img src="/images/bmc.svg" height="30" style="vertical-align: -11%;"></a>
+            </span>
+        </div>
+    </header>
+    <!--
+    <d-front-matter>
+        <script id='distill-front-matter' type="text/json">
+            {
+                "authors": [{
+                    "author": "Ed Kim",
+                    "authorURL": "https://edonedge.github.io/",
+                    "affiliations": [{
+                        "name": "Ed on Edge"
+                    }]
+                }],
+                "katex": {
+                    "delimiters": [{
+                        "left": "$$",
+                        "right": "$$",
+                        "display": false
+                    }]
+                }
+            }
+        </script>
+    </d-front-matter>
+    -->
+    <d-title>
+        <h1 id="title">
+            왜 무한대로 달려야 했을까?
+        </h1>
+        <p id="intro">
+            자동차를 타고 목적지까지 50km/h를 유지하면서 달렸습니다. 돌아올 때 좀 빨리 달려서 가고 오는데 평균 100km/h가 되게 하려면 얼마로 달려서 돌아와야 할까요?
+        </p>
+    </d-title>
+    <d-byline>
+      <div class="byline grid">
+        <div class="authors-affiliations grid">
+        <h3>Authors</h3>
+        <h3>Affiliations</h3>
+        <p class="author"><a href="/">Ed Kim</a></p>
+        <p class="affiliation"><a href="/">Ed on Edge</a></p>
+        </div>
+        <div>
+          <h3>Created</h3>
+          <p>Apr. 17th, 2021</p>
+        </div>
+        <div>
+          <h3>Last Updated</h3>
+          <p id="updated">Apr. 20th, 2021</p>
+        </div>
+      </div>
+    </d-byline>
+
+    <d-article id="contents">
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        <p><img src="/images/50km-car.png"><br></p><p>자동차를 타고 A지점에서 출발해서 평균 50km/h의 속도로 목적지 B에 도착했습니다. 되돌아올 때에는 좀 빨리 달려서 평균 100km/h으로 왔다갔다 한 게 되도록 하고 싶다면, 얼마의 속도로 되돌아와야 할까요?</p><aside>이 글에서는 벡터랑 스칼라를 엄밀히 따지고 있지 않습니다. 그래서 속도와 속력을 혼용하고 있습니다.</aside><p>대부분의 사람들이 150km/h라고 대답합니다. 예상하시다시피 틀린 답이구요. 평균 속도의 정의가 우리가 생각하는 산술 평균값이 아니라서 그런 것인데요. 평균 속도의 정의를 한 번 볼까요?</p><p style="text-align: center;">&nbsp;<e-latex displaymode="">\text{평균속도}=\frac{\text{이동거리}}{\text{걸린시간}}</e-latex>&nbsp;&nbsp;</p><p>흔히 "속도는 거리 나누기 시간" 이라고 하지요. 그것과 정확히 같은 말입니다. 해석이 중요한데요, 평균 속도라는 것은 여러가지 다양한 속도를 다 더해서 평균값을 구한 것이 아니라, 빠르게 가든 느리게 가든, 가다가 중간에 쉬든, 이동한 거리를 구한 다음에 그때까지 걸린 시간을 나눈 것이 평균 속도입니다.</p><p>그렇다면 돌아올 때 150km/h로 오면 평균속도가 어떻게 되는 지 한 번 보겠습니다. 평균 100km/h가 아니라는 걸 눈으로 확인해야 속이 좀 시원하겠지요.</p><p>출발지점에서 도착지점까지의 거리를 d라고 하면, 이동한 총 거리는 2d입니다. 걸린 시간을 구할 때 "시간은 거리 나누기 속도"이므로, 갈 때 걸린 시간은 d/50, 올 때 걸린 시간은 d/150입니다. 이제 계산해 볼까요?</p><p style="text-align: center;">&nbsp;<e-latex displaymode="">v_{average}=\frac{2d}{\frac{d}{50}+\frac{d}{150}}=\frac{2d}{\frac{3d+d}{150}}=\frac{2d}{\frac{4d}{150}}=\frac{2}{\frac{4}{150}}=\frac{2\times150}{4}=75\text{km/h}</e-latex>&nbsp;&nbsp;</p><p>75km/h밖에 안 나오네요. 평균속도가 100km/h가 되려면 돌아올 때 좀 더 빨리 달려야 하나봅니다. 그러면 돌아올 때 300km/h로 달려오면?</p><p style="text-align: center;">&nbsp;<e-latex displaymode="">v_{average}=\frac{2d}{\frac{d}{50}+\frac{d}{300}}=\frac{2d}{\frac{6d+d}{300}}=\frac{2d}{\frac{7d}{300}}=\frac{2}{\frac{7}{300}}=\frac{2\times300}{7}\approx85.7\text{km/h}</e-latex>&nbsp;&nbsp;</p><p>그렇게 달려도 평균 85.7km에 밖에 도달을 못하네요. 도대체 얼마로 달려야 할까요?</p><p>답은 빛의 속도로 달려도 평균 100km/h에 도달을 못합니다. 무한대로 달려야 해요.</p><h2>왜 그럴까?</h2><p>이런 종류의 퍼즐을 대하기 전에 감을 잡는 팁을 잠시 말해 보겠습니다.&nbsp;</p><p>처음에는 속도, 거리, 시간 중에 갈 때의 속도 하나만 알고 있으니(거리도 모르고 시간도 모르고 돌아올때의 속도도 모르고) 아무것도 도출해 낼 수 없을 것 같은 느낌이 들지요. 하지만 생각해 봅시다. 우리가 어떤 속도로 달리든 거리를 바꿀 수는 없잖아요. 그런데 그 거리가 얼마인지 문제에 주어져 있지 않아요. 이것은, 만약에 이걸 해석할 수 있는 방법이 있다면 그것이 <b>거리에 전혀 상관없이 성립할 것이라는 단서</b>를 던져 줍니다. 대수학에 익숙하면 거리를 그냥 d 같은 문자로 놓고 풀면 어느 순간엔가 상쇄(cancel-out)되어서 없어질 것이라는 뜻이죠. 또 다른 의미로는 우리에게 편한 숫자 아무거나 넣고 생각해도 된다는 뜻입니다.</p><p>그래서 편한 숫자를 하나 골라서 거리가 100km라고 해 봅시다.</p><p>평균 100km/h로 갔다가 돌아오려면, 총 거리는 가고 오고 해서 200km니까, 2시간 안에 갔다가 돌아와야 합니다. 그런데 갈 때 50km/h로 갔으니 가는 데만 2시간이 걸린 거죠. 돌아올 때에는 0시간 안에 돌아와야 합니다. 그래서 순간이동하지 않는 한 평균속도 100km/h에 도달할 수가 없습니다.</p><h2>평균 속도와 조화 평균</h2><p>우리에게 익숙한 평균값이라는 것은 주로 산술 평균입니다. 숫자 a, b에 대한 산술평균 m은 a, m, b의 세 숫자가 등차수열을 이루게 만드는 m의 값을 말합니다. 손쉽게 계산하자면 두 숫자 더한 후에 2로 나누면 됩니다. 하지만 이런 평균 이외에도 기하평균(기하수열의 중간값)과 조화평균(조화수열의 중간값)이란 것이 있습니다.&nbsp;</p><p>조화수열이란 역수를 취했을 때 등차수열이 되는 수열입니다. 대표적으로 이런 것인데요,</p><p style="text-align: center;">&nbsp;<e-latex displaymode="">\frac{1}{2},\frac13,\frac14,\frac15,\cdots</e-latex>&nbsp;&nbsp;</p><p>위와 같은 수열은 아래위 뒤집으면,&nbsp;<e-latex>2, 3, 4, 5, \cdots</e-latex>&nbsp;형태의 등차수열이 되므로 조화수열입니다. 조화평균은 <b>뒤집어서 평균 구한 다음에 그 값을 다시 뒤집은 것</b>입니다.</p><p>아까 앞에서 올 때 150km/h로 달리면 평균 속도가 75km/h가 나왔었지요? <b>같은 거리를 달린 속도의 평균 속도는 조화평균</b>과 같습니다. 조화평균 구하는 방법으로 바로 구해보면, 일단 숫자를 뒤집어서&nbsp;<e-latex>\frac{1}{50}</e-latex>&nbsp;과&nbsp;<e-latex>\frac{1}{150}</e-latex>&nbsp;의 평균값을 구합니다.</p><p style="text-align: center;">&nbsp;<e-latex displaymode="">\frac{\frac{1}{50}+\frac{1}{150}}{2}=\frac{\frac{4}{150}}{2}=\frac{2}{150}=\frac{1}{75}</e-latex>&nbsp;&nbsp;</p><p>그리고 그렇게 구한 값을 뒤집으면 조화평균이 되죠. 75km/h가 딱 나오지 않습니까?</p><h3>조화(harmonic) 수열이란?</h3><p>등차수열과 등비수열만 해도 상당히 직관적인데 조화수열은 좀 난데 없는 면이 있습니다. 뒤집으면 등차수열이 되는 수열이라니, 왜 이런 것이 있고, 하필 이름은 조화수열일까요?</p><p>이 수열의 시작은 보통 화음이라고들 합니다. 그래서 이름에 "하모니"가 들어간 것이지요.</p><p>"도"의 진동수가 440hz라고 할 때, "미"는 550hz "솔"은 660hz 입니다. 완전화음이죠. "높은 도"는 880hz이고요, 그 사이 하나 빈 것같은 770hz의 자리는 라#(딸림7화음)이 차지하고 있습니다. 그래서 나열해 보면</p><p style="text-align: center;">도, 미, 솔, 라#, 높은 도 ==&gt; 440, 550, 660, 770, 880</p><p>110의 차이를 두고 계속 커지는 등차수열입니다. 음악은 옛날부터 있었고 옛날 사람들도 어떤 게 화음이 되는 지는 알고 있었습니다. 다만 진동수를 측정하는 기술은 그 당시에는 없었겠지요. 파동에서 진동수는 파장의 역수인데, 파장의 길이를 따로 재는 것은 어렵지만, 파동이 특정 공간에 갇혀 있으면(정상파) 파장은 그 갇힌 공간의 길이에 비례하게 됩니다. 어렵게 말했지만 현악기에서 설명하자면 현의 길이와 진동수가 반비례 관계에 있다는 말입니다.&nbsp;</p><p>피타고라스와 그의 추종자들이 역수가 등차수열을 이루는 길이의 현으로 연주하면 화음이 된다는 걸 알아냅니다. 그리고는 음악에서조차 숫자로 조화로워지는 세상에 감탄하며 정수(integer)를 더욱 더 숭배하게 되었다는...</p><p>암튼, 결론은 조화수열도 어딘가 쓰인다는 겁니다. 같은 거리를 달린 속도의 평균 속도는 조화평균이란 것과 함께요. (하지만, 같은 시간동안 달린 속도의 평균은 산술평균입니다) 끝</p>    </d-article>
+    <d-article>
+        <!--
+        <div>
+            <a href="https://edonedge.github.io/posts/2021-04-18-why-infinite-speed#disqus_thread">Link</a>
+        </div>
+        -->
+        <a href="https://www.buymeacoffee.com/edkim"><img src="https://img.buymeacoffee.com/button-api/?text=Would you Buy me a Coffee?&emoji=&slug=edkim&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"></a>
+        <div>
+            <div id="disqus_thread"></div>
+        </div>
+    </d-article>
+    <d-appendix>
+    </d-appendix>
+    <div class="base-grid efooter">
+        <div style="grid-column: text;">
+            Ed found a way to relax on the cutting edge. <br> <a href="/">Home</a>
+        </div>
+    </div>
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+        var disqus_config = function() {
+            this.page.identifier = "/posts/2021-04-18-why-infinite-speed";
+            this.page.url = "https://edonedge.github.io/posts/2021-04-18-why-infinite-speed";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script');
+            s.src = 'https://edonedge.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script id="dsq-count-scr" src="//edonedge.disqus.com/count.js" async></script>
+    <script>
+        // Hide Header on on scroll down
+        var didScroll;
+        var lastScrollTop = 0;
+        var delta = 5;
+        var navbarHeight = $('header').outerHeight();
+
+        $(window).scroll(function(event) {
+            didScroll = true;
+            console.log('scroll detected!!');
+        });
+
+        setInterval(function() {
+            if (didScroll) {
+                console.log('scroll detected');
+                hasScrolled();
+                didScroll = false;
+            }
+        }, 250);
+
+        function hasScrolled() {
+            var st = $(this).scrollTop();
+
+            // Make sure they scroll more than delta
+            if (Math.abs(lastScrollTop - st) <= delta)
+                return;
+
+            // If they scrolled down and are past the navbar, add class .nav-up.
+            // This is necessary so you never see what is "behind" the navbar.
+            if (st > lastScrollTop && st > navbarHeight) {
+                // Scroll Down
+                $('header').removeClass('nav-down').addClass('nav-up');
+            } else {
+                // Scroll Up
+                if (st + $(window).height() < $(document).height()) {
+                    $('header').removeClass('nav-up').addClass('nav-down');
+                }
+            }
+
+            lastScrollTop = st;
+        }
+    </script>
+</body>
+
+</html>
