@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>
+        퍼센트(percent)란?
+    </title>
+    <meta name="description" content="비율을 나타내는 말 중에 일상생활에서 퍼센트만큼 자주쓰이는 말이 없습니다. 10%할인, 9%부가가치세 등등. 퍼센트가 무엇인지 그리고 퍼센트가 들어간 표현은 어떻게 이해해야 하는 지 알아봅시다.">
+
+    <meta property="og:title" content="퍼센트(percent)란?" />
+    <meta property="og:description" content="비율을 나타내는 말 중에 일상생활에서 퍼센트만큼 자주쓰이는 말이 없습니다. 10%할인, 9%부가가치세 등등. 퍼센트가 무엇인지 그리고 퍼센트가 들어간 표현은 어떻게 이해해야 하는 지 알아봅시다.">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://edonedge.github.io/posts/2021-05-21-percent" />
+    <meta property="og:image" content="https://edonedge.github.io/math.jpg" />
+
+    <script src="https://distill.pub/template.v2.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+    <script src='/elatex.js'></script>
+    <script>
+        window.onload = function(e) {
+                // Legacy latex math expressions.
+                mes = document.getElementsByTagName('latex');
+                for (i = 0; i < mes.length; i++) {
+                    katex.render(mes[i].innerText, mes[i]);
+                }
+            }
+            // current math expressions
+        window.addEventListener('DOMContentLoaded', (event) => {
+            console.log('DOM fully loaded and parsed');
+            dom_init_loading_done = true;
+            mes = document.getElementsByTagName('e-latex');
+            for (i = 0; i < mes.length; i++) {
+                mes[i].initME();
+            }
+        });
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H6GKLETEP"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1H6GKLETEP');
+  </script>
+</head>
+
+<body style="padding-top:60px;">
+    <header class="base-grid eheader nav-down">
+        <div style="grid-column: text;">
+            <span style="color: white;"><a href="/">Ed's Blog</a></span>
+            <span class="nav-menu" style="float: right;">
+                <a href="/">HOME</a>
+                <a href="/about">ABOUT</a>
+                <a href="/about#bmc"><img src="/images/bmc.svg" height="30" style="vertical-align: -11%;"></a>
+            </span>
+        </div>
+    </header>
+    <!--
+    <d-front-matter>
+        <script id='distill-front-matter' type="text/json">
+            {
+                "authors": [{
+                    "author": "Ed Kim",
+                    "authorURL": "https://edonedge.github.io/",
+                    "affiliations": [{
+                        "name": "Ed on Edge"
+                    }]
+                }],
+                "katex": {
+                    "delimiters": [{
+                        "left": "$$",
+                        "right": "$$",
+                        "display": false
+                    }]
+                }
+            }
+        </script>
+    </d-front-matter>
+    -->
+    <d-title>
+        <h1 id="title">
+            퍼센트(percent)란?
+        </h1>
+        <p id="intro">
+            비율을 나타내는 말 중에 일상생활에서 퍼센트만큼 자주쓰이는 말이 없습니다. 10%할인, 9%부가가치세 등등. 퍼센트가 무엇인지 그리고 퍼센트가 들어간 표현은 어떻게 이해해야 하는 지 알아봅시다.
+        </p>
+    </d-title>
+    <d-byline>
+      <div class="byline grid">
+        <div class="authors-affiliations grid">
+        <h3>Authors</h3>
+        <h3>Affiliations</h3>
+        <p class="author"><a href="/">Ed Kim</a></p>
+        <p class="affiliation"><a href="/">Ed on Edge</a></p>
+        </div>
+        <div>
+          <h3>Created</h3>
+          <p>May. 20th, 2021</p>
+        </div>
+        <div>
+          <h3>Last Updated</h3>
+          <p id="updated">May. 22nd, 2021</p>
+        </div>
+      </div>
+    </d-byline>
+
+    <d-article id="contents">
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        <p>소수점과 분수를 배우고 나면 생활 속 비율에 관련된 표현에 익숙해지도록 훈련을 합니다. 따로 훈련을 하는 이유는, 수학적으로는 완전히 동일한 현상도 말로 풀 때에는 다르게 표현되기 때문이죠. 언어는 규칙에 의해서 만들어졌다기 보다는 많은 사람들이 쓰는대로 흘러간 경우가 많으니까요.&nbsp;</p><p>우선 비율은 크게 두 가지 종류가 있습니다.</p><blockquote>(1) 순수한 숫자로만 되어 있는 비율( 2/3, 0.5 등)</blockquote><blockquote>(2) 단위가 들어간 비율(5 m/s, 10 J/s, 30 mpg[miles per gallon], 등)&nbsp;</blockquote><p>순수한 숫자로만 표현된 비율은 순수한 숫자 사이의 비율을 계산했거나, 단위가 같은 측정치의 비율을 계산했을 때 나오고요, 단위가 들어간 비율은 단위가 다른 두 가지 양(측정치)의 비율을 계산했을 때 나옵니다. 우리말에선 둘 다 비율이라고 하지만 영어에서는 약하게나마 구분을 하고 있는데요. 순수한 숫자로만 나온 비율은 ratio라고 자주 부르고, 단위가 다른 측정치의 비율은 rate이라고 합니다. rate이 사용범위가 넓어서 ratio로 쓸 부분을 rate으로 해 버리는 경우도 있는 걸 보면 영어에서도 그렇게 강하게 구분하는 것 같지는 않네요.&nbsp;</p><blockquote>이 구분이 왜 필요한가요?</blockquote><p>오늘 다룰 퍼센트(percent)는 순수한 숫자로만 된 비율에 쓰이거든요. 우리가 자주 사용하는 용액의 농도가 퍼센트 농도인데, 분자에 들어가는 용질(예를 들어 소금)의 질량과 분모에 들어가는 용액(예를 들면 소금물)의 질량이 단위가 같아서(주로 g이나 kg으로 측정하죠) 그 비율을 구하면 순수 숫자가 됩니다. 그래서 퍼센트로 자주 읽습니다.&nbsp;</p><p>반면, 농도 중에 화학실험이나 제약회사에서 종종 사용하는 몰농도(molarity)라는 것이 있는데, 이것은 용액의 양은 부피단위인 L로 재고, 용질의 양은 mol로 재기 때문에 서로 단위가 다르죠. 그래서 퍼센트를 동원해서 읽지 않습니다. 또 다른 예로 속도를 보면, 1초에 0.45미터를 가는 속도는 0.45m/s인데, 아무도 이것을 45%m/s라고 읽지 않지요. 비율에 단위가 달린 것들은 퍼센트로 읽지 않는 것이 일반적입니다.</p><h2>퍼센트가 뭘까?</h2><p>비율을 "100개당 몇개인가?" 의 형식으로 나타낸 겁니다.&nbsp;<span style="font-size: 1.06rem;">우리말로는 백분율이라고 하는데요,&nbsp;</span><span style="font-size: 1.06rem;">영어로는 더 확실합니다. 예를 들어 45%라고 하면</span></p><blockquote style="text-align: center;">45 per cent</blockquote><p>per가 ~당, ~마다, ~에 대하여 라는 뜻이고, cent는 100이라는 뜻이니까 100개당 45개라는 뜻이 되고 똑같은 내용을 분수로 표현하면 45 / 100 이 됩니다.</p><p>그래서 "%"는 "/100" 혹은 "÷100"과 완전히 똑같은 거랍니다. A%를 숫자로 고치는 과정은 %를 지우고 A를 100으로 나누어주면 됩니다. 결과값은 분수가 편하면 분수로, 소수점이 편하면 소수점으로 나타내면 되죠.</p><blockquote>45% = 45 / 100 = 0.45</blockquote><blockquote>20% = 20 / 100 = 0.2</blockquote><blockquote>100% = 100 / 100 = 1</blockquote><blockquote>200% = 200 / 100 = 2</blockquote><h2>비율을 퍼센트로 읽는 법</h2><p>그럼 거꾸로, 순수 숫자로된 비율에서 퍼센트를 구하는 건 어떻게 할까요? %가 "/100" 혹은 &nbsp;"÷100"과 같다는 사실을 이용해서 이렇게 풀면 되는데요.</p><p style="text-align: center;">&nbsp;<e-latex displaymode="">0.45=0.45 \times \frac{100}{100}=\underbrace{0.45\times100}_{45}\underbrace{\div100}_{\%}=45\%</e-latex>&nbsp;</p><p>정리하면 숫자에 100곱하고 %를 붙여주면 됩니다. 다르게 읽어도 본질적인 값은 같아야 한다는 걸 잘 생각해 봅시다. 100을 나눈다는 의미의 %를 붙이려면 원래 숫자를 100배 해 주어야 값이 같아진다는 걸 알 수 있지요.</p><p>퍼센트는 숫자를 읽는 방법 중의 한가지일 뿐이라서 매우 쉽습니다. 대부분의 어려움은 비율 그 자체를 이해하고 구하는 데에서 일어나죠. 앞에서 예로 든 소금물을 농도를 생각해 보면, 2g소금이 들어간 5g 소금물의 농도는 2/5 입니다. 그래서 농도가 무엇이냐고 무러보면 2/5라고 답하든지 소수점 계산을 해서 0.4라고 대답하든지 하면 됩니다. 그런데 특별히 퍼센트 농도로 물어보았다면, 농도를 퍼센트로 읽어주기 위해서 100을 곱한 후에 %라는 말을 뒤에 붙여서 40%라고 답하면 되는 것이죠.</p><h2>일상 언어 속의 비율</h2><p>퍼센트 자체는 간단한데, 우리 일상 언어에 다양한 문맥(context)이 있다 보니 다르게 해석되어야 하는 경우가 많습니다. 한 번 볼까요?</p><blockquote>3의 ___배는 얼마일까?</blockquote><p>자 답에 집중하지 마시고.. &nbsp;___에 어떤 숫자가 들어가야 자연스러운가요?</p><blockquote>2배 3배와 같이딱 떨어지는 숫자가 들어가면 가장 자연스러워요</blockquote><blockquote>0.4배, 1.5배라고 써도 어느정도 자연스럽고</blockquote><blockquote>산수에 좀 더 익숙해진 사람에게는 2/3배 7/5배 같은 것도 크게 어색하지는 않습니다.</blockquote><p>하지만</p><blockquote>20%배 라고는 쓰지 않아요. 저 자리에 퍼센트는 안 쓰입니다.</blockquote><p>수학적으로는 숫자가 무엇이든 같은 수식으로&nbsp;<e-latex>3 \times \text{\_\_}</e-latex>&nbsp;와 같이 쓸 수 있지만, 말의 쓰임새는 이렇게 다 다릅니다.</p><p>이런 문장을 한 번 볼까요?</p><blockquote>3의 __(은)는 무엇인가?</blockquote><p>저 빈칸에는 어떤 숫자가 들어갈 수 있을까요?</p><blockquote>3의 20%는 무엇인가? 아주 자연스럽습니다.&nbsp;</blockquote><blockquote>3의 2/3은 무엇인가? 이것도 자연스럽네요</blockquote><blockquote>3의 0.5는 무엇인가? 의미는 알 것 같은데 뭔가 살짝 이상하죠</blockquote><blockquote>3의 2는 무엇인가? 말이 안 됩니다.</blockquote><p>이 모든 것도&nbsp;<e-latex>3 \times \text{\_\_}</e-latex>&nbsp;로 동일하게 쓸 수 있지만 문맥따라 자연스러운 것과 아닌 것이 있습니다.</p><p>이런 차이가 생긴 이유는, 2, 3, 4와 같은 숫자는 갯수를 셀 때부터 자주 사용되던 것이라서 따로 "~배"라는 말을 붙여주지 않으면 비율에 관련된 것이라는 문맥(context)을 못 만들어주기 때문입니다.&nbsp;</p><p>0.5, 3.4와 같은 소숫점은 약간 비율에 관련이 있지만 이 역시 측정을 좀 더 세밀하게 하는 데 자주 쓰이는 숫자이기 때문에 우리 머릿속에 비율이라는 문맥을 아주 약간만 만들어 주고요.&nbsp;</p><p>분수와 퍼센트는 비율을 나타내기 위해서 만들어진 것들이라서 존재만으로도 비율에 관한 이야기라는 문맥을 만들어줍니다. 그 중에서도 %는 비율을 이야기하는 문맥에서밖에 안 쓰이기 때문에, "~배"와 같은 말을 덧붙이면 같은 말이 반복된 것 처럼 느껴져서 어색해집니다.</p><p>하지만 말은 다양해도 위의 모든 표현들이 모두&nbsp;<e-latex>3 \times \text{\_\_}</e-latex>&nbsp;이 된다는 것이 중요합니다.</p><p>예를 들어 3의 20%가 무엇인지를 구하고 싶다면, 3의 2배를&nbsp;<e-latex>3 \times 2</e-latex>&nbsp;로 쓰니 3의 20%도 같은 방식으로&nbsp;<e-latex>3 \times 20\%</e-latex>&nbsp;라고 쓸 것이고, 20%는 순수숫자로 바꾸면, 0.2이므로 답은&nbsp;<e-latex>3 \times 0.2 = 0.6</e-latex>&nbsp;이라고 구할 수 있게 됩니다. 언어적으로 서로 다른 표현들이 서로를 강화시켜주어서 식을 만들어내기가 오히려 더 쉬워지는 것이죠.</p><h2>__%증가 및 감소</h2><blockquote>3에서 __ 증가했다.</blockquote><p>빈칸에 뭐가 들어가면 자연스러울까요?</p><blockquote>20% 증가했다. 아주 자연스럽죠</blockquote><blockquote>0.2 증가했다. 해석하기 애매하지만, 주로 이렇게 하면 3 + 0.2 = 3.2 가 된다는 뜻이 됩니다. 쓸 수는 있지만 비율에 대한 이야기가 아닙니다.</blockquote><blockquote>1/5 증가했다. 약간 애매한 의미가 됩니다. 원래 값 3에서 3의 1/5만큼 더 증가한 것인지, 3에다가 1/5이라는 값이 더해진 것인지 헛갈리죠</blockquote><blockquote>2 증가했다. 3 + 2라는 뜻입니다. 비율과 상관없죠</blockquote><blockquote>2배 증가했다. 해석이 어려워집니다. 2배가 되었다는 이야기인지 원래 것에 2배만큼 덧붙여서 3배가 되었다는 이야기인지..</blockquote><p>이렇듯, __증가했다 혹은 감소했다의 문장에서는 %를 사용할 때에만 의미가 명확합니다. 그래서 퍼센트를 배울 때에는 이 부분만 따로 연습합니다.&nbsp;</p><p>3에서 20% 증가했다라는 것은 3이라는 원래 값에 3의 20%에 해당하는 양이 더해졌다는 뜻입니다. 그래서 최종 값을 구하려면 식이 이렇게 되죠.</p><p style="text-align: center;">&nbsp;<e-latex displaymode="">3 + 3 \times \frac{20}{100}=3.6</e-latex>&nbsp;혹은&nbsp;<e-latex displaymode="">3 + 3 \times 0.2=3.6</e-latex>&nbsp;</p><p>그런데 매번 원래 값에다가 증가분을 더하는 것이 아니라 이렇게 변환해서 곱셈 한 번으로 해결할 수도 있습니다.</p><p style="text-align: center;">&nbsp;<e-latex displaymode="">3 + 3 \times 0.2 = \underbrace{\textcolor{green}
+3 \times \textcolor{blue}1 +\textcolor{green}3 \times \textcolor{red}{0.2}=\textcolor{green}
+3 \times (\textcolor{blue}
+1 +\textcolor{red}{0.2})}_{\text{분배법칙}} = 3 \times 1.2</e-latex>&nbsp;&nbsp;</p><p>그래서 이 두 말은 같은 말입니다.</p><blockquote>20%증가했다</blockquote><blockquote>원래값의 120%가 되었다</blockquote><p>같은 방법으로 $300짜리 가방 20%할인이면 $300에다가 할인액&nbsp;<e-latex>\$300 \times 0.2 = \$60</e-latex>&nbsp;을 빼서 $240을 구할 수도 있지만, 20%할인이면 원래값의 80%가 된 거랑 같으니 바로 0.8을 곱해서 $240을 구해도 됩니다.</p><blockquote>20% 할인했다</blockquote><blockquote>원래값의 80%가 되었다</blockquote><h2>에필로그</h2><p>퍼센트 자체가 어려운 것이 아니라 비율 그자체를 이해하는 게 어려운 겁니다. 비율까지만 익히고 나면 일상언어에서 사용하는 거의 모든 숫자를 표현할 수 있게 됩니다. 정수의 비율(ratio)로 이루어진 숫자, 그래서 비율(ratio)있는 숫자라고 해서 "ratio"-nal number라고 부르지요. rational이 이성적인 이라는 뜻이라서 우리말로는 유리수(이치가 있는 숫자)라고 부르고, 오역이네 아니네 논란이 많은데요. 그런 논란은 접어두고 ratio가 있는 숫자 rational numbers라고 기억해 둡시다.&nbsp;</p><aside>유리수를 이성적인 숫자라고 한 것은 일면 이해가 되는 번역입니다. 유리수는 사칙연산을 하면 (단, 나눌 때에는 0을 제외해야 합니다) 답도 유리수가 나오거든요. 무리수는 사칙연산하면 답이 무리수 말고도 다른 것도 나옵니다. 우리가 다루기 힘든 숫자인 건 맞죠.</aside><p>피타고라스와 그 추종자들은 유리수면 수가 다 끝난 줄 알았답니다. 사실은 끝이 아니라는 걸 알았지만 시인하기가 싫었을 지도 모르지만요. 아이러니하게도 피타고라스 정리 때문에 숫자가 유리수 말고 더 있다는 사실을 알게 되죠. 요건 다음 시간에. 끝.</p>    </d-article>
+    <d-article>
+        <!--
+        <div>
+            <a href="https://edonedge.github.io/posts/2021-05-21-percent#disqus_thread">Link</a>
+        </div>
+        -->
+        <a href="https://www.buymeacoffee.com/edkim"><img src="https://img.buymeacoffee.com/button-api/?text=Would you Buy me a Coffee?&emoji=&slug=edkim&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"></a>
+        <div>
+            <div id="disqus_thread"></div>
+        </div>
+    </d-article>
+    <d-appendix>
+    </d-appendix>
+    <div class="base-grid efooter">
+        <div style="grid-column: text;">
+            Ed found a way to relax on the cutting edge. <br> <a href="/">Home</a>
+        </div>
+    </div>
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+        var disqus_config = function() {
+            this.page.identifier = "/posts/2021-05-21-percent";
+            this.page.url = "https://edonedge.github.io/posts/2021-05-21-percent";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script');
+            s.src = 'https://edonedge.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script id="dsq-count-scr" src="//edonedge.disqus.com/count.js" async></script>
+    <script>
+        // Hide Header on on scroll down
+        var didScroll;
+        var lastScrollTop = 0;
+        var delta = 5;
+        var navbarHeight = $('header').outerHeight();
+
+        $(window).scroll(function(event) {
+            didScroll = true;
+            console.log('scroll detected!!');
+        });
+
+        setInterval(function() {
+            if (didScroll) {
+                console.log('scroll detected');
+                hasScrolled();
+                didScroll = false;
+            }
+        }, 250);
+
+        function hasScrolled() {
+            var st = $(this).scrollTop();
+
+            // Make sure they scroll more than delta
+            if (Math.abs(lastScrollTop - st) <= delta)
+                return;
+
+            // If they scrolled down and are past the navbar, add class .nav-up.
+            // This is necessary so you never see what is "behind" the navbar.
+            if (st > lastScrollTop && st > navbarHeight) {
+                // Scroll Down
+                $('header').removeClass('nav-down').addClass('nav-up');
+            } else {
+                // Scroll Up
+                if (st + $(window).height() < $(document).height()) {
+                    $('header').removeClass('nav-up').addClass('nav-down');
+                }
+            }
+
+            lastScrollTop = st;
+        }
+    </script>
+</body>
+
+</html>
