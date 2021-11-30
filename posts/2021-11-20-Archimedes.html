@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>
+        π가 정말 3.14 즈음될까? 두번째
+    </title>
+    <meta name="description" content="지난 시간에는 일상생활에서 볼 수 있는 원을 열심히 재어서 원주율을 계산해 봤습니다. 하지만 소숫점 둘째자리까지 맞아들어가는 결과를 얻지는 못했죠. 측정 오류이거나 정확하게 원이 아닌 걸 재어서 그런 것인데요. 오늘은 수학적으로 접근해서 3.14에 근접한 답을 내 보겠습니다. 몇 번 만에 된답니다.">
+
+    <meta property="og:title" content="π가 정말 3.14 즈음될까? 두번째" />
+    <meta property="og:description" content="지난 시간에는 일상생활에서 볼 수 있는 원을 열심히 재어서 원주율을 계산해 봤습니다. 하지만 소숫점 둘째자리까지 맞아들어가는 결과를 얻지는 못했죠. 측정 오류이거나 정확하게 원이 아닌 걸 재어서 그런 것인데요. 오늘은 수학적으로 접근해서 3.14에 근접한 답을 내 보겠습니다. 몇 번 만에 된답니다.">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://edonedge.github.io/posts/2021-11-20-Archimedes" />
+    <meta property="og:image" content="https://edonedge.github.io/math.jpg" />
+
+    <script src="https://distill.pub/template.v2.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+    <script src='/elatex.js'></script>
+    <script>
+        window.onload = function(e) {
+                // Legacy latex math expressions.
+                mes = document.getElementsByTagName('latex');
+                for (i = 0; i < mes.length; i++) {
+                    katex.render(mes[i].innerText, mes[i]);
+                }
+            }
+            // current math expressions
+        window.addEventListener('DOMContentLoaded', (event) => {
+            console.log('DOM fully loaded and parsed');
+            dom_init_loading_done = true;
+            mes = document.getElementsByTagName('e-latex');
+            for (i = 0; i < mes.length; i++) {
+                mes[i].initME();
+            }
+        });
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H6GKLETEP"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1H6GKLETEP');
+  </script>
+</head>
+
+<body style="padding-top:60px;">
+    <header class="base-grid eheader nav-down">
+        <div style="grid-column: text;">
+            <span style="color: white;"><a href="/">Ed's Blog</a></span>
+            <span class="nav-menu" style="float: right;">
+                <a href="/">HOME</a>
+                <a href="/about">ABOUT</a>
+                <a href="/about#bmc"><img src="/images/bmc.svg" height="30" style="vertical-align: -11%;"></a>
+            </span>
+        </div>
+    </header>
+    <!--
+    <d-front-matter>
+        <script id='distill-front-matter' type="text/json">
+            {
+                "authors": [{
+                    "author": "Ed Kim",
+                    "authorURL": "https://edonedge.github.io/",
+                    "affiliations": [{
+                        "name": "Ed on Edge"
+                    }]
+                }],
+                "katex": {
+                    "delimiters": [{
+                        "left": "$$",
+                        "right": "$$",
+                        "display": false
+                    }]
+                }
+            }
+        </script>
+    </d-front-matter>
+    -->
+    <d-title>
+        <h1 id="title">
+            π가 정말 3.14 즈음될까? 두번째
+        </h1>
+        <p id="intro">
+            지난 시간에는 일상생활에서 볼 수 있는 원을 열심히 재어서 원주율을 계산해 봤습니다. 하지만 소숫점 둘째자리까지 맞아들어가는 결과를 얻지는 못했죠. 측정 오류이거나 정확하게 원이 아닌 걸 재어서 그런 것인데요. 오늘은 수학적으로 접근해서 3.14에 근접한 답을 내 보겠습니다. 몇 번 만에 된답니다.
+        </p>
+    </d-title>
+    <d-byline>
+      <div class="byline grid">
+        <div class="authors-affiliations grid">
+        <h3>Authors</h3>
+        <h3>Affiliations</h3>
+        <p class="author"><a href="/">Ed Kim</a></p>
+        <p class="affiliation"><a href="/">Ed on Edge</a></p>
+        </div>
+        <div>
+          <h3>Created</h3>
+          <p>Nov. 19th, 2021</p>
+        </div>
+        <div>
+          <h3>Last Updated</h3>
+          <p id="updated">Nov. 20th, 2021</p>
+        </div>
+      </div>
+    </d-byline>
+
+    <d-article id="contents">
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        <p>아래 그림을 보시죠</p><p>원의 둘레 길이를 계산할 때 자주 볼 수 있는 그림입니다. 직관적으로 원에 내접한 정다각형의 둘레보다는 원 둘레 길이가 더 길 것이고, 원에 외접한 정다각형의 둘레길이보다는 원 둘레 길이가 작을 것이라는 것에 많은 사람들이(아마도 모두) 동의할 겁니다.</p><p>그런데 보통 거기까지 생각한 후에 더 이상 진행을 하지 않죠. 정다각형의 둘레 길이라는 것이 정삼각형, 정사각형, 혹은 정육각형까지는 어느정도 쉽게 머릿속에 들어오지만, 그보다 많은 꼭지점을 가진 다각형에 대해서는 어떻게 구하는지 감을 잡기 힘들기 때문이죠.</p><p><br></p>    </d-article>
+    <d-article>
+        <!--
+        <div>
+            <a href="https://edonedge.github.io/posts/2021-11-20-Archimedes#disqus_thread">Link</a>
+        </div>
+        -->
+        <a href="https://www.buymeacoffee.com/edkim"><img src="https://img.buymeacoffee.com/button-api/?text=Would you Buy me a Coffee?&emoji=&slug=edkim&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"></a>
+        <div>
+            <div id="disqus_thread"></div>
+        </div>
+    </d-article>
+    <d-appendix>
+    </d-appendix>
+    <div class="base-grid efooter">
+        <div style="grid-column: text;">
+            Ed found a way to relax on the cutting edge. <br> <a href="/">Home</a>
+        </div>
+    </div>
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+        var disqus_config = function() {
+            this.page.identifier = "/posts/2021-11-20-Archimedes";
+            this.page.url = "https://edonedge.github.io/posts/2021-11-20-Archimedes";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script');
+            s.src = 'https://edonedge.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script id="dsq-count-scr" src="//edonedge.disqus.com/count.js" async></script>
+    <script>
+        // Hide Header on on scroll down
+        var didScroll;
+        var lastScrollTop = 0;
+        var delta = 5;
+        var navbarHeight = $('header').outerHeight();
+
+        $(window).scroll(function(event) {
+            didScroll = true;
+            console.log('scroll detected!!');
+        });
+
+        setInterval(function() {
+            if (didScroll) {
+                console.log('scroll detected');
+                hasScrolled();
+                didScroll = false;
+            }
+        }, 250);
+
+        function hasScrolled() {
+            var st = $(this).scrollTop();
+
+            // Make sure they scroll more than delta
+            if (Math.abs(lastScrollTop - st) <= delta)
+                return;
+
+            // If they scrolled down and are past the navbar, add class .nav-up.
+            // This is necessary so you never see what is "behind" the navbar.
+            if (st > lastScrollTop && st > navbarHeight) {
+                // Scroll Down
+                $('header').removeClass('nav-down').addClass('nav-up');
+            } else {
+                // Scroll Up
+                if (st + $(window).height() < $(document).height()) {
+                    $('header').removeClass('nav-up').addClass('nav-down');
+                }
+            }
+
+            lastScrollTop = st;
+        }
+    </script>
+</body>
+
+</html>
