@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>
+        왜 등식을 통째로 더해도 될까?
+    </title>
+    <meta name="description" content="처음 연립방정식(linear system)을 배울 때, 대입법이니, 가감법이니 하는 여러가지 트릭을 배웁니다. 나중에 가장 많이 사용하는 것은 가감법, 즉 등식을 통째로 다른 식에다가 더하거나 빼는 방식인데요, 이게 왜 되는 걸까요?">
+
+    <meta property="og:title" content="왜 등식을 통째로 더해도 될까?" />
+    <meta property="og:description" content="처음 연립방정식(linear system)을 배울 때, 대입법이니, 가감법이니 하는 여러가지 트릭을 배웁니다. 나중에 가장 많이 사용하는 것은 가감법, 즉 등식을 통째로 다른 식에다가 더하거나 빼는 방식인데요, 이게 왜 되는 걸까요?">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://edonedge.github.io/posts/2021-12-23-why-add-subtract-method-works" />
+    <meta property="og:image" content="https://edonedge.github.io/math.jpg" />
+
+    <script src="https://distill.pub/template.v2.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+    <script src='/elatex.js'></script>
+    <script>
+        window.onload = function(e) {
+                // Legacy latex math expressions.
+                mes = document.getElementsByTagName('latex');
+                for (i = 0; i < mes.length; i++) {
+                    katex.render(mes[i].innerText, mes[i]);
+                }
+            }
+            // current math expressions
+        window.addEventListener('DOMContentLoaded', (event) => {
+            console.log('DOM fully loaded and parsed');
+            dom_init_loading_done = true;
+            mes = document.getElementsByTagName('e-latex');
+            for (i = 0; i < mes.length; i++) {
+                mes[i].initME();
+            }
+        });
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H6GKLETEP"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1H6GKLETEP');
+  </script>
+</head>
+
+<body style="padding-top:60px;">
+    <header class="base-grid eheader nav-down">
+        <div style="grid-column: text;">
+            <span style="color: white;"><a href="/">Ed's Blog</a></span>
+            <span class="nav-menu" style="float: right;">
+                <a href="/">HOME</a>
+                <a href="/about">ABOUT</a>
+                <a href="/about#bmc"><img src="/images/bmc.svg" height="30" style="vertical-align: -11%;"></a>
+            </span>
+        </div>
+    </header>
+    <!--
+    <d-front-matter>
+        <script id='distill-front-matter' type="text/json">
+            {
+                "authors": [{
+                    "author": "Ed Kim",
+                    "authorURL": "https://edonedge.github.io/",
+                    "affiliations": [{
+                        "name": "Ed on Edge"
+                    }]
+                }],
+                "katex": {
+                    "delimiters": [{
+                        "left": "$$",
+                        "right": "$$",
+                        "display": false
+                    }]
+                }
+            }
+        </script>
+    </d-front-matter>
+    -->
+    <d-title>
+        <h1 id="title">
+            왜 등식을 통째로 더해도 될까?
+        </h1>
+        <p id="intro">
+            처음 연립방정식(linear system)을 배울 때, 대입법이니, 가감법이니 하는 여러가지 트릭을 배웁니다. 나중에 가장 많이 사용하는 것은 가감법, 즉 등식을 통째로 다른 식에다가 더하거나 빼는 방식인데요, 이게 왜 되는 걸까요?
+        </p>
+    </d-title>
+    <d-byline>
+      <div class="byline grid">
+        <div class="authors-affiliations grid">
+        <h3>Authors</h3>
+        <h3>Affiliations</h3>
+        <p class="author"><a href="/">Ed Kim</a></p>
+        <p class="affiliation"><a href="/">Ed on Edge</a></p>
+        </div>
+        <div>
+          <h3>Created</h3>
+          <p>Dec. 22nd, 2021</p>
+        </div>
+        <div>
+          <h3>Last Updated</h3>
+          <p id="updated">Dec. 23rd, 2021</p>
+        </div>
+      </div>
+    </d-byline>
+
+    <d-article id="contents">
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        
+        <d-contents></d-contents>
+        <p style="text-align: center;"><span style="font-size: 1.06rem; -webkit-text-size-adjust: 100%;">&nbsp;</span><e-latex displaymode="">\begin{cases}x+y=3 &amp;&amp;&amp;(1)\\ x-y=1 &amp;&amp;&amp;(2)
+\end{cases}</e-latex><span style="font-size: 1.06rem; -webkit-text-size-adjust: 100%;">&nbsp;&nbsp;</span><br></p><p>위와 같이 생긴 연립방정식을 풀 때, 가장 많이 하는 방식은 식 (2)을 식 (1)에다가 더해서 y를 없앤 후 풀어나가는 것이죠. 그렇게 하면 2x = 4 가 되니 x=2이고 이것을 다시 식 (1)이나 (2)에 넣으면 y=1이라는 것을 알 수 있습니다.</p><p>식(2)를 식(1)에다 더해버리는 것, 좌변(left side)은 좌변끼리 우변(right side)는 우변끼리 더해서 새로운 등식을 만드는 것이 왜 되는 걸까요?</p><h2>다시 네가지 성질로 돌아가서..</h2><p>사실 이미 알고 있는 내용인데 잘 적용을 못한 것이지요. 등식의 네가지 기본 성질로 돌아가서 생각해보면,&nbsp;</p><blockquote>양변에 (1)같은 수를 더하거나, (2)같은 수를 빼거나, (3)같은 수를 곱하거나 (4) 0이 아닌 같은 수를 나누어도 등식은 성립한다.</blockquote><p>이 중에서 (1), (2)를 활용한 것이 식을 통째로 더하고 빼는 과정입니다.&nbsp;</p><p>예제로 돌아가서 다시 보면,&nbsp;</p><p>x + y = 3 이라는 등식의 양변에 같은 수를 더할 겁니다. 왼쪽에는 x-y를 더할 것이고, 오른쪽에는 식(2)에서 x-y랑 같은 거라고 써 놓은 1을 더하는 것이죠.&nbsp;</p><p>그래서 모양은 다르지만 사실 같은 수를 식(1)의 양변에 더한 겁니다. 끝.</p><h2>용어정리</h2><p>용어를 외울 필요는 없지만, 차라리 모르면 몰라도 잘못 알면 나중에 골치가 아프니까, 한 번 정리해보겠습니다. 식을 통째로 더하거나 빼면서 문자를 없애는 것을 어디서는 소거법이라고 하고 어디서는 가감법이라고 합니다. 이것이 용어 상하관계가 잘못된 것인데요.</p><p>연립방정식에서 문자가 여러개인 경우 잘 풀 수가 없으니 문자를 줄여나가는 방법을 모두 <b>소거법(elimination method)</b>이라고 합니다. 소거법 중에 여러가지 방법이 있는데, 맨 윗 예제를 다시 가져와서 설명하면,&nbsp;</p><p>식 (2)를 x = y + 1 과 같이 하나의 문자에 대해서 푼 다음 이것을 (1)에다 대입해서 y를 소거하면 소거법 중에 <b>대입법(substitution method)</b>이고,</p><p>식(2)를 식(1)에 더해서 y를 없애면 소거법 중에 <b>가감법(addition/subtraction method)</b></p><p>식 (2)를 x = y + 1로 x에 대해서 풀고, 식(1)도 같은 문자인 x에 대해서 x = 3-y 로 풀어서 둘 다 같은 x일 테니, y + 1 = 3 - y 로 놓고 푸는 방식은 <b>등치법(equivalence method)</b>이라고 합니다.</p><aside>물론 될 법한 x, y를 적당히 넣어보고 되는지 안 되는지만 체크하는 방법도 있습니다. 때려법(guessing)이라고 할까요? 초등학교때 이렇게 배우지요</aside><h2>에필로그</h2><p>대입법과 등치법은 왜 되는지가 명확하지만 가감법은 조금 더 생각해봐야 하는데,&nbsp;<span style="font-size: 1.06rem; -webkit-text-size-adjust: 100%;">다들 방법을 외우고 익혀서 쓰기만 하는 동안에 가감법이 왜 되는지 물어보는 아이들이 있으면 참 반갑습니다. 그냥 있는 것을 익히는 것이 아니라, 나중에 자신이 새로 만들어도 그렇게 할 법하다는 데까지 개념을 소화하고 넘어갔으면 하는 바람이 있습니다. 끝.</span></p>    </d-article>
+    <d-article>
+        <!--
+        <div>
+            <a href="https://edonedge.github.io/posts/2021-12-23-why-add-subtract-method-works#disqus_thread">Link</a>
+        </div>
+        -->
+        <a href="https://www.buymeacoffee.com/edkim"><img src="https://img.buymeacoffee.com/button-api/?text=Would you Buy me a Coffee?&emoji=&slug=edkim&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"></a>
+        <div>
+            <div id="disqus_thread"></div>
+        </div>
+    </d-article>
+    <d-appendix>
+    </d-appendix>
+    <div class="base-grid efooter">
+        <div style="grid-column: text;">
+            Ed found a way to relax on the cutting edge. <br> <a href="/">Home</a>
+        </div>
+    </div>
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+        var disqus_config = function() {
+            this.page.identifier = "/posts/2021-12-23-why-add-subtract-method-works";
+            this.page.url = "https://edonedge.github.io/posts/2021-12-23-why-add-subtract-method-works";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script');
+            s.src = 'https://edonedge.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script id="dsq-count-scr" src="//edonedge.disqus.com/count.js" async></script>
+    <script>
+        // Hide Header on on scroll down
+        var didScroll;
+        var lastScrollTop = 0;
+        var delta = 5;
+        var navbarHeight = $('header').outerHeight();
+
+        $(window).scroll(function(event) {
+            didScroll = true;
+            console.log('scroll detected!!');
+        });
+
+        setInterval(function() {
+            if (didScroll) {
+                console.log('scroll detected');
+                hasScrolled();
+                didScroll = false;
+            }
+        }, 250);
+
+        function hasScrolled() {
+            var st = $(this).scrollTop();
+
+            // Make sure they scroll more than delta
+            if (Math.abs(lastScrollTop - st) <= delta)
+                return;
+
+            // If they scrolled down and are past the navbar, add class .nav-up.
+            // This is necessary so you never see what is "behind" the navbar.
+            if (st > lastScrollTop && st > navbarHeight) {
+                // Scroll Down
+                $('header').removeClass('nav-down').addClass('nav-up');
+            } else {
+                // Scroll Up
+                if (st + $(window).height() < $(document).height()) {
+                    $('header').removeClass('nav-up').addClass('nav-down');
+                }
+            }
+
+            lastScrollTop = st;
+        }
+    </script>
+</body>
+
+</html>
